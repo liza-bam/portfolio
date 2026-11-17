@@ -1,0 +1,32 @@
+[
+  {
+    "id": "rancourt",
+    "title": "Rancourt & Co.",
+    "direction": "Fashion editorial: the actual handsewn Maine loafers, dramatically cropped with black, white and red typography."
+  },
+  {
+    "id": "lazy",
+    "title": "Lazy",
+    "direction": "Typographic editorial: websites for hosts, expressed through modular letterforms and a coral/cobalt palette."
+  },
+  {
+    "id": "pleasant-street",
+    "title": "Pleasant Street",
+    "direction": "Travel editorial: keys to independent stays and the direct-booking proposition, in cyan, chrome and red."
+  },
+  {
+    "id": "bp",
+    "title": "BP sales modernisation",
+    "direction": "Industrial editorial: energy sales and signed agreements, with a green sunburst shadow."
+  },
+  {
+    "id": "looped-in",
+    "title": "Looped In",
+    "direction": "Campus editorial: event rewards, books and a free drink, in violet, yellow and red."
+  },
+  {
+    "id": "digital-hub",
+    "title": "Digital Hub",
+    "direction": "Service editorial: proactive support and equipment collection, using locker geometry in yellow and black."
+  }
+]
