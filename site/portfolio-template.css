@@ -1043,3 +1043,9 @@ body.portfolio-template .video-dialog .video-close{position:absolute;top:12px;ri
 body.portfolio-template .video-dialog .video-close svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.5;fill:none}
 body.portfolio-template .video-dialog .video-close:hover{background:#314b56}
 body.portfolio-template .video-dialog .video-close:focus-visible{outline:3px solid #fff;outline-offset:3px}
+
+/* Keep supported outcomes beside the case-study title. */
+body.portfolio-template .case-header > .case-title{grid-area:title;min-width:0}
+body.portfolio-template .case-header > .case-title h1{margin:0;max-width:14ch}
+body.portfolio-template p.case-impact{margin:var(--space-4) 0 0;font:var(--body-weight,400) var(--type-body)/1.5 var(--font-body);color:var(--text-primary)}
+@media(max-width:900px){body.portfolio-template .case-header > .case-title h1{max-width:none}}
