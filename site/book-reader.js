@@ -163,7 +163,7 @@
     size(); render(); expand.focus();
   }
   backdrop.addEventListener('click', () => expandReader(false));
-  expand.setAttribute('aria-expanded', 'false'); expand.addEventListener('click', () => expandReader(!expanded));
+  if (expand) { expand.setAttribute('aria-expanded', 'false'); expand.addEventListener('click', () => expandReader(!expanded)); }
   const look = reader.querySelector('[data-look-inside]');
   if (look) look.addEventListener('click', () => go(2));
   reader.addEventListener('keydown', ev => {
