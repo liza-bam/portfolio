@@ -99,3 +99,10 @@
 @media(max-width:700px){.reader{display:none}.book-phone{display:block;padding-bottom:32px}.book-phone h2{font:500 17px/1.3 Inter,system-ui,sans-serif;margin:28px 0 10px}.phone-large img{display:block;width:100%;height:auto}.phone-row,.phone-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.phone-row img,.phone-grid img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover}}
 /* Look inside: on the closed book, opens the full book in the large viewer. */
 .look-inside{display:block;margin:0 auto 12px;min-height:40px;padding:8px 18px;border:0;border-radius:999px;background:var(--accent);color:var(--accent-ink);font:500 14px/1.4 Inter,system-ui,sans-serif;cursor:pointer;box-shadow:0 4px 14px #0002}.look-inside:hover{filter:brightness(1.1)}.reader.expanded .look-inside{display:none}
+/* Noah on desktop: the book stands on a wooden table with a soft shadow. */
+@media(min-width:701px){
+.noah-case .reader:not(.expanded) .stage{align-items:flex-end;padding-bottom:34px;background:linear-gradient(#f7f0e4,#efe4d2)}
+.noah-case .reader:not(.expanded) .stage::before{content:"";position:absolute;left:0;right:0;bottom:0;height:30%;background:repeating-linear-gradient(90deg,#0000 0 7px,#5a32140d 7px 8px,#0000 8px 19px,#ffffff0f 19px 21px),linear-gradient(#d8ad7c,#c0915f 40%,#a87949);box-shadow:inset 0 2px 0 #ffffff40,inset 0 14px 22px -12px #3a1f0a55}
+.noah-case .reader:not(.expanded) .stage::after{content:"";position:absolute;left:50%;bottom:22px;width:min(46%,520px);height:34px;transform:translateX(-46%);background:radial-gradient(closest-side,#2a14055c,#2a140526 55%,#0000);filter:blur(6px);pointer-events:none}
+.noah-case .reader:not(.expanded) .book{z-index:1}
+}
