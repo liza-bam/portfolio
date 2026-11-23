@@ -138,6 +138,7 @@
     size(); render();
   }));
   book.addEventListener('click', ev => {
+    if (config.zoom) return openZoom(ev);
     if (L === 0) step(1); else if (L === totalLeaves()) step(-1);
     else if (single) step(1); else { const r = stage.getBoundingClientRect(); step(ev.clientX > r.left + r.width / 2 ? 1 : -1); }
   });
@@ -164,6 +165,34 @@
   }
   backdrop.addEventListener('click', () => expandReader(false));
   if (expand) { expand.setAttribute('aria-expanded', 'false'); expand.addEventListener('click', () => expandReader(!expanded)); }
+
+  // Page zoom: click a page to see it full size, then flip page by page.
+  let zoom = null, zoomAt = 0;
+  const zoomSrc = i => i === 0 ? config.dir + 'front.webp' : i > config.pages ? config.dir + 'back.webp' : config.dir + 'pages/' + pad(i) + '.webp';
+  const zoomLabel = i => i === 0 ? 'Cover' : i > config.pages ? 'Back cover' : `Page ${i} of ${config.pages}`;
+  function showZoom(i) {
+    zoomAt = Math.max(0, Math.min(config.pages + 1, i));
+    zoom.querySelector('img').src = zoomSrc(zoomAt); zoom.querySelector('img').alt = zoomLabel(zoomAt);
+    zoom.querySelector('output').textContent = zoomLabel(zoomAt);
+    zoom.querySelector('[data-zprev]').disabled = zoomAt === 0; zoom.querySelector('[data-znext]').disabled = zoomAt === config.pages + 1;
+  }
+  function openZoom(ev) {
+    if (!zoom) {
+      zoom = document.createElement('dialog'); zoom.className = 'page-zoom'; zoom.setAttribute('aria-label', 'Page viewer');
+      zoom.innerHTML = '<button type="button" class="zoom-close" data-zclose>Close</button><img alt=""><div class="zoom-controls"><button type="button" class="page-button" data-zprev>Previous</button><output></output><button type="button" class="page-button" data-znext>Next</button></div>';
+      document.body.append(zoom);
+      zoom.querySelector('[data-zprev]').onclick = () => showZoom(zoomAt - 1);
+      zoom.querySelector('[data-znext]').onclick = () => showZoom(zoomAt + 1);
+      zoom.querySelector('[data-zclose]').onclick = () => zoom.close();
+      zoom.addEventListener('click', e => { if (e.target === zoom) zoom.close(); });
+      zoom.addEventListener('keydown', e => { if (e.key === 'ArrowRight') showZoom(zoomAt + 1); if (e.key === 'ArrowLeft') showZoom(zoomAt - 1); });
+      zoom.addEventListener('close', () => go(zoomAt === 0 ? 0 : zoomAt > config.pages ? totalLeaves() : Math.floor(zoomAt / 2) + 1));
+    }
+    const N = totalLeaves(), r = book.getBoundingClientRect();
+    let i = L === 0 ? 0 : L === N ? config.pages + 1 : 2 * (L - 1) + (ev.clientX > r.left + r.width / 2 ? 1 : 0);
+    if (i === 0 && L > 0) i = 1;
+    showZoom(i); zoom.showModal();
+  }
   const look = reader.querySelector('[data-look-inside]');
   if (look) look.addEventListener('click', () => go(2));
   reader.addEventListener('keydown', ev => {
