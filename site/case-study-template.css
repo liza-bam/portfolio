@@ -211,3 +211,5 @@ body.case-study :is(.workshop-viewport,.bp-scroll){border:0;border-radius:0;padd
  body.case-study .blueprint-recreated :is(figcaption,.figure-caption){flex-direction:column;gap:12px}
  .bp-scroll{max-height:none}
 }
+/* Smaller buttons across the case studies. */
+body.case-study :is(.blueprint-open,.blueprint-close){min-height:32px;padding:5px 12px}

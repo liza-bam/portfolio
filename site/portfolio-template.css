@@ -1054,3 +1054,6 @@ body.portfolio-template .video-dialog .video-close{position:absolute;top:12px;ri
 body.portfolio-template .video-dialog .video-close svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.5;fill:none}
 body.portfolio-template .video-dialog .video-close:hover{background:#314b56}
 body.portfolio-template .video-dialog .video-close:focus-visible{outline:3px solid #fff;outline-offset:3px}
+/* Smaller buttons across the case studies (header links unchanged). */
+body.portfolio-template .bp-actions button,body.portfolio-template .figure-button{min-height:32px;padding:5px 12px;font-size:14px;line-height:1.4}
+body.portfolio-template.case-study .bp-actions .figure-icon-button{flex-basis:32px;width:32px;min-width:32px;min-height:32px;height:32px}
