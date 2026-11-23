@@ -48,8 +48,8 @@
     book.classList.toggle('open', open); if (L > 0) reader.querySelector('[data-look-inside]')?.setAttribute('hidden', ''); book.classList.toggle('at-front', L === 0); book.classList.toggle('at-back', L === N);
     book.style.setProperty('--tl', `calc(var(--t)*${L / N})`); book.style.setProperty('--tr', `calc(var(--t)*${(N - L) / N})`);
     let x = 0, ry = 0, rx = config.tilt ?? 12;
-    if (L === 0) { x = -25; ry = single ? 0 : 24; rx = config.tilt ?? 4; }
-    else if (L === N) { x = 25; ry = single ? 0 : -24; rx = config.tilt ?? 4; }
+    if (L === 0) { x = -25; ry = single ? 0 : config.coverTurn ?? 24; rx = config.tilt ?? 4; }
+    else if (L === N) { x = 25; ry = single ? 0 : -(config.coverTurn ?? 24); rx = config.tilt ?? 4; }
     else if (single) { x = side === 'R' ? -25 : 25; rx = 0; }
     book.style.transformOrigin = `${50 - x * 2 * (open ? 0 : 1) / 2}% 50%`;
     book.style.transform = `translateX(${x}%) rotateX(${rx}deg) rotateY(${ry}deg)`;
