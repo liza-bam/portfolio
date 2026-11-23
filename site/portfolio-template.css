@@ -485,6 +485,9 @@ body.portfolio-template .portfolio-summary p{margin:0 0 var(--space-2);font:var(
 body.portfolio-template .portfolio-summary p:last-child{margin-bottom:0}
 
 /* Case-study header: title, video story, facts, contributions, platforms. */
+/* Headers without tool logos omit the otherwise empty final row. */
+body.portfolio-template .opening-title.case-header.has-links:not(:has(> .platform-logos)){grid-template-areas:"title video" "links video" "facts facts" "did did"}
+@media(max-width:900px){body.portfolio-template .opening-title.case-header.has-links:not(:has(> .platform-logos)){grid-template-areas:"title" "links" "video" "facts" "did"}}
 body.portfolio-template .opening-title.case-header{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);grid-template-areas:"title video" "facts facts" "did did" "logos logos";gap:var(--space-8) var(--space-12);align-items:start;margin-bottom:var(--space-12)}
 body.portfolio-template .case-header > h1{grid-area:title;margin:0;max-width:14ch}
 body.portfolio-template .case-header .video-open{grid-area:video;position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:0;border-radius:16px;overflow:hidden;background:#223640;color:#fff;cursor:pointer;text-align:left;box-shadow:0 16px 40px #173a2b26;transition:transform .25s ease,box-shadow .25s ease}
