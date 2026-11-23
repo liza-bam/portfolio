@@ -165,7 +165,7 @@
   backdrop.addEventListener('click', () => expandReader(false));
   expand.setAttribute('aria-expanded', 'false'); expand.addEventListener('click', () => expandReader(!expanded));
   const look = reader.querySelector('[data-look-inside]');
-  if (look) look.addEventListener('click', () => { expandReader(true); go(1); });
+  if (look) look.addEventListener('click', () => { go(0); expandReader(true); });
   reader.addEventListener('keydown', ev => {
     if (ev.key === 'Escape' && expanded) { expandReader(false); return; }
     if (expanded && ev.key === 'Tab') {
