@@ -94,3 +94,6 @@
 }
 @media(min-width:701px){.reader:not(.expanded) .stage{height:clamp(260px,52svh,560px)}.case-intro{padding-bottom:16px}}
 @media(min-width:701px){.reader:not(.expanded) .stage{height:min(560px,52svh,calc((100vw - 80px)*.43 + 20px))}.case-intro{padding-bottom:8px}}
+/* Phone: the whole book at a glance instead of the page-by-page reader. */
+.book-phone{display:none}
+@media(max-width:700px){.reader{display:none}.book-phone{display:block;padding-bottom:32px}.book-phone h2{font:500 17px/1.3 Inter,system-ui,sans-serif;margin:28px 0 10px}.phone-large img{display:block;width:100%;height:auto}.phone-row,.phone-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.phone-row img,.phone-grid img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover}}
