@@ -104,4 +104,4 @@
 .noah-case .reader .book:focus-visible{outline:none}
 /* Noah on phones: cover, character lineups, then every spread in order. */
 @media(max-width:700px){.phone-cover{display:block;width:78%;height:auto;margin:8px auto 0;border-radius:2px 6px 6px 2px;box-shadow:-3px 0 0 var(--accent),0 14px 28px #2a3d5a40}.phone-spreads{display:grid;gap:14px}.phone-spread{position:relative;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 8px 20px #2a3d5a2e}.phone-spread img{display:block;width:100%;height:auto}.phone-spread::after{content:"";position:absolute;inset:0 calc(50% - 14px);background:linear-gradient(90deg,#0000,#0000001f 45%,#0000002e 50%,#0000001f 55%,#0000);pointer-events:none}}
-@media(min-width:701px){.noah-case .reader:not(.expanded) .stage{height:min(720px,74svh);margin-top:24px}}
+@media(min-width:701px){.noah-case .reader:not(.expanded) .stage{height:min(720px,74svh,calc((100vw - 80px)*.46 + 40px));margin-top:24px}}
