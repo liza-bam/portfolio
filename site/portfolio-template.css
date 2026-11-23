@@ -929,6 +929,8 @@ body.tint-lazy .lzm-key i.na{width:8px;height:8px}
 body.case-study.tint-lazy{--sheet:#fff;--canvas:#eafaf6;--dot:#bfe6dc;--band:#eafaf6;--font-heading:Lobster,cursive;--font-body:"Noto Serif",Georgia,serif;--heading-weight:400;--heading-tracking:0;--accent:#068b88;--accent-text:#068b88;--accent-dark:#05605e}
 body.tint-lazy :is(h1,h2,.original-study h3){font-family:Lobster,cursive;font-weight:var(--body-weight,400);letter-spacing:0;color:#17363c}
 body.tint-lazy .opening h1{font-size:clamp(64px,8vw,104px);line-height:1}
+/* Leave room for the script heading’s descenders before the subtitle. */
+body.tint-lazy .case-header h1 + .subheader-1{margin-top:var(--space-5)}
 body.tint-lazy .original-study h2{font-size:clamp(44px,5vw,60px)}
 body.tint-lazy .original-study h3{font-size:32px;line-height:1.15}
 body.tint-lazy :is(.subheader-1,.subheader-2,.portfolio-reading,.case-facts dd){font-family:"Noto Serif",Georgia,serif}
