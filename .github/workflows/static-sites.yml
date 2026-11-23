@@ -70,6 +70,25 @@ jobs:
             aws s3 cp "$f" "s3://$BUCKET/$SITE/${f#site/}" --content-type "text/markdown; charset=utf-8"
           done < markdown-files.txt
 
+      # Agent discovery files. The sync above skips them (.well-known/ is a dot-folder, and
+      # *.md is excluded), and several need an exact Content-Type the scanners check:
+      # api-catalog has no extension and must be application/linkset+json.
+      # Like the Markdown copies, a file removed from site/ is NOT removed from S3 here.
+      - name: Upload agent discovery files
+        run: |
+          set -euo pipefail
+          skill=site/.well-known/agent-skills/sandy-portfolio/SKILL.md
+          want=$(jq -r '.skills[0].digest' site/.well-known/agent-skills/index.json)
+          have="sha256:$(sha256sum "$skill" | cut -d' ' -f1)"
+          [ "$want" = "$have" ] || { echo "::error::agent-skills/index.json digest is $want, SKILL.md is $have — update the index"; exit 1; }
+          dest="s3://$BUCKET/$SITE"
+          md='text/markdown; charset=utf-8'
+          aws s3 cp site/.well-known/ "$dest/.well-known/" --recursive \
+            --exclude '*' --include '*.json' --content-type 'application/json'
+          aws s3 cp site/.well-known/api-catalog "$dest/.well-known/api-catalog" --content-type 'application/linkset+json'
+          aws s3 cp "$skill" "$dest/${skill#site/}" --content-type "$md"
+          aws s3 cp site/auth.md "$dest/auth.md" --content-type "$md"
+
       - name: Invalidate this site's tenant
         run: |
           set -euo pipefail

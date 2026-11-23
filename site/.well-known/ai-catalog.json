@@ -1,0 +1,31 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Sandy Tayts",
+    "identifier": "did:web:sandy.tayts.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:sandy.tayts.com:skill:sandy-portfolio",
+      "displayName": "Reading Sandy Tayts's portfolio",
+      "type": "text/markdown",
+      "url": "https://sandy.tayts.com/.well-known/agent-skills/sandy-portfolio/SKILL.md",
+      "representativeQueries": [
+        "who is Sandy Tayts",
+        "show me Sandy Tayts's UX case studies",
+        "summarise Sandy Tayts's design experience",
+        "how do I contact Sandy Tayts"
+      ]
+    },
+    {
+      "identifier": "urn:air:sandy.tayts.com:api:content",
+      "displayName": "sandy.tayts.com content (read-only)",
+      "type": "application/linkset+json",
+      "url": "https://sandy.tayts.com/.well-known/api-catalog",
+      "representativeQueries": [
+        "get Sandy Tayts's portfolio pages as Markdown",
+        "get Sandy Tayts's résumé as JSON"
+      ]
+    }
+  ]
+}

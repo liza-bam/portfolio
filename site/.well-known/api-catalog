@@ -1,0 +1,16 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://sandy.tayts.com/",
+      "service-desc": [
+        { "href": "https://sandy.tayts.com/.well-known/openapi.json", "type": "application/vnd.oai.openapi+json" }
+      ],
+      "service-doc": [
+        { "href": "https://sandy.tayts.com/llms.txt", "type": "text/plain" }
+      ],
+      "status": [
+        { "href": "https://sandy.tayts.com/robots.txt", "type": "text/plain" }
+      ]
+    }
+  ]
+}

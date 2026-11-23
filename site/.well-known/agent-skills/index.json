@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "sandy-portfolio",
+      "type": "skill-md",
+      "description": "Read Sandy Tayts's UX and service design portfolio: find case studies, summarise experience, get contact details.",
+      "url": "/.well-known/agent-skills/sandy-portfolio/SKILL.md",
+      "digest": "sha256:d41595c7176920e2881510bb57cd4cac8d50a4307bd5a0083474cafd9aa4ee31"
+    }
+  ]
+}

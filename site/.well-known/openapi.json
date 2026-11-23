@@ -1,0 +1,43 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "sandy.tayts.com content",
+    "version": "1.0.0",
+    "description": "Sandy Tayts's portfolio as read-only HTTP resources. Static files; no authentication."
+  },
+  "servers": [{ "url": "https://sandy.tayts.com" }],
+  "paths": {
+    "/llms.txt": {
+      "get": {
+        "summary": "Overview of the portfolio for language models",
+        "responses": { "200": { "description": "Overview", "content": { "text/plain": {} } } }
+      }
+    },
+    "/sitemap.xml": {
+      "get": {
+        "summary": "Every public page",
+        "responses": { "200": { "description": "Sitemap", "content": { "application/xml": {} } } }
+      }
+    },
+    "/resume/resume.json": {
+      "get": {
+        "summary": "Résumé in JSON Resume v1.0.0 format",
+        "responses": { "200": { "description": "Résumé", "content": { "application/json": {} } } }
+      }
+    },
+    "/{page}": {
+      "get": {
+        "summary": "A page, as HTML or Markdown",
+        "description": "Send Accept: text/markdown for the Markdown copy, or request the .md path directly.",
+        "parameters": [
+          { "name": "page", "in": "path", "required": true, "schema": { "type": "string" },
+            "description": "A path from the sitemap, e.g. about.html, about.md, dwellers/index.md" }
+        ],
+        "responses": {
+          "200": { "description": "The page", "content": { "text/html": {}, "text/markdown": {} } },
+          "404": { "description": "No such page" }
+        }
+      }
+    }
+  }
+}

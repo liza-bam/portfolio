@@ -1,0 +1,34 @@
+# Sandy Tayts
+
+> Portfolio of Sandy Tayts, UX and service designer and consultant in San Francisco. Ten years of turning messy processes into systems people can use: case studies in service design, UX and UI, plus experimental and illustration work.
+
+Every page below also exists as Markdown: replace `.html` with `.md`, or `/` with `/index.md`. Requests sent with `Accept: text/markdown` get the Markdown copy automatically.
+
+## Case studies
+
+- [Rancourt & Co.](https://sandy.tayts.com/rancourt.md): a Shopify store the brand's own team can run (2026). Research, data model, theme design.
+- [Sales modernisation at BP](https://sandy.tayts.com/bigoil.md): energy sales moved into Salesforce and DocuSign (2023). UX and service design.
+- [EY Digital Hub](https://sandy.tayts.com/dh.md): IT support rebuilt as an omnichannel service (2020). Service and integration design.
+- [Lazy](https://sandy.tayts.com/lazy.md): a no-code website builder for independent vacation-rental hosts (2026). Founder, design and build.
+- [Looped In](https://sandy.tayts.com/looped-in.md): a college incentives app (2015). UX and UI, design management.
+
+## Experimental projects
+
+- [Sarabesh](https://sandy.tayts.com/sarabesh/index.md): an explorable steampunk city, a game proof of concept.
+- [Dwellers](https://sandy.tayts.com/dwellers/index.md): an augmented-reality scavenger hunt.
+- [Noah Fixes the Rainbow](https://sandy.tayts.com/noah.md): an illustrated children's picture book.
+- [No Grounds for Panic](https://sandy.tayts.com/panic.md): urban fantasy short stories, co-written and illustrated.
+- [Early AI work](https://sandy.tayts.com/early-ai/index.md): illustration projects from 2022–2023.
+- [Loomik](https://sandy.tayts.com/loomik/index.md): an AI-driven sales platform, UX and UI.
+
+## About
+
+- [About](https://sandy.tayts.com/about.md): background and approach.
+- [Contact](https://sandy.tayts.com/contact.md): email, phone, WhatsApp, LinkedIn.
+- [Résumé (JSON Resume)](https://sandy.tayts.com/resume/resume.json)
+- [Résumé (text)](https://sandy.tayts.com/resume/Sandy-Tayts-UX-Designer-Resume.txt)
+
+## Optional
+
+- [Privacy](https://sandy.tayts.com/privacy.md)
+- [Sitemap](https://sandy.tayts.com/sitemap.xml)
