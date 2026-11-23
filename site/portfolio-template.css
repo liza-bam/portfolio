@@ -56,6 +56,8 @@ body.portfolio-template :is(ul,ol) > li:last-child { margin-bottom:0; }
 .portfolio-preserved-lists { --list-item-gap:var(--space-2); --list-line-height:1.5; }
 .portfolio-evidence { margin-block:var(--space-8); }
 .portfolio-evidence img { display:block; max-width:100%; height:auto; }
+/* Wide research diagrams retain readable type inside their scrollable region. */
+.portfolio-evidence .portfolio-diagram img { width:auto; min-width:100%; max-width:none; height:auto; }
 /* Metric cards and general cards share one inset and gutter system. */
 body.portfolio-template :is(.portfolio-card-grid,.concise-results) { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:var(--card-gap); align-items:stretch; }
 body.portfolio-template :is(.portfolio-card,.concise-results .result-card) { padding:var(--card-padding); border-radius:var(--card-radius); min-width:0; }
