@@ -109,7 +109,7 @@ body.portfolio-template .masthead .brand-logo:active{scale:.95}
 
 /* Numbered subtitles pair with the matching heading level. */
 body.portfolio-template :is(.subheader-1,.subheader-2,.subheader-3,.subheader-4,.subheader-5){position:relative;top:3px}
-:root{--type-subheader-1:18px;--type-subheader-2:20px;--type-subheader-3:18px;--type-subheader-4:16px;--type-subheader-5:14px}
+:root{--type-subheader-1:18px;--type-subheader-2:18px;--type-subheader-3:18px;--type-subheader-4:18px;--type-subheader-5:18px}
 body.portfolio-template.case-study :is(.opening,.original-study) p.subheader-1{font:var(--body-weight,400) var(--type-subheader-1)/1.5 var(--font-body);color:var(--text-secondary)}
 body.portfolio-template.case-study :is(.opening,.original-study) p.subheader-2{font:var(--body-weight,400) var(--type-subheader-2)/1.5 var(--font-body);color:var(--text-secondary)}
 body.portfolio-template.case-study :is(.opening,.original-study) p.subheader-3{font:var(--body-weight,400) var(--type-subheader-3)/1.5 var(--font-body);color:var(--text-secondary)}
