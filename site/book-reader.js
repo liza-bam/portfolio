@@ -7,7 +7,7 @@
   const where = document.getElementById('where'), hint = document.getElementById('hint'), strip = document.getElementById('illustration-strip');
   const tabs = [...reader.querySelectorAll('[data-mode]')], expand = reader.querySelector('[data-expand]');
   const leaves = new Map();
-  let mode = 'illustrations', L = 1, side = 'L', single = false, expanded = false, previousOverflow = '', illustrationPosition = 1, illustrationSide = 'L', selectedArt = 0;
+  let mode = config.mode || 'illustrations', L = mode === 'full' ? 0 : 1, side = 'L', single = false, expanded = false, previousOverflow = '', illustrationPosition = 1, illustrationSide = 'L', selectedArt = 0;
   const backdrop = document.createElement('div'); backdrop.className = 'book-backdrop'; backdrop.hidden = true; document.body.append(backdrop);
   const outside = [...document.querySelectorAll('.case-header,.case-intro,.skip')];
   const count = () => mode === 'full' ? config.pages : config.selections.length;
@@ -164,6 +164,8 @@
   }
   backdrop.addEventListener('click', () => expandReader(false));
   expand.setAttribute('aria-expanded', 'false'); expand.addEventListener('click', () => expandReader(!expanded));
+  const look = reader.querySelector('[data-look-inside]');
+  if (look) look.addEventListener('click', () => { expandReader(true); go(1); });
   reader.addEventListener('keydown', ev => {
     if (ev.key === 'Escape' && expanded) { expandReader(false); return; }
     if (expanded && ev.key === 'Tab') {
