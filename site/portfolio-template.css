@@ -174,6 +174,7 @@ body.portfolio-template .bp-sequenced :is(.bp-step,.bp-connector,.bp-pain,.bp-ed
 
 /* Shared figure controls, profile summaries, tips and detail dialogs. */
 body.portfolio-template a:is(.figure-button,.case-title-action,.video-open),body.portfolio-template a:is(.figure-button,.case-title-action,.video-open):is(:hover,:focus-visible,:active){text-decoration:none}
+body.portfolio-template a.figure-button{display:inline-flex;align-items:center;justify-content:center}
 body.portfolio-template .figure-button{min-height:44px;padding:10px 14px;border:1px solid #dce4e7;border-radius:5px;background:#fff;color:var(--text-primary);font:500 16px/1.5 var(--font-body);cursor:pointer}
 body.portfolio-template .figure-button:hover{background:#f4f7f8;border-color:#2c6e7e}
 .figure-button:focus-visible,.profile-info:focus-visible{outline:2px solid #2c6e7e;outline-offset:3px}
@@ -332,7 +333,7 @@ body.portfolio-template .portfolio-accordion-action{display:inline-flex;align-it
 body.portfolio-template .portfolio-accordion-summary .portfolio-accordion-heading > p:is(.subheader-2,.subheader-3,.subheader-4,.subheader-5){margin:var(--heading-subheader-gap) 0 0}
 .portfolio-accordion-body{padding-block:0 var(--space-6);min-width:0}
 body.portfolio-template.case-study .portfolio-accordion-body > .source-body:first-child,
-body.portfolio-template.case-study .portfolio-accordion-body > section > .source-body:first-child{padding-top:0}
+body.portfolio-template.case-study .portfolio-accordion-body > section > .source-body:first-child{padding-block:0}
 @media(max-width:700px){
  :root{--type-accordion-title:40px}
  body.portfolio-template .portfolio-accordion-summary{padding-block:var(--space-5);gap:var(--space-4)}
@@ -440,7 +441,7 @@ body.portfolio-template .portfolio-evidence-grid .figure-artwork-fit{width:100%;
 /* Shared sticky portfolio header and contribution filter pills. */
 body.portfolio-template .masthead.shell{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:48px minmax(0,1fr) 44px;align-items:center;gap:var(--space-4);width:min(1520px,calc(100% - 32px));height:64px;background:var(--surface);box-shadow:0 5px 16px #173a2b0a;border-bottom:1px solid var(--border-subtle)}
 body.portfolio-template .masthead > .back{grid-column:3;justify-self:end;display:grid;place-items:center;width:44px;height:44px}
-.portfolio-filter-pills{display:flex;align-items:center;gap:var(--space-2);flex-wrap:wrap;min-width:0;margin:0 0 var(--space-6)}
+.portfolio-filter-pills,.portfolio-actions{display:flex;align-items:center;gap:var(--space-2);flex-wrap:wrap;min-width:0;margin:0 0 var(--space-6)}
 body.portfolio-template .portfolio-filter-pill{flex:0 0 auto;min-height:36px;padding:var(--space-2) var(--space-3);border-radius:999px;font:var(--body-weight,400) var(--type-small)/1.4 var(--font-body);white-space:normal;max-width:100%;text-align:left}
 body.portfolio-template .portfolio-filter-pill[aria-pressed="true"]{background:var(--deep);border-color:var(--deep);color:var(--surface)}
 .portfolio-header-pills{grid-column:2;grid-row:1;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;margin:0;padding:var(--space-1);overscroll-behavior-x:contain}
