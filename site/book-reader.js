@@ -14,8 +14,8 @@
   const totalLeaves = () => mode === 'full' ? Math.ceil(config.pages / 2) + 2 : Math.ceil(count() / 2) + 1;
   const pad = n => String(n).padStart(3, '0');
   function art(i, back) {
-    if (i === 0) return back && mode === 'illustrations' ? config.selections[0].src : back ? null : config.dir + 'front.webp';
-    if (i === totalLeaves() - 1) return back ? config.dir + 'back.webp' : mode === 'illustrations' && count() % 2 === 0 ? config.selections.at(-1).src : null;
+    if (i === 0) return back && mode === 'illustrations' ? config.selections[0].src : back ? config.endpaper || null : config.dir + 'front.webp';
+    if (i === totalLeaves() - 1) return back ? config.dir + 'back.webp' : mode === 'illustrations' && count() % 2 === 0 ? config.selections.at(-1).src : config.endpaper || null;
     if (mode === 'illustrations') return config.selections[back ? 2 * i : 2 * i - 1]?.src || null;
     const p = back ? 2 * i : 2 * i - 1;
     return p <= config.pages ? config.dir + 'pages/' + pad(p) + '.webp' : null;
@@ -45,11 +45,11 @@
     reader.dataset.mode = mode;
     const N = totalLeaves(), open = L > 0 && L < N;
     if (single && open && side === 'R' && (mode === 'illustrations' ? 2 * L : 2 * L - 1) > count()) side = 'L';
-    book.classList.toggle('open', open); book.classList.toggle('at-front', L === 0); book.classList.toggle('at-back', L === N);
+    book.classList.toggle('open', open); if (L > 0) reader.querySelector('[data-look-inside]')?.setAttribute('hidden', ''); book.classList.toggle('at-front', L === 0); book.classList.toggle('at-back', L === N);
     book.style.setProperty('--tl', `calc(var(--t)*${L / N})`); book.style.setProperty('--tr', `calc(var(--t)*${(N - L) / N})`);
-    let x = 0, ry = 0, rx = 12;
-    if (L === 0) { x = -25; ry = single ? 0 : 24; rx = 4; }
-    else if (L === N) { x = 25; ry = single ? 0 : -24; rx = 4; }
+    let x = 0, ry = 0, rx = config.tilt ?? 12;
+    if (L === 0) { x = -25; ry = single ? 0 : 24; rx = config.tilt ?? 4; }
+    else if (L === N) { x = 25; ry = single ? 0 : -24; rx = config.tilt ?? 4; }
     else if (single) { x = side === 'R' ? -25 : 25; rx = 0; }
     book.style.transformOrigin = `${50 - x * 2 * (open ? 0 : 1) / 2}% 50%`;
     book.style.transform = `translateX(${x}%) rotateX(${rx}deg) rotateY(${ry}deg)`;
@@ -113,8 +113,8 @@
     single = w < 700;
     const mobile = matchMedia('(max-width:700px)').matches;
     book.classList.toggle('single-page', single && mobile);
-    const widthRatio = single ? (mobile ? .96 : .86) : .43;
-    const verticalPadding = mobile ? 12 : expanded ? 42 : 20;
+    const widthRatio = single ? (mobile ? .96 : .86) : config.fit ?? .43;
+    const verticalPadding = mobile ? 12 : expanded ? 42 : config.pad ?? 20;
     const pw = Math.max(80, Math.floor(Math.min(w * widthRatio, (h - verticalPadding) * aspect)));
     book.style.setProperty('--pw', pw + 'px'); book.style.setProperty('--ph', pw / aspect + 'px');
     book.style.setProperty('--t', Math.round(pw * config.thickness) + 'px'); book.classList.add('jump'); view();
@@ -165,7 +165,7 @@
   backdrop.addEventListener('click', () => expandReader(false));
   expand.setAttribute('aria-expanded', 'false'); expand.addEventListener('click', () => expandReader(!expanded));
   const look = reader.querySelector('[data-look-inside]');
-  if (look) look.addEventListener('click', () => go(1));
+  if (look) look.addEventListener('click', () => go(2));
   reader.addEventListener('keydown', ev => {
     if (ev.key === 'Escape' && expanded) { expandReader(false); return; }
     if (expanded && ev.key === 'Tab') {
