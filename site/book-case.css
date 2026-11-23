@@ -107,3 +107,6 @@
 @media(min-width:701px){.noah-case .reader:not(.expanded) .stage{height:min(720px,74svh,calc((100vw - 80px)*.46 + 40px));margin-top:24px}}
 /* Noah on desktop: the character lineups sit below the book. */
 @media(min-width:701px){.noah-case .book-phone{display:block;padding:8px 0 48px}.noah-case .book-phone .phone-only{display:none}.noah-case .book-phone h2{font:500 20px/1.3 Inter,system-ui,sans-serif;margin:40px 0 14px}.noah-case .phone-row{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.noah-case .phone-row img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover}}
+/* Noah: character sheets after the lineups. */
+.book-phone .char-sheets img{display:block;width:100%;height:auto;margin-bottom:16px}.book-phone .monster-sheets{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.book-phone .monster-sheets img{display:block;width:100%;height:auto}
+@media(min-width:701px){.noah-case .char-sheets{display:grid;grid-template-columns:1fr 1.5fr;gap:16px;align-items:start}.noah-case .char-sheets img{margin:0}.noah-case .monster-sheets{grid-template-columns:repeat(3,1fr);gap:16px}}
