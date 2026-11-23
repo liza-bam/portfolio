@@ -115,7 +115,7 @@ body.portfolio-template.case-study :is(.opening,.original-study) p.subheader-2{f
 body.portfolio-template.case-study :is(.opening,.original-study) p.subheader-3{font:var(--body-weight,400) var(--type-subheader-3)/1.5 var(--font-body);color:var(--text-secondary)}
 body.portfolio-template.case-study :is(.opening,.original-study) p.subheader-4{font:var(--body-weight,400) var(--type-subheader-4)/1.5 var(--font-body);color:var(--text-secondary)}
 body.portfolio-template.case-study :is(.opening,.original-study) p.subheader-5{font:var(--body-weight,400) var(--type-subheader-5)/1.5 var(--font-body);color:var(--text-secondary)}
-@media(max-width:700px){:root{--type-subheader-2:18px;--type-subheader-3:17px}}
+@media(max-width:700px){:root{--type-subheader-2:18px;--type-subheader-3:18px}}
 
 /* Process controls and painpoint drawer share the figure's type and spacing. */
 .bp-actions{display:flex;gap:12px;align-items:center;justify-content:flex-end;flex-shrink:0}
@@ -441,7 +441,7 @@ body.portfolio-template .portfolio-evidence-grid .figure-artwork-fit{width:100%;
 body.portfolio-template .masthead.shell{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:48px minmax(0,1fr) 44px;align-items:center;gap:var(--space-4);width:min(1520px,calc(100% - 32px));height:64px;background:var(--surface);box-shadow:0 5px 16px #173a2b0a;border-bottom:1px solid var(--border-subtle)}
 body.portfolio-template .masthead > .back{grid-column:3;justify-self:end;display:grid;place-items:center;width:44px;height:44px}
 .portfolio-filter-pills{display:flex;align-items:center;gap:var(--space-2);flex-wrap:wrap;min-width:0;margin:0 0 var(--space-6)}
-body.portfolio-template .portfolio-filter-pill{flex:0 0 auto;min-height:36px;padding:var(--space-2) var(--space-3);border-radius:999px;font:var(--body-weight,400) var(--type-small)/1.4 var(--font-body);white-space:nowrap}
+body.portfolio-template .portfolio-filter-pill{flex:0 0 auto;min-height:36px;padding:var(--space-2) var(--space-3);border-radius:999px;font:var(--body-weight,400) var(--type-small)/1.4 var(--font-body);white-space:normal;max-width:100%;text-align:left}
 body.portfolio-template .portfolio-filter-pill[aria-pressed="true"]{background:var(--deep);border-color:var(--deep);color:var(--surface)}
 .portfolio-header-pills{grid-column:2;grid-row:1;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;margin:0;padding:var(--space-1);overscroll-behavior-x:contain}
 .portfolio-header-pills[hidden],.portfolio-contribution-hidden{display:none!important}
