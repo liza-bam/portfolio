@@ -176,7 +176,7 @@
     zoom.querySelector('output').textContent = zoomLabel(zoomAt);
     zoom.querySelector('[data-zprev]').disabled = zoomAt === 0; zoom.querySelector('[data-znext]').disabled = zoomAt === config.pages + 1;
   }
-  function openZoom(ev) {
+  function makeZoom() {
     if (!zoom) {
       zoom = document.createElement('dialog'); zoom.className = 'page-zoom'; zoom.setAttribute('aria-label', 'Page viewer');
       zoom.innerHTML = '<button type="button" class="zoom-close" data-zclose>Close</button><img alt=""><div class="zoom-controls"><button type="button" class="page-button" data-zprev>Previous</button><output></output><button type="button" class="page-button" data-znext>Next</button></div>';
@@ -187,7 +187,14 @@
       zoom.addEventListener('click', e => { if (e.target === zoom) zoom.close(); });
       zoom.addEventListener('keydown', e => { if (e.key === 'ArrowRight') showZoom(zoomAt + 1); if (e.key === 'ArrowLeft') showZoom(zoomAt - 1); });
       zoom.addEventListener('close', () => go(zoomAt === 0 ? 0 : zoomAt > config.pages ? totalLeaves() : Math.floor(zoomAt / 2) + 1));
+      let zx = null;
+      zoom.addEventListener('touchstart', e => { zx = e.touches[0].clientX; }, { passive: true });
+      zoom.addEventListener('touchend', e => { if (zx === null) return; const dx = e.changedTouches[0].clientX - zx; zx = null; if (Math.abs(dx) > 40) showZoom(zoomAt + (dx < 0 ? 1 : -1)); });
     }
+  }
+  document.querySelectorAll('[data-zoom-page]').forEach(el => el.addEventListener('click', () => { makeZoom(); showZoom(+el.dataset.zoomPage); zoom.showModal(); }));
+  function openZoom(ev) {
+    makeZoom();
     const N = totalLeaves(), r = book.getBoundingClientRect();
     let i = L === 0 ? 0 : L === N ? config.pages + 1 : 2 * (L - 1) + (ev.clientX > r.left + r.width / 2 ? 1 : 0);
     if (i === 0 && L > 0) i = 1;
