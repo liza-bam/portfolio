@@ -38,25 +38,27 @@ body.portfolio-template.case-study .case-result-metrics > :is(.baseline-metric, 
 }
 
 .case-tools {
+  --tool-tint: var(--accent, var(--brass, #2c6e7e));
+  --tool-text: var(--accent-dark, var(--accent-text, var(--tool-tint)));
   margin-block: 16px 28px;
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
-  gap: 8px 16px;
+  gap: 6px 12px;
 }
 
 .case-tools h2,
 body.portfolio-template.case-study .original-study .case-tools h2 {
   margin: 0;
-  font: 600 15px/1.4 var(--font-body, Inter, system-ui, sans-serif);
+  font: 600 13px/1.4 var(--font-body, Inter, system-ui, sans-serif);
   letter-spacing: 0;
-  color: inherit;
+  color: var(--tool-text);
 }
 
 .case-tools ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   min-width: 0;
   margin: 0;
   padding: 0;
@@ -69,16 +71,18 @@ body.portfolio-template.case-study .original-study .case-tools h2 {
   gap: 6px;
   max-width: 100%;
   margin: 0;
-  padding: 5px 10px;
-  border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+  padding: 3px 8px;
+  border: 1px solid color-mix(in srgb, var(--tool-tint) 20%, transparent);
   border-radius: 6px;
-  font: 500 14px/1.45 var(--font-body, Inter, system-ui, sans-serif);
+  background: color-mix(in srgb, var(--tool-tint) 8%, transparent);
+  color: var(--tool-text);
+  font: 500 13px/1.4 var(--font-body, Inter, system-ui, sans-serif);
   overflow-wrap: anywhere;
 }
 
 .case-tools li img {
-  inline-size: 16px;
-  block-size: 16px;
+  inline-size: 14px;
+  block-size: 14px;
   object-fit: contain;
   flex: 0 0 auto;
 }
@@ -97,6 +101,10 @@ body.portfolio-template.case-study .original-study .case-tools h2 {
 
 .workshop .case-result {
   --result-accent: var(--brass);
+}
+
+.panic-case .case-tools {
+  --tool-text: color-mix(in srgb, var(--tool-tint) 50%, var(--ink));
 }
 
 .workshop .case-tools img {
@@ -417,13 +425,14 @@ body.portfolio-template .opening-title.case-header:has(+ .case-tools) {
   flex: 1 0 100%;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px 22px;
-  margin: 8px 0 0;
+  gap: 8px 16px;
+  margin: 5px 0 0;
 }
 
 .case-tools .platform-logos img {
   display: block;
-  max-inline-size: 100%;
+  max-inline-size: 116px;
+  max-block-size: 28px;
   object-fit: contain;
 }
 
