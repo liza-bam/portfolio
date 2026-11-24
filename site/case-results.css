@@ -598,3 +598,6 @@ body.portfolio-template.tint-bp .case-story-detail .figure-panel--compact-previe
   height: auto;
   aspect-ratio: auto;
 }
+
+/* Lazy: tool logos centred between the lines above and below. */
+.case-tool-logos.lazy-tools{margin:6px 0 0}
