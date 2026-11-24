@@ -1,22 +1,3 @@
-/* Give the outcome its own emphasis and keep the tools visible below it. */
-.case-result {
-  --result-accent: var(--accent-text, var(--accent, #2c6e7e));
-  margin-block-start: clamp(16px, 3vw, 28px);
-  padding-inline: clamp(12px, 2.5vw, 28px);
-  border: 2px solid color-mix(in srgb, var(--result-accent) 55%, transparent);
-  border-radius: 12px;
-  box-shadow: 0 6px 18px #172b3614;
-  min-width: 0;
-}
-
-body.portfolio-template .case-result > .portfolio-accordion-summary {
-  border: 0;
-}
-
-body.portfolio-template .case-result:not([open]) > .portfolio-accordion-summary {
-  border-radius: 9px;
-}
-
 .case-result-brief {
   padding-block: clamp(16px, 2.5vw, 28px);
 }
@@ -42,20 +23,20 @@ body.portfolio-template.case-study .case-result-metrics > :is(.baseline-metric, 
   --tool-text: var(--accent-dark, var(--accent-text, var(--tool-tint)));
   margin-block: 16px 28px;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 6px 12px;
+  gap: 6px 10px;
 }
 
-.case-tools h2,
-body.portfolio-template.case-study .original-study .case-tools h2 {
+.case-tools > .case-tools-label {
   margin: 0;
-  font: 600 13px/1.4 var(--font-body, Inter, system-ui, sans-serif);
+  font: 600 12px/1.4 var(--font-body, Inter, system-ui, sans-serif);
   letter-spacing: 0;
   color: var(--tool-text);
 }
 
-.case-tools ul {
+.case-tools ul,
+.case-contribution-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -65,30 +46,21 @@ body.portfolio-template.case-study .original-study .case-tools h2 {
   list-style: none;
 }
 
-.case-tools li {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.case-tools li,
+.case-contribution-pills li {
   max-width: 100%;
   margin: 0;
   padding: 3px 8px;
-  border: 1px solid color-mix(in srgb, var(--tool-tint) 20%, transparent);
-  border-radius: 6px;
-  background: color-mix(in srgb, var(--tool-tint) 8%, transparent);
-  color: var(--tool-text);
+  border: 1px solid color-mix(in srgb, var(--tool-tint, var(--accent, #2c6e7e)) 20%, transparent);
+  border-radius: 6px !important;
+  background: color-mix(in srgb, var(--tool-tint, var(--accent, #2c6e7e)) 8%, transparent);
+  color: var(--tool-text, var(--text-primary, currentColor));
   font: 500 13px/1.4 var(--font-body, Inter, system-ui, sans-serif);
   overflow-wrap: anywhere;
 }
 
-.case-tools li img {
-  inline-size: 14px;
-  block-size: 14px;
-  object-fit: contain;
-  flex: 0 0 auto;
-}
-
-.case-tools img {
-  filter: grayscale(1);
+.case-contribution-pills {
+  margin-block-start: 12px;
 }
 
 .case-outcome {
@@ -99,16 +71,8 @@ body.portfolio-template.case-study .original-study .case-tools h2 {
   margin-inline: clamp(20px, 4vw, 48px);
 }
 
-.workshop .case-result {
-  --result-accent: var(--brass);
-}
-
 .panic-case .case-tools {
   --tool-text: color-mix(in srgb, var(--tool-tint) 50%, var(--ink));
-}
-
-.workshop .case-tools img {
-  filter: grayscale(1) brightness(0) invert(1);
 }
 
 .project-brief-content {
@@ -248,7 +212,7 @@ body.portfolio-template .case-header .project-subtitle {
   padding-block: clamp(18px, 3vw, 31px);
 }
 
-.case-story-step:not(.case-result) {
+.case-story-step {
   border-top: 1px solid var(--border-subtle, #67828c50);
 }
 
@@ -418,22 +382,6 @@ body.portfolio-template .opening-title.case-header:has(+ .case-tools) {
 
 .opening > .case-tools {
   margin-block: 0 24px;
-}
-
-.case-tools .platform-logos {
-  display: flex;
-  flex: 1 0 100%;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 16px;
-  margin: 5px 0 0;
-}
-
-.case-tools .platform-logos img {
-  display: block;
-  max-inline-size: 116px;
-  max-block-size: 28px;
-  object-fit: contain;
 }
 
 .case-preview-gallery.case-preview-full {
