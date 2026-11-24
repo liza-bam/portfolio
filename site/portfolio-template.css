@@ -1085,9 +1085,9 @@ body.portfolio-template.case-study .bp-actions .figure-icon-button{flex-basis:32
   }
 }
 /* Case study footer: same design as the header. Flask goes to the top, section links go to their sections. */
-body.portfolio-template .case-footer{display:grid;grid-template-columns:48px minmax(0,1fr) auto;align-items:center;gap:var(--space-4);box-sizing:border-box;width:100%;min-height:64px;padding:8px max(40px,calc((100% - 1120px)/2));background:var(--sheet);border-top:1px solid var(--border-subtle)}
+body.portfolio-template .case-footer{display:grid;grid-template-columns:minmax(48px,1fr) auto minmax(0,1fr);align-items:center;gap:var(--space-4);box-sizing:border-box;width:100%;min-height:64px;padding:8px max(40px,calc((100% - 1120px)/2));background:var(--sheet);border-top:1px solid var(--border-subtle)}
 body.portfolio-template .case-footer .portfolio-section-nav{grid-column:2;grid-row:1}
-body.portfolio-template .case-footer-contact{grid-column:3;display:flex;align-items:center;gap:var(--space-4);margin:0;padding:0;list-style:none}
+body.portfolio-template .case-footer-contact{grid-column:3;justify-self:end;display:flex;align-items:center;gap:var(--space-4);margin:0;padding:0;list-style:none}
 body.portfolio-template .case-footer-contact a{display:inline-flex;align-items:center;gap:6px;color:var(--text-primary);font:var(--body-weight,400) var(--type-small)/1.4 var(--font-body);text-decoration:none}
 body.portfolio-template .case-footer-contact a:hover{color:var(--accent-text,var(--deep))}
 body.portfolio-template .case-footer-contact svg{width:18px;height:18px;flex:0 0 18px}
