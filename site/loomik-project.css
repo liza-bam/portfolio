@@ -99,3 +99,5 @@ h1 {
   color: var(--muted);
   font-size: .875rem;
 }
+
+.case-tool-logos{margin:4px 0 24px;gap:16px}
