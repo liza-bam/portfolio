@@ -574,7 +574,7 @@ body.portfolio-template.tint-bp .case-story-detail :is(.figure-artwork-fit, img.
 }
 
 body.portfolio-template.tint-bp .case-story-detail .figure-panel--compact-preview .figure-artwork-fit {
-  width: auto;
+  width: min(100%, 420px);
   max-height: min(50vh, 420px);
 }
 
