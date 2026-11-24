@@ -385,7 +385,7 @@ body.portfolio-template.case-study .opening.shell:has(+ .original-study:is(.case
   }
 }
 
-body.portfolio-template .opening-title.case-header:has(+ :is(.case-tools, .case-tool-logos)) {
+body.portfolio-template .opening-title.case-header:has(+ .case-tools, ~ .case-tool-logos) {
   margin-block-end: 18px;
 }
 
@@ -481,21 +481,32 @@ body.portfolio-template .original-study .case-lesson-card h3 {
   }
 }
 
-body.portfolio-template .opening-title.case-header:has(+ .case-tool-logos) {
+body.portfolio-template .opening-title.case-header:has(~ .case-tool-logos) {
   grid-template-areas: "title video" "facts facts" "did did";
 }
 
-body.portfolio-template .opening-title.case-header.has-links:has(+ .case-tool-logos) {
+body.portfolio-template .opening-title.case-header.has-links:has(~ .case-tool-logos) {
   grid-template-areas: "title video" "links video" "facts facts";
 }
 
 @media (max-width: 900px) {
-  body.portfolio-template .opening-title.case-header:has(+ .case-tool-logos) {
+  body.portfolio-template .opening-title.case-header:has(~ .case-tool-logos) {
     grid-template-areas: "title" "video" "facts" "did";
   }
 
-  body.portfolio-template .opening-title.case-header.has-links:has(+ .case-tool-logos) {
+  body.portfolio-template .opening-title.case-header.has-links:has(~ .case-tool-logos) {
     grid-template-areas: "title" "links" "video" "facts";
+  }
+}
+
+body.tint-lazy .opening .lzsvc:has(+ .case-tool-logos) {
+  margin-block-end: var(--space-6);
+}
+
+@media (min-width: 901px) {
+  body.tint-lazy .opening .lzsvc:has(+ .case-tool-logos) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 26px;
   }
 }
 
