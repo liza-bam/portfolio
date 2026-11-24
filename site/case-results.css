@@ -484,7 +484,7 @@ body.portfolio-template .original-study .case-lesson-card h3 {
 }
 
 body.portfolio-template.case-study.tint-rancourt .original-study .case-story-heading h2 {
-  font-size: 36px;
+  font-size: 36px !important;
 }
 
 body.portfolio-template.case-study.tint-rancourt .original-study .case-story-heading .portfolio-accordion-heading > .subheader-2 {
