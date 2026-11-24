@@ -439,7 +439,7 @@ body.portfolio-template .original-study .case-deliverables h3 {
   padding: 16px;
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
-  background: var(--sheet);
+  background: #fff;
 }
 
 body.portfolio-template .original-study .case-lesson-card h3 {
