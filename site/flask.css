@@ -203,5 +203,7 @@ body.flask-home.contact-page .contact-form h2{font:600 18px/1.3 var(--font-body)
 body.flask-home .privacy h2{font:600 20px/1.3 var(--font-body);letter-spacing:0;margin:32px 0 8px}
 .privacy p{margin:0 0 12px}
 .privacy .privacy-updated{margin-top:32px;font-size:14px}
-.site-footer{display:flex;justify-content:center;gap:24px;width:min(880px,calc(100% - 48px));margin:0 auto;padding:32px 0 48px;border-top:1px solid var(--rule);font-size:14px}
+.site-footer{display:flex;justify-content:center;align-items:center;gap:24px;width:min(880px,calc(100% - 48px));margin:0 auto;padding:32px 0 48px;border-top:1px solid var(--rule);font-size:14px}
 .contact-intro{grid-column:1/-1;margin:0 0 8px;font-size:17px;line-height:1.6}
+
+.site-footer-contact{display:flex;align-items:center;gap:16px;margin:0;padding:0;list-style:none}.site-footer-contact a{display:inline-flex;color:#1f2d3a;text-decoration:none}.site-footer-contact a:hover{color:var(--accent-text,var(--deep))}.site-footer-contact svg{width:22px;height:22px}
