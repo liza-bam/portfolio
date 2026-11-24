@@ -4,65 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Loomik · Sandy Tayts</title>
-<meta name="description" content="I designed the UX and UI for an AI-assisted sales workspace.">
+<meta name="description" content="An AI-assisted sales workspace. Explore the Loomik demo and original prototype.">
 <link rel="canonical" href="https://sandy.tayts.com/loomik-case.html">
-<link rel="stylesheet" href="portfolio-template.css?v=20261123-btn">
-<link rel="stylesheet" href="case-results.css?v=20261123-section-layout">
-<script src="case-reading.js?v=4" defer></script>
+<link rel="stylesheet" href="loomik-project.css?v=1">
 </head>
-<body class="portfolio-template project-brief">
+<body>
 <a class="skip-link" href="#main">Skip to the project</a>
-<header class="masthead shell">
-  <a class="name brand-logo" href="./" aria-label="Sandy Tayts portfolio"><img src="assets/inkpromptu-logo.png" alt="" width="44" height="44"></a>
-  <a class="back" href="./#lab">Back to portfolio</a>
+<header class="project-wrap project-nav">
+  <a href="./" aria-label="Sandy Tayts portfolio"><img src="assets/inkpromptu-logo.png" width="36" height="36" alt=""></a>
+  <a href="./" aria-label="Close Loomik"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></a>
 </header>
-<main class="shell project-brief-content" id="main">
-  <h1>Loomik</h1>
-  <p class="project-subtitle">Helping sales teams decide what to do next on a deal.</p>
-  <p class="project-brief-lead">Deal activity, stakeholder context, and suggested follow-ups sit together in one sales workspace.</p>
-  <nav class="project-brief-links" aria-label="Loomik demos">
-    <a href="loomik/?demo=floating">Open demo</a>
-    <a href="loomik-classic/">Open original prototype</a>
-  </nav>
-  <dl class="project-facts" aria-label="Case study summary">
-    <div><dt>Role</dt><dd>UX and UI designer</dd></div>
-    <div><dt>Scope</dt><dd>Account and deal views, stakeholder context, assistant chat, and follow-up workflows</dd></div>
-    <div><dt>Timeline</dt><dd>2026 · Browser prototype</dd></div>
-    <div><dt>What I did</dt><dd>I designed how a seller moves from the account overview into a deal, reviews stakeholders and risks, and acts on a suggested next step.</dd></div>
-  </dl>
-<section class="case-tools" aria-labelledby="case-tools-title">
-  <p class="case-tools-label" id="case-tools-title">Tools</p>
-  <ul role="list">
-    <li>Lovable</li>
-    <li>Claude</li>
-  </ul>
-</section>
-<div class="case-overview">
-<div class="case-reading-switch" role="group" aria-label="Reading view" hidden>
-  <button type="button" data-case-read="brief" aria-pressed="true">TLDR</button>
-  <button type="button" data-case-read="full" aria-pressed="false">The full story</button>
-</div>
-<section class="case-story-step" aria-labelledby="situation-title"><h2 id="situation-title">Situation</h2><p class="case-story-copy">A sales rep needs to understand what changed in an account and decide what to do about it.</p></section>
-<section class="case-story-step" aria-labelledby="task-title"><h2 id="task-title">Task</h2><p class="case-story-copy">Bring deal history, people and recommended moves into the same workspace.</p></section>
-<section class="case-story-step" aria-labelledby="action-title"><h2 id="action-title">Action</h2><p class="case-story-copy">I designed the account and deal views, the assistant conversation, and the flow from reviewing a risk to taking a suggested action.</p><div class="case-preview-gallery">
-<figure><a href="assets/current/loomik-floating.png" target="_blank" rel="noopener"><img src="assets/current/loomik-floating.png" alt="" loading="lazy" decoding="async"><span class="case-image-label">Open image: The workspace brings the assistant and deal context together.</span></a><figcaption>The workspace brings the assistant and deal context together.</figcaption></figure>
-<figure><a href="assets/current/loomik.png" target="_blank" rel="noopener"><img src="assets/current/loomik.png" alt="" loading="lazy" decoding="async"><span class="case-image-label">Open image: The original Loomik interface.</span></a><figcaption>The original Loomik interface.</figcaption></figure>
-</div>
-</section>
-</div>
-  <section class="case-result case-result-brief" aria-labelledby="result-title">
-    <h2 id="result-title">Result</h2>
-    <p>The interactive demo shows how a sales team can review deal context and get recommended next steps.</p>
-<div class="case-deliverables"><h3>Deliverables</h3><ul><li>Interactive sales workspace demo</li><li>Account and deal views with stakeholder context</li><li>Assistant and suggested follow-up workflows</li></ul></div>
-
+<main class="project-wrap" id="main">
+  <div class="project-intro">
+    <h1>Loomik</h1>
+    <p>Loomik brings deal activity, stakeholders, and suggested follow-ups into one sales workspace. I designed the account and deal views, the assistant chat, and the follow-up flow.</p>
+    <nav class="demo-links" aria-label="Loomik demos">
+      <a class="demo-primary" href="loomik/?demo=floating">Open demo</a>
+      <a class="demo-secondary" href="loomik-classic/">Open original prototype</a>
+    </nav>
+  </div>
+  <section class="project-gallery" aria-label="Loomik screenshots">
+    <figure>
+      <img src="assets/current/loomik-floating.png" width="1280" height="720" fetchpriority="high" alt="Loomik’s floating workspace with a deal list, assistant chat, and suggested moves.">
+      <figcaption>Floating workspace</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/current/loomik.png" width="2400" height="1520" loading="lazy" decoding="async" alt="The original Loomik sales workspace.">
+      <figcaption>Original prototype</figcaption>
+    </figure>
   </section>
-  <div class="case-gallery-detail" data-case-detail>
-<div class="case-gallery-story">
-<section><h2>From accounts to individual deals</h2><p>I designed separate account and deal views so a seller can scan the pipeline, then narrow the interface to a single opportunity. The account view brings deal cards and recommended Moves together. The deal view keeps the company rail, stakeholder cards, recent signals and follow-ups in the same workspace so the seller can keep their place as they move through it.</p></section>
-<section><h2>Showing the reason for a next step</h2><p>Stakeholder cards and signal history give the user context for a recommendation. I designed that context alongside the action, where it can inform the decision to follow up. Email and meeting editors gather the goal and attachments so the seller can take the next step without reconstructing the deal history in another screen.</p></section>
-<section><h2>The assistant in the workspace</h2><p>The conversation sits beside the information the rep is working with. Its tables and charts are tied to demo records. On smaller screens the rep can switch between the panels. The browser demo uses scripted responses and rehearsed calls to demonstrate the workflow.</p></section>
-</div>
-</div>
 </main>
 </body>
 </html>

@@ -7,8 +7,10 @@ a{color:inherit;text-decoration:none}
 a:focus-visible{outline:3px solid #ffe0a4;outline-offset:6px}
 .workshop{max-width:1280px;margin:auto;box-shadow:0 0 80px #0004;background:var(--forest)}
 .topbar{height:64px;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-inline:40px;color:var(--muted);font-size:14px;background:var(--deep);border-bottom:1px solid var(--edge)}
-.portfolio-link{display:inline-flex;align-items:center;min-height:44px;font-size:16px;font-weight:600;color:var(--light);transition:color .18s ease}
-.portfolio-link:hover{color:var(--brass)}
+.portfolio-link,.project-close{display:inline-grid;place-items:center;width:44px;height:44px;color:var(--light)}
+.portfolio-link img{display:block;filter:brightness(0) invert(.91) sepia(.2)}
+.project-close svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round}
+.project-close:hover{color:var(--brass)}
 .cover{display:block;background:#1a2818}
 .cover img{display:block;width:100%;height:auto}
 .invitation{display:flex;align-items:center;justify-content:space-between;gap:40px;padding:38px 48px 42px;border-top:1px solid #c7985740;background:linear-gradient(110deg,#21372d,var(--forest) 70%)}
@@ -25,7 +27,7 @@ p{margin:0;color:var(--light);font-size:18px;line-height:1.65}
 .skip:focus{transform:none}
 @media(min-width:1360px){body{padding-block:24px}.workshop{border:1px solid var(--edge);border-radius:12px;overflow:hidden}}
 @media(max-width:700px){.topbar{padding-inline:24px;height:56px}.invitation{padding:28px 24px 32px;gap:28px;flex-direction:column;align-items:flex-start}.invitation-action{align-items:flex-start;gap:12px}.brass-button{min-height:54px}p{font-size:17px}.button-note{text-align:left}}
-@media(max-width:380px){.topbar{padding-inline:20px}.topbar span{font-size:12px}.invitation{padding-inline:20px}h2{font-size:30px}}
+@media(max-width:380px){.topbar{padding-inline:20px}.invitation{padding-inline:20px}h2{font-size:30px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
 
 /* The three player stories sit like pictures collected from the game. */
@@ -33,8 +35,8 @@ p{margin:0;color:var(--light);font-size:18px;line-height:1.65}
 .players-heading{margin-bottom:30px}.players-heading h2{margin:0}
 .player-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px;align-items:start}
 .player{min-width:0}
-.player-picture{margin:0 0 24px;aspect-ratio:1;display:flex;align-items:center;justify-content:center}
-.player-picture img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 10px #0004)}
+.player-picture{margin:0 0 24px;aspect-ratio:1;overflow:hidden;box-shadow:0 6px 10px #0004}
+.player-picture img{display:block;width:100%;height:100%;object-fit:cover}
 .player h3{font:400 20px/1.4 Rye,Georgia,serif;color:var(--brass);margin:0 0 12px}
 .player p{font-size:16px;line-height:1.7;color:var(--light);max-width:34ch}
 @media(min-width:701px) and (max-width:1000px){.player-gallery{gap:24px}.players{padding-inline:32px}}
