@@ -444,3 +444,107 @@ body.portfolio-template .original-study .case-lesson-card h3 {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+.case-tools .case-tool-logos li {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 28px;
+}
+
+.case-tool-logos img {
+  display: block;
+  height: 16px;
+  width: auto;
+  filter: grayscale(1) sepia(.5);
+}
+
+.tint-rancourt .opening > .case-tools {
+  margin-block-end: 0;
+}
+
+.tint-rancourt .original-study {
+  --rancourt-sheet-gutter: 16px;
+  --rancourt-section-gap: clamp(22px, 3.5vw, 40px);
+}
+
+@media (min-width: 901px) {
+  .tint-rancourt .original-study {
+    --rancourt-sheet-gutter: 40px;
+  }
+}
+
+.tint-rancourt .case-reading-switch {
+  margin-block-end: var(--rancourt-section-gap);
+}
+
+.tint-rancourt .original-study > .case-story-step {
+  margin-inline: calc(-1 * var(--rancourt-sheet-gutter));
+  padding: var(--rancourt-section-gap) var(--rancourt-sheet-gutter);
+  border-block-start: 1px solid var(--border-subtle);
+}
+
+.rancourt-action-pair {
+  margin-block-end: clamp(20px, 3vw, 32px);
+}
+
+.rancourt-action-pair img {
+  height: auto;
+  aspect-ratio: auto;
+}
+
+.rancourt-action-diagram {
+  display: grid;
+  place-items: center;
+  min-height: 176px;
+  aspect-ratio: 1400 / 855;
+  padding: 16px;
+  border: 1px solid var(--border-subtle);
+  background: var(--band);
+  color: #173e30;
+}
+
+.rancourt-action-diagram .rancourt-catalog-levels {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font: 600 clamp(13px, 1.5vw, 17px)/1.3 var(--font-body);
+}
+
+body.case-study .original-study .rancourt-catalog-levels li {
+  margin: 0;
+  border-inline-start: 2px solid currentColor;
+  padding: 6px 10px;
+  background: var(--sheet);
+}
+
+body.case-study .original-study .rancourt-catalog-levels li:nth-child(2) {
+  margin-inline-start: 16px;
+}
+
+body.case-study .original-study .rancourt-catalog-levels li:nth-child(3) {
+  margin-inline-start: 32px;
+}
+
+.rancourt-menu-comparison {
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  gap: clamp(12px, 3vw, 32px);
+  text-align: center;
+}
+
+.rancourt-menu-comparison div {
+  display: grid;
+  gap: 5px;
+}
+
+.rancourt-menu-comparison span {
+  font-size: 14px;
+}
+
+.rancourt-menu-comparison strong {
+  font: var(--heading-weight) clamp(36px, 6vw, 72px)/1 var(--font-heading);
+}
