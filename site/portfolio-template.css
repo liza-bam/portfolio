@@ -1057,3 +1057,30 @@ body.portfolio-template .video-dialog .video-close:focus-visible{outline:3px sol
 /* Smaller buttons across the case studies (header links unchanged). */
 body.portfolio-template .bp-actions button,body.portfolio-template .figure-button{min-height:32px;padding:5px 12px;font-size:14px;line-height:1.4}
 body.portfolio-template.case-study .bp-actions .figure-icon-button{flex-basis:32px;width:32px;min-width:32px;min-height:32px;height:32px}
+
+/* Work case facts: role and timeline share a column on wider screens. */
+@media (min-width:701px) {
+  body.portfolio-template .case-facts.work-case-facts {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    grid-template-areas: "role scope" "timeline scope";
+    grid-template-rows: auto auto;
+    align-content: start;
+  }
+  body.portfolio-template .work-case-facts > div:nth-child(1) {
+    grid-area: role;
+    padding-bottom: var(--space-3);
+    align-content: start;
+  }
+  body.portfolio-template .work-case-facts > div:nth-child(2) {
+    grid-area: scope;
+    padding-right: 0;
+    align-content: start;
+  }
+  body.portfolio-template .work-case-facts > div:nth-child(3) {
+    grid-area: timeline;
+    border-left: 0;
+    padding-left: 0;
+    padding-top: 0;
+    align-content: start;
+  }
+}
