@@ -115,8 +115,12 @@ body.portfolio-template .case-header .project-subtitle {
   margin: var(--space-3) 0 0;
 }
 
-body.portfolio-template.case-study.tint-rancourt .case-header .project-subtitle {
-  color: var(--text-primary);
+body.portfolio-template.case-study.tint-lazy {
+  --case-heading-ink: #17363c;
+}
+
+body.portfolio-template.case-study .case-header p.project-subtitle {
+  color: var(--case-heading-ink, var(--text-primary));
   font-weight: 600;
 }
 
@@ -451,20 +455,48 @@ body.portfolio-template .original-study .case-lesson-card h3 {
 }
 
 .case-tool-logos {
+  --list-item-gap: 0px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px 20px;
-  margin: 0;
+  gap: 10px clamp(8px, 1.5vw, 20px);
+  margin: 0 0 var(--space-5);
   padding: 0;
   list-style: none;
+  color: var(--case-heading-ink, var(--text-primary));
 }
 
-.case-tool-logos img {
+.case-tool-logos [role="img"] {
   display: block;
-  height: 20px;
-  width: auto;
-  filter: grayscale(1) sepia(.5);
+  width: min(114px, calc(22px * var(--tool-ratio, 1)));
+  height: 22px;
+  background-color: currentColor;
+  mask: var(--tool-logo) center / contain no-repeat;
+}
+
+@media (forced-colors: active) {
+  .case-tool-logos [role="img"] {
+    color: CanvasText;
+    forced-color-adjust: none;
+  }
+}
+
+body.portfolio-template .opening-title.case-header:has(+ .case-tool-logos) {
+  grid-template-areas: "title video" "facts facts" "did did";
+}
+
+body.portfolio-template .opening-title.case-header.has-links:has(+ .case-tool-logos) {
+  grid-template-areas: "title video" "links video" "facts facts";
+}
+
+@media (max-width: 900px) {
+  body.portfolio-template .opening-title.case-header:has(+ .case-tool-logos) {
+    grid-template-areas: "title" "video" "facts" "did";
+  }
+
+  body.portfolio-template .opening-title.case-header.has-links:has(+ .case-tool-logos) {
+    grid-template-areas: "title" "links" "video" "facts";
+  }
 }
 
 .original-study:has(> .case-reading-switch) {
@@ -482,18 +514,27 @@ body.portfolio-template .original-study .case-lesson-card h3 {
   padding-inline: var(--case-sheet-gutter);
 }
 
+.original-study .case-story-heading {
+  margin-block: var(--space-2) var(--space-6);
+}
+
 .tint-rancourt .original-study .case-story-heading {
   --case-story-h2-size: 40px;
-  margin-block: var(--space-2) var(--space-6);
 }
 
 body.portfolio-template.case-study:is(.tint-rancourt, .tint-bp) .original-study .case-story-heading h2 {
   font-size: var(--case-story-h2-size, 36px) !important;
 }
 
-body.portfolio-template.case-study:is(.tint-rancourt, .tint-bp) .original-study .case-story-heading .portfolio-accordion-heading > .subheader-2 {
+body.portfolio-template.case-study .original-study .case-story-heading .portfolio-accordion-heading > p.subheader-2 {
   margin: 4px 0 0;
-  color: var(--text-primary);
+  color: var(--case-heading-ink, var(--text-primary));
+  font-weight: 600;
+}
+
+body.portfolio-template.case-study .original-study h3 + p.subheader-3 {
+  margin-block: 4px var(--space-6);
+  color: var(--case-heading-ink, var(--text-primary));
   font-weight: 600;
 }
 
@@ -512,8 +553,6 @@ body.portfolio-template.case-study:is(.tint-bp, .tint-rancourt) .original-study 
 
 body.portfolio-template.case-study.tint-bp .original-study .case-story-detail h3 {
   margin: var(--case-section-gap) 0 12px;
-  padding-block-start: var(--case-section-gap);
-  border-block-start: 1px solid var(--border-subtle);
 }
 
 .tint-bp .case-preview-gallery {
