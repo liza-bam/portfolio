@@ -141,5 +141,5 @@
 .collage-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;align-items:start}.collage-grid .process-shot{margin:0}
 @media(max-width:700px){.collage-grid{grid-template-columns:1fr}}
 /* Book pages: section headings at the same size as the other case studies. */
-:is(.noah-case,.panic-case) :is(.book-section-title,.book-phone h2){font:600 clamp(26px,3.2vw,36px)/1.15 "Inter Tight",Inter,system-ui,sans-serif;letter-spacing:-.01em;color:var(--ink);margin:56px 0 16px}
-:is(.noah-case,.panic-case) .book-phone h3{font:600 clamp(18px,2vw,22px)/1.25 "Inter Tight",Inter,system-ui,sans-serif;color:var(--ink);margin:28px 0 10px}
+:is(.noah-case,.panic-case) :is(.book-section-title,.book-phone h2){font:400 clamp(26px,3.2vw,36px)/1.15 Georgia,serif;letter-spacing:-.02em;margin:56px 0 16px}.noah-case :is(.book-section-title,.book-phone h2){color:var(--accent)}.panic-case .book-phone h2{color:var(--ink)}
+:is(.noah-case,.panic-case) .book-phone h3{font:500 clamp(18px,2vw,22px)/1.25 Inter,system-ui,sans-serif;color:var(--ink);margin:28px 0 10px}
