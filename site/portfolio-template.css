@@ -624,7 +624,7 @@ body.portfolio-template.case-study .opening.shell{border-radius:16px 16px 0 0}
 body.portfolio-template.case-study .original-study{border-radius:0 0 16px 16px}
 body.portfolio-template.case-study .case-facts{margin-inline:-40px;padding-inline:40px}
 body.portfolio-template.case-study .case-header .platform-logos{margin-inline:0;padding-inline:0}
-@media(max-width:900px){body.portfolio-template.case-study :is(.opening.shell,.original-study){box-shadow:0 0 0 16px #fff,0 0 0 17px var(--border-subtle)}body.portfolio-template.case-study .case-facts{margin-inline:-16px;padding-inline:16px}}
+@media(max-width:900px){body.portfolio-template.case-study :is(.opening.shell,.original-study){box-shadow:0 0 0 16px var(--sheet),0 0 0 17px var(--border-subtle)}body.portfolio-template.case-study .case-facts{margin-inline:-16px;padding-inline:16px}}
 body.portfolio-template .case-facts{background:var(--band,var(--canvas))}
 body.portfolio-template .portfolio-card-grid .baseline-metric,body.portfolio-template.case-study .baseline-metric{background:#fff;border-color:var(--border-subtle)}
 .video-open-label{background:#fff}
