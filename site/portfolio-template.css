@@ -15,7 +15,7 @@
   --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
   --space-12: 48px; --space-16: 64px;
   --type-h1: 72px; --type-h2: 40px; --type-h3: 28px; --type-h4: 22px; --type-h5: 18px;
-  --type-body: 17px; --type-subtitle: 19px; --type-small: 14px; --type-eyebrow: 12px; --type-label: calc(var(--type-body) - 2px);
+  --type-body: 15px; --type-subtitle: 19px; --type-small: 14px; --type-eyebrow: 12px; --type-label: calc(var(--type-body) - 2px);
   --card-padding: 24px; --card-gap: 24px; --card-radius: 8px;
   --section-gap: 64px; --reading-width: 78ch;
   --list-item-gap:var(--space-1); --list-line-height:1.5;
@@ -81,7 +81,7 @@ body.portfolio-template .measurement :is(table,th,td) { font-family:var(--font-b
   body.portfolio-template .concise-results .result-card { grid-template-rows:28px 84px minmax(72px,auto); }
 }
 @media (max-width:700px) {
-  :root { --type-h1:48px; --type-h2:34px; --type-h3:26px; --type-h4:21px; --type-h5:18px; --type-body:16px; --type-subtitle:18px; --section-gap:48px; --card-padding:16px; --card-gap:16px; }
+  :root { --type-h1:48px; --type-h2:34px; --type-h3:26px; --type-h4:21px; --type-h5:18px; --type-body:14px; --type-subtitle:18px; --section-gap:48px; --card-padding:16px; --card-gap:16px; }
 }
 /* Explicit adapters for legacy page selectors; token values remain authoritative. */
 body.portfolio-template :is(.opening .opening-title h1,.profile h1){font:var(--heading-weight) var(--type-h1)/1.02 var(--font-heading);letter-spacing:0}
