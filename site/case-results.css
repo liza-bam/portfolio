@@ -115,6 +115,11 @@ body.portfolio-template .case-header .project-subtitle {
   margin: var(--space-3) 0 0;
 }
 
+body.portfolio-template.case-study.tint-rancourt .case-header .project-subtitle {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
 .case-header .case-context,
 .case-header .case-contribution {
   max-width: 65ch;
@@ -477,8 +482,13 @@ body.portfolio-template .original-study .case-lesson-card h3 {
   padding-inline: var(--case-sheet-gutter);
 }
 
+.tint-rancourt .original-study .case-story-heading {
+  --case-story-h2-size: 40px;
+  margin-block: var(--space-2) var(--space-6);
+}
+
 body.portfolio-template.case-study:is(.tint-rancourt, .tint-bp) .original-study .case-story-heading h2 {
-  font-size: 36px !important;
+  font-size: var(--case-story-h2-size, 36px) !important;
 }
 
 body.portfolio-template.case-study:is(.tint-rancourt, .tint-bp) .original-study .case-story-heading .portfolio-accordion-heading > .subheader-2 {
@@ -496,11 +506,14 @@ body.portfolio-template.case-study.tint-bp .original-study .case-story-detail .s
   padding-block: 0;
 }
 
+body.portfolio-template.case-study:is(.tint-bp, .tint-rancourt) .original-study .case-story-detail h3 {
+  font-size: 22px;
+}
+
 body.portfolio-template.case-study.tint-bp .original-study .case-story-detail h3 {
   margin: var(--case-section-gap) 0 12px;
   padding-block-start: var(--case-section-gap);
   border-block-start: 1px solid var(--border-subtle);
-  font-size: 22px;
 }
 
 .tint-bp .case-preview-gallery {
