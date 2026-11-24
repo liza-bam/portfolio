@@ -394,3 +394,17 @@ body.entered[data-ready=false] #loading-veil { opacity:0; }
     to { opacity:1; }
   }
 }
+
+/* On touchscreens, preview the destination before entering it. */
+.travel-dot.tip-active .travel-tip { display:block; }
+.travel-tip-action { display:none; }
+.travel-dot.tip-active .travel-tip-action {
+  display:block;
+  margin-top:5px;
+  font:13px/1.3 system-ui,sans-serif;
+  color:#d7c8a3;
+}
+@media (hover:none) {
+  .travel-dot:hover:not(.tip-active):not(:focus-visible) .travel-tip { display:none; }
+}
+body.travelling .travel-dot .travel-tip { display:none; }

@@ -42,6 +42,34 @@ function imageSource(asset, thumbnail = false) {
   return asset.revision ? url + '?v=' + asset.revision : url;
 }
 function sceneInfo(id) { return geography.scenes.find((scene) => scene.id === id); }
+function clearTravelTip() {
+  document.querySelector('.travel-dot.tip-active')?.classList.remove('tip-active');
+}
+function positionTravelTip(element) {
+  const text = element.querySelector('.travel-tip');
+  element.style.setProperty('--tip-shift','0px');
+  element.classList.remove('tip-below');
+  const frame = $('#panorama').getBoundingClientRect();
+  let bounds = text.getBoundingClientRect();
+  if (bounds.top < frame.top + 12) {
+    element.classList.add('tip-below');
+    bounds = text.getBoundingClientRect();
+  }
+  const shift = Math.max(frame.left + 12 - bounds.left, Math.min(0, frame.right - 12 - bounds.right));
+  element.style.setProperty('--tip-shift', shift + 'px');
+}
+function activateTravelDot(event, destination) {
+  const element = event.currentTarget;
+  const touch = event.pointerType === 'touch' || matchMedia('(hover: none) and (pointer: coarse)').matches;
+  if (touch && !element.classList.contains('tip-active')) {
+    clearTravelTip();
+    element.classList.add('tip-active');
+    positionTravelTip(element);
+    return;
+  }
+  clearTravelTip();
+  travel(destination);
+}
 function lightOn(id) { const source = manifest.scenes[id].linkedLightScene || id; return typeof lights[source] === 'boolean' ? lights[source] : true; }
 function sceneKey(id) { return id + '--' + assetState(manifest.scenes[id], period, lightOn(id)); }
 function viewHfov(id) {
@@ -287,21 +315,18 @@ async function initialize() {
         ...camera[scene.id], hfov, minHfov:hfov, maxHfov:hfov,
         hotSpots:hotspots[scene.id].map((spot) => ({
           yaw:spot.yaw, pitch:spot.pitch, cssClass:'travel-dot',
-          clickHandlerFunc:() => travel(spot.to),
+          clickHandlerFunc:(event) => activateTravelDot(event, spot.to),
           createTooltipFunc:(element) => {
             element.tabIndex=0; element.setAttribute('role','button');
             element.setAttribute('aria-label','Go to '+sceneInfo(spot.to).name);
             const text=document.createElement('span'); text.className='travel-tip';
             text.textContent=sceneInfo(spot.to).name; text.setAttribute('aria-hidden','true'); element.append(text);
-            function positionTip() {
-              element.style.setProperty('--tip-shift','0px'); element.classList.remove('tip-below');
-              const frame=$('#panorama').getBoundingClientRect(), bounds=text.getBoundingClientRect();
-              if(bounds.top < frame.top+12) element.classList.add('tip-below');
-              const shift=Math.max(frame.left+12-bounds.left,Math.min(0,frame.right-12-bounds.right));
-              element.style.setProperty('--tip-shift',shift+'px');
-            }
-            element.addEventListener('mouseenter',positionTip);
-            element.addEventListener('focus',()=>requestAnimationFrame(positionTip));
+            const instruction = document.createElement('span');
+            instruction.className = 'travel-tip-action';
+            instruction.textContent = 'Tap again to enter';
+            text.append(instruction);
+            element.addEventListener('mouseenter', () => positionTravelTip(element));
+            element.addEventListener('focus', () => requestAnimationFrame(() => positionTravelTip(element)));
             element.addEventListener('keydown',(event)=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();travel(spot.to);}});
           },
         })),
@@ -343,7 +368,10 @@ async function initialize() {
   });
   viewer.on('error',failedView);
   $('#retry-view').addEventListener('click',retryView);
-  viewer.on('scenechange',()=>{document.body.dataset.ready='false';});
+  viewer.on('scenechange',()=>{clearTravelTip();document.body.dataset.ready='false';});
+  document.addEventListener('pointerdown', event => {
+    if (!event.target.closest('.travel-dot.tip-active')) clearTravelTip();
+  });
   window.addEventListener('resize', () => { if (ready) syncViewHfov(); });
   $('#light-toggle').addEventListener('click',()=>{if(!ready)return;lights[current]=!lightOn(current);persist();loadCurrent({keepView:true});});
   $('#map-toggle').addEventListener('click',()=>{ if(!ready)return; renderMap();$('#map-dialog').showModal();});
