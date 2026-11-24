@@ -2,96 +2,300 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Sandy (Alexandra) Tayts",
-    "label": "UX Designer",
+    "label": "UX Designer | Service Design, Product Ownership (PMP) and AI",
+    "email": "sandy@tayts.com",
+    "phone": "415-317-3404",
     "url": "https://sandy.tayts.com",
-    "summary": "I turn many moving parts into one thing that works.",
-    "location": { "city": "San Francisco", "region": "CA", "countryCode": "US" },
+    "summary": "UX and service designer with over ten years of experience serving both global enterprises and small businesses. Redesigned complex workflows for BP and EY. Designed and built the online store for Rancourt & Co., a heritage footwear maker. Now designs and builds AI products, including LAZY, a website service for vacation-rental hosts.",
+    "location": {
+      "city": "San Francisco",
+      "region": "CA",
+      "countryCode": "US"
+    },
     "profiles": [
-      { "network": "LinkedIn", "username": "atayts", "url": "https://www.linkedin.com/in/atayts/" },
-      { "network": "Portfolio", "url": "https://sandy.tayts.com" }
+      {
+        "network": "LinkedIn",
+        "username": "atayts",
+        "url": "https://www.linkedin.com/in/atayts"
+      },
+      {
+        "network": "Portfolio",
+        "url": "https://sandy.tayts.com"
+      }
     ]
   },
   "work": [
     {
       "name": "InkPromptu",
-      "position": "Service Design Consultant",
+      "position": "Founder and Service Design Consultant",
       "startDate": "2023-10",
       "highlights": [
-        "LAZY: ideation, product design, and go-to-market for a templated app enabling rental hosts to launch direct-booking sites — opening a new customer segment underserved by Airbnb-type platforms.",
-        "Rancourt (retail e-commerce): led digital transformation for a heritage Maine footwear brand. Designed the customer loyalty experience and implemented the Okendo third-party loyalty widget; delivered full Shopify product-base redesign, eliminated 1,440+ broken links, and reached Lighthouse scores of 95–100 across performance, accessibility, best practices, and SEO. Automated the Monday.com production base.",
-        "Loomik (AI startup): UX and UI for an AI-driven sales platform surfacing client needs, guiding managers in real time, and driving upsell/conversion."
+        "LAZY (founder, design and build, 2026): launched a done-for-you website service for vacation-rental hosts in October 2026. Ten hosts live in five weeks.",
+        "LAZY: researched 15 Facebook host groups (60 posts, 200+ answers) and built the offer around their top fear: guest trust.",
+        "LAZY: designed a live-preview editor and a static guest site. Design tokens drive palette, shape and type.",
+        "LAZY: designed a guest-facing AI assistant that answers questions about each property. Built with Claude Code and Codex.",
+        "Rancourt & Co. (Shopify consultant and service designer, 2026): rebuilt the Shopify store for a heritage Maine shoemaker that made Team USA's Olympic ceremony shoes and makes shoes for Saint Laurent, Ralph Lauren, Brooks Brothers, Cole Haan and Sperry.",
+        "Rancourt: built the store with Claude Code. The brand's team now runs it alone.",
+        "Rancourt: modeled products in Shopify metaobjects. Cut 14,000+ product patterns to 150 with a shared parts library.",
+        "Rancourt: ran discovery workshops and six moderated user tests. Reduced the main menu from nine items to five.",
+        "Rancourt: fixed 11,525 broken URLs and 3,940 server errors. Cut third-party apps from 24 to 2.",
+        "Rancourt: raised mobile Lighthouse performance from 37 to 100 and accessibility from 85 to 100. Kept search rankings.",
+        "Pleasant Street (founder, design and build, 2026): building a directory of independent vacation homes booked direct, with map search and AI-readable pages.",
+        "Loomik (UX and UI design): designed UX and UI for an AI sales platform. It surfaces client needs and coaches managers in real time."
       ]
     },
     {
       "name": "Wipro Digital",
-      "position": "Managing Consultant — Product Owner & Designer",
-      "url": "https://www.wipro.com",
+      "position": "Managing Consultant, Product Owner and Designer",
       "startDate": "2019-03",
       "endDate": "2023-08",
       "highlights": [
-        "Owned personalization and audience-targeting product for Connected Employee (award-winning SaaS): delivered content dynamically tailored to each user by role and by the real-time state of their equipment and software — the core of the product. Won the GCG Team Award (Best Consulting Asset Solution) as Lead Designer.",
-        "Led the roadmap and delivery of AI-assisted, human-centric B2B SaaS platforms from conception to launch; established KPIs achieving 30% ticket deflection on the IT Automation product.",
-        "Built segmented, role-based transactional messaging and notification flows in Salesforce; integrated Salesforce with DocuSign CLM/e-signature via APIs (OAuth 2), eliminating up to 95% of repeated user entry and reaching 100% data accuracy.",
-        "PO, Service Designer, and Scrum Master for the largest DocuSign CLM implementation in the US (as of 2023); collapsed 4 processes into 1 with 25% fewer steps and 70% manual-effort savings.",
-        "Led cross-functional delivery across product, engineering, sales, and integration teams up to 40 across 7 time zones; ran sprint planning, backlog grooming, UAT, and QA regressions.",
+        "BP sales modernization (UX and service designer, DocuSign delivery head, 2021–2023): redesigned sales processes in four markets with $2.1B in annual sales.",
+        "BP: delivered the largest US DocuSign CLM implementation as of 2023.",
+        "BP: as Product Owner and Scrum Master, aligned 50+ people across three teams and nine time zones.",
+        "BP: consolidated four processes into one, with 25% fewer steps and 70% less manual effort.",
+        "BP: cut end-to-end process time from 15.5 to 8 days and user time per process by 63%.",
+        "BP: reduced manual processes from 35 to 8. Raised agreements stored online from 30% to 98%.",
+        "BP: designed all DocuSign CLM and e-signature templates.",
+        "BP: integrated Salesforce and DocuSign via OAuth 2 APIs. Removed up to 95% of repeated data entry.",
+        "BP: built a Center of Excellence with in-app and video guides. Positive experience rose from 55% to 83%.",
+        "EY Digital Hub (service and integration design, 2019–2020): led the Digital Hub team, one of five teams on EY's IT-support bid, covering service and UX design, business analysis and technical architecture.",
+        "EY: analyzed 30+ surveys, interviews and past incidents. Designed AI self-help, self-service and proactive support journeys.",
+        "EY: delivered MVP journeys, an interactive prototype, a wireflow explorer and a five-year implementation plan.",
+        "Connected Employee and IT Automation (AI-assisted B2B SaaS): owned personalization for Connected Employee, tailoring content to each user's role and live device data.",
+        "Won the GCG Team Award for Best Consulting Asset Solution as Lead Designer.",
+        "Led roadmap and delivery of AI-assisted B2B SaaS. Set KPIs that achieved 30% ticket deflection for IT Automation.",
         "Clients: BP, Humana, EY, Warner Bros., Estée Lauder."
       ]
     },
     {
       "name": "CAFEX",
-      "position": "Product Owner & UX Designer",
-      "url": "https://www.cafex.com",
+      "position": "Product Owner and UX Designer",
       "startDate": "2015-09",
       "endDate": "2018-09",
       "highlights": [
-        "PO for an omnichannel MS Dynamics CRM application (B2B SaaS): defined role-based customer journeys, process flows, and full specifications; secured Microsoft approval on first handoff and Microsoft-preferred product status within 4 months of release.",
-        "Owned product roadmap and execution with engineering; designed the Angular front end and design system integrated across desktop CRM platforms."
+        "Defined customer journeys, process flows and specifications for an omnichannel Microsoft Dynamics CRM app.",
+        "Won Microsoft approval on first handoff. Earned preferred-product status within four months of release.",
+        "Owned the roadmap. Designed the Angular front end and a design system for desktop CRM platforms."
       ]
     },
     {
       "name": "Various Clients",
-      "position": "Design Consultant (Product & UX)",
+      "position": "Design Consultant, Product and UX",
       "startDate": "2012-09",
       "endDate": "2015-06",
       "highlights": [
-        "LoopedIn: led design of a points-based loyalty, incentives, and payments platform for higher education (payments, store, rewards, communication, knowledge base, calendar); built a customizable interactive prototype and won proposals across 15 clients. Section 508 compliant.",
-        "Vecna: led digital transformation of workforce-management software — user research, roadmap, delivery plan, and prototype. Careport: designed and front-end-built an ADA-compliant medical web app now used across Massachusetts hospitals."
+        "Looped In (UX and UI designer and design manager, 2015): designed and built 150 screens for a college incentives app in one month.",
+        "Looped In: onboarded four universities, each with its own skin. First app of its kind on the market.",
+        "Looped In: built an interactive prototype that won proposals across 15 clients.",
+        "Endurance International Group (web hosting): designed client dashboards for hosting customers.",
+        "Vecna (workforce-management software): led user research, roadmap, delivery planning and prototyping.",
+        "Careport (medical web app): designed and built the front end of an ADA-compliant medical web app used across Massachusetts hospitals."
       ]
     },
     {
       "name": "Adobe",
       "position": "Product Owner",
-      "url": "https://www.adobe.com",
       "startDate": "2008-01",
       "endDate": "2012-08",
       "highlights": [
-        "Product Owner for localized Flash (Animate): led an 18-person vendor team, proposed and shipped 20+ features, and set localization/terminology standards adopted across the Adobe suite."
+        "Led an 18-person vendor team for localized Flash (Animate). Proposed and shipped 20+ features.",
+        "Set localization and terminology standards adopted across the Adobe suite."
       ]
     }
   ],
+  "projects": [
+    {
+      "name": "Dwellers",
+      "description": "Designed an AR scavenger-hunt game and a playable prototype (Illustrator, Photoshop, ChatGPT).",
+      "url": "https://sandy.tayts.com/dwellers/"
+    },
+    {
+      "name": "No Grounds for Panic",
+      "description": "Co-wrote and illustrated a short story collection (Midjourney, Photoshop).",
+      "url": "https://sandy.tayts.com/panic.html"
+    },
+    {
+      "name": "Noah Fixes the Rainbow",
+      "description": "Illustrated and art-directed a picture book (Midjourney, ChatGPT, Photoshop).",
+      "url": "https://sandy.tayts.com/noah.html"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Herzen University",
+      "studyType": "MA",
+      "area": "Education Technology and Chemistry",
+      "score": "Summa Cum Laude"
+    },
+    {
+      "institution": "Academy of Art University",
+      "studyType": "MA coursework",
+      "area": "Web Design"
+    },
+    {
+      "institution": "University of Illinois",
+      "studyType": "Specialization",
+      "area": "Strategic Leadership and Management"
+    }
+  ],
   "certificates": [
-    { "name": "Project Management Professional (PMP)®", "issuer": "Project Management Institute", "date": "2023-10" },
-    { "name": "Professional Scrum Product Owner I and II", "issuer": "Scrum.org", "date": "2023-09" },
-    { "name": "CLM Technical Architect", "issuer": "DocuSign" },
-    { "name": "AI Associate", "issuer": "Salesforce", "date": "2025-05" },
-    { "name": "Strategy Designer", "issuer": "Salesforce", "date": "2024-09" },
-    { "name": "Platform App Builder", "issuer": "Salesforce", "date": "2024-08" },
-    { "name": "User Experience Designer", "issuer": "Salesforce", "date": "2024-08" },
-    { "name": "Business Analyst", "issuer": "Salesforce", "date": "2024-06" },
-    { "name": "Administrator", "issuer": "Salesforce", "date": "2024-05" },
-    { "name": "Platform Developer", "issuer": "Salesforce" },
-    { "name": "Service Designer", "issuer": "Cooper Professional Education" },
-    { "name": "Project Management Professional Certificate", "issuer": "Google" },
-    { "name": "Prompt Engineering for ChatGPT", "issuer": "Vanderbilt University", "date": "2023-07" }
+    {
+      "name": "Project Management Professional (PMP)",
+      "issuer": "PMI"
+    },
+    {
+      "name": "Project Management Professional Certificate",
+      "issuer": "Google"
+    },
+    {
+      "name": "Professional Scrum Product Owner I and II",
+      "issuer": "Scrum.org"
+    },
+    {
+      "name": "Service Designer",
+      "issuer": "Cooper Professional Education"
+    },
+    {
+      "name": "DocuSign CLM Technical Architect",
+      "issuer": "DocuSign"
+    },
+    {
+      "name": "UX Designer, Strategy Designer, Business Analyst, AI Associate",
+      "issuer": "Salesforce",
+      "date": "2025"
+    },
+    {
+      "name": "Platform Developer, Platform App Builder, Administrator",
+      "issuer": "Salesforce"
+    },
+    {
+      "name": "Prompt Engineering for ChatGPT",
+      "issuer": "Vanderbilt University",
+      "date": "2023"
+    }
   ],
   "skills": [
-    { "name": "Core skills", "keywords": ["UX and UI design", "Service design", "Customer journey mapping", "Service blueprinting", "Product ownership", "KPIs and outcome metrics", "Workshop facilitation", "Cross-functional team leadership"] },
-    { "name": "AI knowledge", "keywords": ["AI prototyping", "Generative AI video and imagery", "Human–agent service design", "LLM product design", "System prompts and context engineering", "AI coding agents: Claude Code, Codex"] },
-    { "name": "Tools: Generative design", "keywords": ["Midjourney", "Runway", "Kling", "ChatGPT", "Claude", "DeepSeek", "Topaz", "Photoshop", "Illustrator", "Adobe Creative Cloud", "Filmora", "CapCut", "Camtasia"] },
-    { "name": "Tools: UX design", "keywords": ["Figma", "Sketch", "InVision", "Maze", "Lovable", "Webflow", "Wix", "Squarespace", "CSS"] },
-    { "name": "Tools: Service design", "keywords": ["Lucidchart", "Miro", "MURAL", "Smaply"] },
-    { "name": "Tools: AI build and automation", "keywords": ["Claude Code", "Codex", "Zapier", "Twilio", "Lighthouse"] },
-    { "name": "Tools: Product delivery", "keywords": ["Jira", "Azure DevOps", "monday.com", "Smartsheet", "Notion", "ServiceNow", "Google Workspace", "SharePoint", "PowerPoint"] },
-    { "name": "Tools: CRM and commerce", "keywords": ["Salesforce", "Microsoft Dynamics", "DocuSign CLM", "Shopify", "Klaviyo", "Okendo", "Loop", "Rivo"] }
+    {
+      "name": "Design",
+      "keywords": [
+        "UX and UI design",
+        "service design",
+        "journey maps and service blueprints",
+        "discovery workshops",
+        "user research and moderated testing",
+        "information architecture",
+        "data modeling",
+        "wireflows",
+        "prototypes",
+        "design systems",
+        "accessibility (Section 508, ADA)"
+      ]
+    },
+    {
+      "name": "Product",
+      "keywords": [
+        "Product ownership with KPI and outcome tracking",
+        "roadmap and backlog",
+        "Agile / Scrum (PO, Scrum Master)",
+        "sprint planning",
+        "UAT and QA regressions",
+        "stakeholder alignment",
+        "cross-functional leadership"
+      ]
+    },
+    {
+      "name": "AI",
+      "keywords": [
+        "LLM product design",
+        "human–agent service design",
+        "system prompts and context engineering",
+        "AI prototyping",
+        "AI agent-led development (Claude Code, Codex)",
+        "generative AI video and imagery"
+      ]
+    },
+    {
+      "name": "Platforms",
+      "keywords": [
+        "Salesforce",
+        "DocuSign CLM and e-signature",
+        "Shopify",
+        "Klaviyo"
+      ]
+    },
+    {
+      "name": "Tools: UX design",
+      "keywords": [
+        "Figma",
+        "Maze",
+        "Lovable",
+        "Webflow",
+        "Wix",
+        "Squarespace",
+        "CSS",
+        "Lighthouse"
+      ]
+    },
+    {
+      "name": "Tools: Service design",
+      "keywords": [
+        "Lucidchart",
+        "Miro",
+        "MURAL",
+        "Smaply"
+      ]
+    },
+    {
+      "name": "Tools: AI and LLMs",
+      "keywords": [
+        "Claude",
+        "ChatGPT",
+        "DeepSeek",
+        "Claude Code",
+        "Codex"
+      ]
+    },
+    {
+      "name": "Tools: Automation",
+      "keywords": [
+        "Zapier",
+        "Twilio"
+      ]
+    },
+    {
+      "name": "Tools: Generative design",
+      "keywords": [
+        "Midjourney",
+        "Runway",
+        "Kling",
+        "Topaz"
+      ]
+    },
+    {
+      "name": "Tools: Image and video",
+      "keywords": [
+        "Photoshop",
+        "Illustrator",
+        "Adobe Creative Cloud",
+        "Filmora",
+        "CapCut",
+        "Camtasia"
+      ]
+    },
+    {
+      "name": "Tools: Product delivery",
+      "keywords": [
+        "Jira",
+        "Azure DevOps",
+        "monday.com",
+        "Smartsheet",
+        "Notion",
+        "ServiceNow",
+        "Google Workspace",
+        "SharePoint",
+        "PowerPoint"
+      ]
+    }
   ]
 }
