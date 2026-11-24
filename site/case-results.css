@@ -129,3 +129,71 @@ body.portfolio-template.case-study .original-study .case-tools h2 {
   color: var(--accent-text, #2c6e7e);
   text-underline-offset: 4px;
 }
+
+body.portfolio-template .case-header > .case-title {
+  grid-area: title;
+  min-width: 0;
+}
+
+body.portfolio-template .case-header > .case-title h1 {
+  margin: 0;
+  max-width: 14ch;
+}
+
+body.portfolio-template .case-header .project-subtitle {
+  margin: var(--space-3) 0 0;
+}
+
+.case-header .case-context,
+.case-header .case-contribution {
+  max-width: 65ch;
+  margin: 0;
+}
+
+.case-header .case-context {
+  margin-block-start: var(--space-3);
+  color: var(--text-secondary);
+}
+
+.project-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px 24px;
+  margin-block: 20px 28px;
+  padding-block: 14px;
+  border-block: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+}
+
+.project-facts div:last-child {
+  grid-column: 1 / -1;
+}
+
+.project-facts dt {
+  font-weight: 600;
+}
+
+.project-facts dd {
+  margin: 2px 0 0;
+  max-width: 78ch;
+}
+
+.workshop .project-facts {
+  margin-inline: clamp(20px, 4vw, 48px);
+}
+
+.project-brief-content .project-subtitle {
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  body.portfolio-template .case-header > .case-title h1 {
+    max-width: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .project-facts {
+    grid-template-columns: 1fr;
+  }
+}
