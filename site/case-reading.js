@@ -7,7 +7,8 @@
   const briefFigures = document.querySelectorAll('main [data-case-brief]');
   if (!sections.length) return;
 
-  let view = 'brief';
+  const readingSwitchEnabled = false;
+  let view = readingSwitchEnabled ? 'brief' : 'full';
   let filtered = false;
 
   function render() {
@@ -43,5 +44,5 @@
   window.addEventListener('hashchange', revealHashTarget);
   render();
   revealHashTarget();
-  group.hidden = false;
+  group.hidden = !readingSwitchEnabled;
 })();

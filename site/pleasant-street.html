@@ -20,7 +20,7 @@
 <link href="bigoil.css?v=20261123-btn" rel="stylesheet"/><link href="bigoil-opening.css?v=20261118-ls0" rel="stylesheet"/>
 <link href="case-study-template.css?v=20261123-btn" rel="stylesheet"/><link href="portfolio-template.css?v=20261123-btn" rel="stylesheet"/>
 <link href="cs-drama.css?v=20261123-pleasant" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Lobster&amp;family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet"/><link href="assets/lazy/lazy-tokens.css?v=20261117-lz-3" rel="stylesheet"/><link href="assets/lazy/lazy-components.css?v=20261117-lz-3" rel="stylesheet"/><link rel="stylesheet" href="case-results.css?v=20261123-section-layout">
-<script src="case-reading.js?v=2" defer></script>
+<script src="case-reading.js?v=4" defer></script>
 </head>
 <body class="portfolio-template case-study tint-lazy">
 <a class="skip" href="#main">Skip to case study</a>
@@ -36,7 +36,7 @@
 <a aria-label="Explore Pleasant Street, the live map" class="video-open" href="https://pleasant.vacations" rel="noopener" target="_blank"><img alt="Pleasant Street’s map of independent vacation rentals" class="video-open-poster" height="1900" src="assets/current/pleasant-map.png" width="2880"/><span class="video-open-label"><strong>Explore Pleasant Street</strong><span>Free map · Direct website links</span></span></a>
 <dl aria-label="Case study summary" class="case-facts"><div><dt>Role</dt><dd>Founder, product and service designer</dd></div><div><dt>Scope</dt><dd>Rental discovery, AI-assisted verification, and the public map</dd></div><div><dt>Timeline</dt><dd>2026 · In production</dd></div></dl>
 <div class="case-did"><h3 class="case-label">My contribution</h3>
-<p class="case-contribution">I designed how travelers find and compare independently bookable homes and how hosts receive direct referrals. I built the map prototype and the research workflow that verifies each listing before publication.</p>
+<p class="case-contribution">I built the prototype, defined how to verify direct booking, then designed the research pipeline and the public map.</p>
 <ul class="case-contribution-pills" role="list" aria-label="Contribution areas">
   <li>Product strategy</li>
   <li>AI workflow</li>
@@ -69,8 +69,8 @@
 
 <section class="case-story-step" aria-labelledby="situation-title">
 <header class="case-story-heading"><div class="portfolio-accordion-heading"><h2 id="situation-title">Situation</h2><p class="subheader-2">A useful discovery product creates a relevant audience for LAZY.</p></div></header>
-<p class="case-story-copy">Independent hosts can offer direct bookings and still be hard for travelers to find. I built a free map that sends travelers to the host’s own website and introduces hosts to LAZY.</p>
-<div class="case-preview-gallery">
+<p class="case-story-copy" data-case-brief hidden>Independent hosts can offer direct bookings and still be hard for travelers to find. I built a free map that sends travelers to the host’s own website and introduces hosts to LAZY.</p>
+<div class="case-preview-gallery" data-case-brief hidden>
 <figure><a href="assets/pleasant-case/diagram-3.png" target="_blank" rel="noopener"><img src="assets/pleasant-case/diagram-3.png" alt="" loading="lazy" decoding="async"><span class="case-image-label">Open image: The map connects traveler discovery to direct host referrals.</span></a><figcaption>The map connects traveler discovery to direct host referrals.</figcaption></figure>
 </div>
 <div class="case-story-detail" data-case-detail>
@@ -91,7 +91,7 @@
 </section>
 <section class="case-story-step" aria-labelledby="task-title">
 <header class="case-story-heading"><div class="portfolio-accordion-heading"><h2 id="task-title">Task</h2><p class="subheader-2">Preserve judgment across models, workers and production handoffs.</p></div></header>
-<p class="case-story-copy">Turn a 17,000-place prototype into repeatable research that could verify whether a site really offered direct booking, while keeping evidence usable across model and production handoffs.</p>
+<p class="case-story-copy" data-case-brief hidden>Turn a 17,000-place prototype into repeatable research that could verify whether a site really offered direct booking, while keeping evidence usable across model and production handoffs.</p>
 <div class="case-story-detail" data-case-detail>
 <div class="portfolio-accordion-body"><section aria-labelledby="task-title" class="source-body">
 <h3 data-topics="ai" id="model-roles">Model roles</h3>
@@ -111,9 +111,9 @@
 </section>
 <section class="case-story-step" aria-labelledby="action-title">
 <header class="case-story-heading"><div class="portfolio-accordion-heading"><h2 id="action-title">Action</h2><p class="subheader-2">A recoverable AI pipeline behind a deliberately friendly interface.</p></div></header>
-<p class="case-story-copy">I defined the evidence each listing needed, how the models should hand it off, and how workers should recover when a run stalled. I designed and built the production workflow for discovery, identity checks, and vetting. On the traveler side, I designed numbered map clusters, filters, and property cards so people could compare homes and follow the direct link without learning how the research worked.</p>
-<p class="case-story-copy">I designed recovery around evidence the worker had already saved. A stalled run gets one retry from its checkpoint. Unresolved jobs stay marked as blocked while other research continues. I kept map and card views tied to the same filters, and used numbered circles where groups of individual pins became too dense.</p>
-<div class="case-preview-gallery">
+<p class="case-story-copy" data-case-brief hidden>I defined the evidence each listing needed, how the models should hand it off, and how workers should recover when a run stalled. I designed and built the production workflow for discovery, identity checks, and vetting. On the traveler side, I designed numbered map clusters, filters, and property cards so people could compare homes and follow the direct link without learning how the research worked.</p>
+<p class="case-story-copy" data-case-brief hidden>I designed recovery around evidence the worker had already saved. A stalled run gets one retry from its checkpoint. Unresolved jobs stay marked as blocked while other research continues. I kept map and card views tied to the same filters, and used numbered circles where groups of individual pins became too dense.</p>
+<div class="case-preview-gallery" data-case-brief hidden>
 <figure><a href="assets/pleasant-case/diagram-1.png" target="_blank" rel="noopener"><img src="assets/pleasant-case/diagram-1.png" alt="" loading="lazy" decoding="async"><span class="case-image-label">Open image: The workflow goes from research and evidence review to publication.</span></a><figcaption>The workflow goes from research and evidence review to publication.</figcaption></figure>
 <figure><a href="assets/current/pleasant-map.png" target="_blank" rel="noopener"><img src="assets/current/pleasant-map.png" alt="" loading="lazy" decoding="async"><span class="case-image-label">Open image: The live map uses numbered clusters, clear filters and a direct-link property card.</span></a><figcaption>The live map uses numbered clusters, clear filters and a direct-link property card.</figcaption></figure>
 <figure><a href="assets/lazy/web/pleasant-street-img-hosts-07_property_details-20261026.webp" target="_blank" rel="noopener"><img src="assets/lazy/web/pleasant-street-img-hosts-07_property_details-20261026.webp" alt="" loading="lazy" decoding="async"><span class="case-image-label">Open image: Property details give travelers enough context to follow the host’s booking link.</span></a><figcaption>Property details give travelers enough context to follow the host’s booking link.</figcaption></figure>
