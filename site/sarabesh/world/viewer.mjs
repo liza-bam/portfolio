@@ -44,6 +44,18 @@ function imageSource(asset, thumbnail = false) {
 function sceneInfo(id) { return geography.scenes.find((scene) => scene.id === id); }
 function lightOn(id) { const source = manifest.scenes[id].linkedLightScene || id; return typeof lights[source] === 'boolean' ? lights[source] : true; }
 function sceneKey(id) { return id + '--' + assetState(manifest.scenes[id], period, lightOn(id)); }
+function viewHfov(id) {
+  const standard = camera[id].hfov || 95;
+  const {clientWidth: width, clientHeight: height} = $('#panorama');
+  if (!width || !height || width > 760 || width >= height) return standard;
+  // Limit vertical field of view to 78 degrees on narrow portrait screens.
+  return Math.min(standard, 2 * Math.atan(width / height * Math.tan(39 * Math.PI / 180)) * 180 / Math.PI);
+}
+function syncViewHfov() {
+  const hfov = viewHfov(current);
+  viewer.setHfovBounds([hfov, hfov]);
+  viewer.setHfov(hfov, false);
+}
 function showStatus(text) { $('#status').textContent = text; $('#status').hidden = !text; }
 
 function finishArrival() {
@@ -153,7 +165,7 @@ function loadCurrent({keepView = false, from, moving = false} = {}) {
   }
   ready = false;
   document.body.dataset.ready = 'false';
-  showStatus('Preparing your view…');watchView();
+  showStatus('');watchView();
   let {yaw, pitch} = camera[current];
   if (keepView) { yaw = viewer.getYaw(); pitch = viewer.getPitch(); }
   else if (from && hotspots[current].some((spot) => spot.to === from)) {
@@ -162,8 +174,9 @@ function loadCurrent({keepView = false, from, moving = false} = {}) {
   syncControls();
   const fade = reducedMotion.matches ? 0 : moving ? 440 : 180;
   viewer.getConfig().sceneFadeDuration = fade;
-  viewer.addScene(key, {...sceneConfigs[key], sceneFadeDuration: fade});
-  viewer.loadScene(key,pitch,yaw,camera[current].hfov||95);
+  const hfov = viewHfov(current);
+  viewer.addScene(key, {...sceneConfigs[key], hfov, minHfov: hfov, maxHfov: hfov, sceneFadeDuration: fade});
+  viewer.loadScene(key,pitch,yaw,hfov);
 }
 
 function beginTravel(to, {fromMap = false} = {}) {
@@ -265,10 +278,11 @@ async function initialize() {
   period = chosenPeriod();
   const configs = {};
   for (const scene of geography.scenes) {
+    const hfov = viewHfov(scene.id);
     for (const [state, asset] of Object.entries(manifest.scenes[scene.id].states)) {
       configs[scene.id+'--'+state] = {
         type:'equirectangular', panorama:imageSource(asset), haov:360, vaov:180, touchZoom:false, doubleClickZoom:false,
-        hfov:camera[scene.id].hfov||95, minHfov:camera[scene.id].hfov||95, maxHfov:camera[scene.id].hfov||95, ...camera[scene.id],
+        ...camera[scene.id], hfov, minHfov:hfov, maxHfov:hfov,
         hotSpots:hotspots[scene.id].map((spot) => ({
           yaw:spot.yaw, pitch:spot.pitch, cssClass:'travel-dot',
           clickHandlerFunc:() => travel(spot.to),
@@ -302,6 +316,7 @@ async function initialize() {
   });
   worldLife = new WorldLife({viewer});
   viewer.on('load',()=>{
+    syncViewHfov();
     showStatus('');
     $('#enter-world').disabled=false;
     $('#enter-world span').textContent='Start exploring';
@@ -327,6 +342,7 @@ async function initialize() {
   viewer.on('error',failedView);
   $('#retry-view').addEventListener('click',retryView);
   viewer.on('scenechange',()=>{document.body.dataset.ready='false';});
+  window.addEventListener('resize', () => { if (ready) syncViewHfov(); });
   $('#light-toggle').addEventListener('click',()=>{if(!ready)return;lights[current]=!lightOn(current);persist();loadCurrent({keepView:true});});
   $('#map-toggle').addEventListener('click',()=>{ if(!ready)return; renderMap();$('#map-dialog').showModal();});
   $('#map-close').addEventListener('click',()=>$('#map-dialog').close());

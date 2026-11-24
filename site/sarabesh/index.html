@@ -8,7 +8,7 @@
   <title>Sarabesh — The Last Electrician</title>
   <meta name="description" content="Explore Sarabesh, a hand-painted desert city of brass and clockwork. A proof of concept for The Last Electrician.">
   <link rel="stylesheet" href="viewer/pannellum.css">
-  <link rel="stylesheet" href="world/preview.css?v=sarabesh-orientation-20">
+  <link rel="stylesheet" href="world/preview.css?v=sarabesh-mobile-view">
   <link rel="preload" as="image" href="assets/ui/dwellers-chart-paper.jpg">
   <link rel="preload" as="image" href="assets/ui/light-switch-on.webp">
   <link rel="preload" as="image" href="assets/ui/light-switch-off.webp">
@@ -37,6 +37,21 @@
   <main id="panorama" aria-label="Explorable panorama"></main>
   <div id="instrument-shade" aria-hidden="true"></div>
   <div id="loading-veil" aria-hidden="true"></div>
+  <div class="view-loading" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="26" height="26">
+      <g fill="currentColor">
+        <rect x="10" y="1" width="4" height="6" rx="1"/>
+        <rect x="10" y="1" width="4" height="6" rx="1" transform="rotate(45 12 12)"/>
+        <rect x="10" y="1" width="4" height="6" rx="1" transform="rotate(90 12 12)"/>
+        <rect x="10" y="1" width="4" height="6" rx="1" transform="rotate(135 12 12)"/>
+        <rect x="10" y="1" width="4" height="6" rx="1" transform="rotate(180 12 12)"/>
+        <rect x="10" y="1" width="4" height="6" rx="1" transform="rotate(225 12 12)"/>
+        <rect x="10" y="1" width="4" height="6" rx="1" transform="rotate(270 12 12)"/>
+        <rect x="10" y="1" width="4" height="6" rx="1" transform="rotate(315 12 12)"/>
+        <path fill-rule="evenodd" d="M12 4a8 8 0 1 1 0 16 8 8 0 0 1 0-16Zm0 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
+      </g>
+    </svg>
+  </div>
   <section id="intro" aria-label="Welcome to Sarabesh" data-phase="landing">
     <div class="arrival-landscape" aria-hidden="true"></div>
     <div class="arrival-vignette" aria-hidden="true"></div>
@@ -107,6 +122,6 @@
     <p id="map-current"></p>
   </dialog>
   <script src="viewer/pannellum.js?v=sarabesh-16"></script>
-  <script type="module" src="world/viewer.mjs?v=sarabesh-orientation-20"></script>
+  <script type="module" src="world/viewer.mjs?v=sarabesh-mobile-view"></script>
 </body>
 </html>
