@@ -367,20 +367,20 @@ body.portfolio-template.case-study .original-study .case-story-step h2 {
 }
 
 /* The case-study header and body share one continuous sheet. */
-body.portfolio-template.case-study .opening.shell:has(+ .original-study > .case-reading-switch) {
+body.portfolio-template.case-study .opening.shell:has(+ .original-study:is(.case-story-full, :has(> .case-reading-switch))) {
   padding-block-end: 24px;
 }
 
-.opening:has(+ .original-study > .case-reading-switch) .case-measured:last-child {
+.opening:has(+ .original-study:is(.case-story-full, :has(> .case-reading-switch))) .case-measured:last-child {
   margin-block-end: 0;
 }
 
 @media (min-width: 701px) {
-  body.portfolio-template.case-study .opening.shell:has(+ .original-study > .case-reading-switch) {
+  body.portfolio-template.case-study .opening.shell:has(+ .original-study:is(.case-story-full, :has(> .case-reading-switch))) {
     clip-path: inset(-41px -41px 0);
   }
 
-  body.portfolio-template.case-study .original-study:has(> .case-reading-switch) {
+  body.portfolio-template.case-study .original-study:is(.case-story-full, :has(> .case-reading-switch)) {
     clip-path: inset(0 -41px -41px);
   }
 }
@@ -499,17 +499,17 @@ body.portfolio-template .opening-title.case-header.has-links:has(+ .case-tool-lo
   }
 }
 
-.original-study:has(> .case-reading-switch) {
+.original-study:is(.case-story-full, :has(> .case-reading-switch)) {
   --case-sheet-gutter: 16px;
 }
 
 @media (min-width: 901px) {
-  .original-study:has(> .case-reading-switch) {
+  .original-study:is(.case-story-full, :has(> .case-reading-switch)) {
     --case-sheet-gutter: 40px;
   }
 }
 
-.original-study:has(> .case-reading-switch) > .case-story-step {
+.original-study:is(.case-story-full, :has(> .case-reading-switch)) > .case-story-step {
   margin-inline: calc(-1 * var(--case-sheet-gutter));
   padding-inline: var(--case-sheet-gutter);
 }
@@ -522,7 +522,7 @@ body.portfolio-template .opening-title.case-header.has-links:has(+ .case-tool-lo
   --case-story-h2-size: 40px;
 }
 
-body.portfolio-template.case-study:is(.tint-rancourt, .tint-bp) .original-study .case-story-heading h2 {
+body.portfolio-template.case-study .original-study .case-story-heading h2 {
   font-size: var(--case-story-h2-size, 36px) !important;
 }
 
@@ -547,7 +547,7 @@ body.portfolio-template.case-study.tint-bp .original-study .case-story-detail .s
   padding-block: 0;
 }
 
-body.portfolio-template.case-study:is(.tint-bp, .tint-rancourt) .original-study .case-story-detail h3 {
+body.portfolio-template.case-study .original-study .case-story-detail h3 {
   font-size: 22px;
 }
 
