@@ -135,3 +135,5 @@
 .panic-case .book-phone{display:block;padding:8px 0 48px}.panic-case .book-phone .phone-only{display:none}.panic-case .book-phone h2{font:500 20px/1.3 Inter,system-ui,sans-serif;margin:40px 0 14px}.panic-case .phone-row{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.panic-case .phone-row img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover}}
 @media(min-width:701px){.panic-case .reader:not(.expanded) .stage{height:min(86svh,calc((100vw - 80px)*.705 + 48px));margin-top:0}.panic-case .case-intro{margin-bottom:8px}}
 .panic-case .case-intro .case-tool-logos{margin:16px 0 0}
+/* Panic process: Midjourney generation grids. */
+.process-note{margin:0 0 18px;color:var(--muted);font-size:15px}.process-shot{margin:0 0 24px}.process-shot img{display:block;width:100%;height:auto;border-radius:4px;box-shadow:0 6px 18px #1b22291f}.process-shot figcaption{margin-top:8px;font-size:14px;color:var(--muted)}
