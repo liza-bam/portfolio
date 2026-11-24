@@ -573,6 +573,11 @@ body.portfolio-template.tint-bp .case-story-detail :is(.figure-artwork-fit, img.
   max-height: none;
 }
 
+body.portfolio-template.tint-bp .case-story-detail .figure-panel--compact-preview .figure-artwork-fit {
+  width: auto;
+  max-height: min(50vh, 420px);
+}
+
 .rancourt-brief-gallery img {
   height: auto;
   aspect-ratio: auto;
