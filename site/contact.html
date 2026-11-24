@@ -49,7 +49,6 @@
 <form class="contact-form" id="contact-form" action="mailto:sandy@tayts.com" method="post" enctype="text/plain">
 <h2>Write to me</h2>
 <label>Your name<input name="name" type="text" autocomplete="name" required/></label>
-<label>Your email<input name="email" type="email" autocomplete="email" required/></label>
 <label>Message<textarea name="message" rows="5" required></textarea></label>
 <button type="submit">Send</button>
 <p class="contact-note">Send opens your email app with the message ready.</p>
@@ -63,7 +62,7 @@
   document.getElementById('contact-form').addEventListener('submit', ev => {
     ev.preventDefault();
     const f = new FormData(ev.target);
-    location.href = 'mailto:sandy@tayts.com?subject=' + encodeURIComponent('Message from ' + f.get('name')) + '&body=' + encodeURIComponent(f.get('message') + '\n\n' + f.get('name') + '\n' + f.get('email'));
+    location.href = 'mailto:sandy@tayts.com?subject=' + encodeURIComponent('Message from ' + f.get('name')) + '&body=' + encodeURIComponent(f.get('message') + '\n\n' + f.get('name'));
   });
 })();
 </script>
