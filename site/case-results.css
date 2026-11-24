@@ -18,6 +18,11 @@ body.portfolio-template.case-study .case-result-metrics > :is(.baseline-metric, 
   box-shadow: 0 4px 14px #172b3614;
 }
 
+body.portfolio-template.case-study .opening > .case-header-results {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  margin-block-end: 0;
+}
+
 .case-tools {
   --tool-tint: var(--accent, var(--brass, #2c6e7e));
   --tool-text: var(--accent-dark, var(--accent-text, var(--tool-tint)));
