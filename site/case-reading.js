@@ -4,13 +4,16 @@
 
   const buttons = [...group.querySelectorAll('[data-case-read]')];
   const sections = [...document.querySelectorAll('main [data-case-detail]')];
+  const briefFigures = document.querySelectorAll('main [data-case-brief]');
   if (!sections.length) return;
 
   let view = 'brief';
   let filtered = false;
 
   function render() {
-    sections.forEach(section => { section.hidden = view === 'brief' && !filtered; });
+    const brief = view === 'brief' && !filtered;
+    sections.forEach(section => { section.hidden = brief; });
+    briefFigures.forEach(figure => { figure.hidden = !brief; });
     buttons.forEach(button => {
       button.setAttribute('aria-pressed', String(!filtered && button.dataset.caseRead === view));
     });
