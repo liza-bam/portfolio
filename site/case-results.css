@@ -608,4 +608,6 @@ body.portfolio-template.tint-bp .case-story-detail .figure-panel--compact-previe
 }
 
 /* Case openings: tool logos centred between the lines above and below. */
-body.portfolio-template .opening .case-tool-logos{margin:24px 0 0}
+body.portfolio-template .opening .case-tool-logos{margin:24px 0}
+body.portfolio-template .opening > .case-tool-logos:last-child{margin-bottom:0}
+body.portfolio-template .opening:has(> .case-tool-logos:last-child){padding-bottom:24px}
