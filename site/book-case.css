@@ -122,3 +122,6 @@
 /* Smaller buttons across the case studies. */
 .page-button,.reader .page-button,.reader .reader-action,.reader-action,.zoom-close{min-height:32px;padding:5px 12px;font-size:13px}
 .look-inside{min-height:32px;padding:5px 14px;font-size:13px}
+/* No Grounds for Panic: grey instead of black. */
+.panic-case{--canvas:#d5d4d1;--ink:#1f1d1c;--muted:#55514e;--accent:#b9302b;--accent-ink:#fff;--line:#0000001f;--reader:#c9c8c5;--paper:#f7f2e8;--stage:radial-gradient(ellipse at 50% 38%,#e4e3e0 0%,#d0cfcc 60%,#c4c3c0 100%);color-scheme:light}
+@media(max-width:700px){.panic-case .phone-spread img{min-width:0}}

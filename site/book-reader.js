@@ -13,12 +13,14 @@
   const count = () => mode === 'full' ? config.pages : config.selections.length;
   const totalLeaves = () => mode === 'full' ? Math.ceil(config.pages / 2) + 2 : Math.ceil(count() / 2) + 1;
   const pad = n => String(n).padStart(3, '0');
+  // pageMap: show only chosen real pages (index = page in the viewer, value = page file).
+  const real = p => config.pageMap ? config.pageMap[p] : p, label = p => config.pageMap ? config.pageMap[p] - (config.pageOffset || 0) : p;
   function art(i, back) {
     if (i === 0) return back && mode === 'illustrations' ? config.selections[0].src : back ? config.endpaper || null : config.dir + 'front.webp';
     if (i === totalLeaves() - 1) return back ? config.dir + 'back.webp' : mode === 'illustrations' && count() % 2 === 0 ? config.selections.at(-1).src : config.endpaper || null;
     if (mode === 'illustrations') return config.selections[back ? 2 * i : 2 * i - 1]?.src || null;
     const p = back ? 2 * i : 2 * i - 1;
-    return p <= config.pages ? config.dir + 'pages/' + pad(p) + '.webp' : null;
+    return p <= config.pages ? config.dir + 'pages/' + pad(real(p)) + '.webp' : null;
   }
   function face(i, back) {
     const el = document.createElement('div'), src = art(i, back);
@@ -60,7 +62,7 @@
       el.children[1].setAttribute('aria-hidden', String(!(leftVisible || L === N && i === N - 1)));
     }
     const pages = visiblePages(), unit = mode === 'full' ? 'Page' : 'Illustration';
-    where.textContent = L === 0 ? 'Cover' : L === N ? 'Back cover' : pages.length > 1 ? `${unit}s ${pages[0]}–${pages[1]} of ${count()}` : `${unit} ${pages[0] || count()} of ${count()}`;
+    where.textContent = L === 0 ? 'Cover' : L === N ? 'Back cover' : pages.length > 1 ? `${unit}s ${label(pages[0])}–${label(pages[1])} of ${config.realPages || count()}` : `${unit} ${label(pages[0] || count())} of ${config.realPages || count()}`;
     if(mode === 'illustrations' && !pages.includes(selectedArt+1)) selectedArt = Math.max(0,(pages[0] || 1)-1);
     scrub.min = 0; scrub.max = mode === 'illustrations' ? count() - 1 : N; scrub.value = mode === 'illustrations' ? selectedArt : L;
     scrub.setAttribute('aria-label', mode === 'illustrations' ? 'Illustration position' : 'Book position');
@@ -168,8 +170,8 @@
 
   // Page zoom: click a page to see it full size, then flip page by page.
   let zoom = null, zoomAt = 0;
-  const zoomSrc = i => i === 0 ? config.dir + 'front.webp' : i > config.pages ? config.dir + 'back.webp' : config.dir + 'pages/' + pad(i) + '.webp';
-  const zoomLabel = i => i === 0 ? 'Cover' : i > config.pages ? 'Back cover' : `Page ${i} of ${config.pages}`;
+  const zoomSrc = i => i === 0 ? config.dir + 'front.webp' : i > config.pages ? config.dir + 'back.webp' : config.dir + 'pages/' + pad(real(i)) + '.webp';
+  const zoomLabel = i => i === 0 ? 'Cover' : i > config.pages ? 'Back cover' : `Page ${label(i)} of ${config.realPages || config.pages}`;
   function showZoom(i) {
     zoomAt = Math.max(0, Math.min(config.pages + 1, i));
     zoom.querySelector('img').src = zoomSrc(zoomAt); zoom.querySelector('img').alt = zoomLabel(zoomAt);
