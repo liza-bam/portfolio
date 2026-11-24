@@ -453,6 +453,14 @@ body.portfolio-template .original-study .case-lesson-card h3 {
   line-height: 1.55;
 }
 
+.case-lesson-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 16px;
+  border-radius: 4px;
+}
+
 @media (max-width: 560px) {
   .case-lesson-grid {
     grid-template-columns: minmax(0, 1fr);
