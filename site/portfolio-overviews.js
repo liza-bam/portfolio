@@ -1,6 +1,6 @@
 // Preserve section links and expose subsection navigation with expanded detail.
 (() => {
- const sections=[...document.querySelectorAll('.original-study > details.portfolio-accordion, .original-study > .case-story-step > details.portfolio-accordion')];
+ const sections=[...document.querySelectorAll('.original-study > details.portfolio-accordion')];
  function openAt(heading){
   const section=heading.closest('details.portfolio-accordion');
   if(section)section.open=true;
@@ -10,8 +10,7 @@
  }
  sections.forEach((section,index)=>{
   const summary=section.querySelector(':scope > summary');
-  const story=section.closest('.case-story-step');
-  const title=story?.querySelector('h2')??section.querySelector('h2');
+  const title=section.querySelector('h2');
   const headings=[...section.querySelectorAll('.portfolio-accordion-body h3')];
   if(!headings.length)return;
   const nav=document.createElement('nav');nav.className='portfolio-accordion-pills portfolio-filter-pills';nav.setAttribute('aria-label',title.textContent+' subsections');
@@ -21,8 +20,7 @@
    button.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();openAt(heading);});
    nav.append(button);
   });
-  if(story)summary.after(nav);
-  else summary.append(nav);
+  summary.append(nav);
  });
  document.querySelectorAll('[data-section-target]').forEach(button=>{
   const heading=document.getElementById(button.dataset.sectionTarget);

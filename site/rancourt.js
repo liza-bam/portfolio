@@ -28,29 +28,23 @@ revealAccordionTarget();
  const header=document.querySelector('.masthead');
  const study=document.querySelector('.original-study');
  if(!buttons.length||!study)return;
- const roots=[...study.children].filter(e=>e.matches('details.portfolio-accordion, .case-story-step'));
- const accordionFor=root=>root.matches('details')?root:root.querySelector(':scope > details');
+ const roots=[...study.children].filter(e=>e.matches('.case-story-step'));
  const openingResults=document.querySelector('.opening > .portfolio-card-grid');
- let active=null,originalOpen=null;
+ let active=null;
  function apply(key){
-  if(!originalOpen)originalOpen=new Map(roots.map(accordionFor).filter(Boolean).map(e=>[e,e.open]));
   study.querySelectorAll('.portfolio-contribution-hidden').forEach(e=>e.classList.remove('portfolio-contribution-hidden'));
   active=active===key?null:key;
   buttons.forEach(b=>{if(b.dataset.contribution==='reset')return;b.setAttribute('aria-pressed',String(b.dataset.contribution===active));});
   openingResults?.classList.toggle('portfolio-contribution-hidden',!!active);
-  if(!active){originalOpen.forEach((open,e)=>e.open=open);originalOpen=null;document.dispatchEvent(new Event('portfolio:contribution-changed'));return;}
+  if(!active){document.dispatchEvent(new CustomEvent('portfolio:contribution-changed'));return;}
   const selected=[...study.querySelectorAll('[data-topics~="'+active+'"]')];
   function visit(node){
    if(selected.includes(node))return;
    if(!selected.some(item=>node.contains(item))){node.classList.add('portfolio-contribution-hidden');return;}
-   for(const child of node.children){if(child.matches('summary, .case-story-heading'))continue;visit(child);}
+   for(const child of node.children){if(child.matches('.case-story-heading'))continue;visit(child);}
   }
-  roots.forEach(root=>{
-   visit(root);
-   const accordion=accordionFor(root);
-   if(accordion&&!root.classList.contains('portfolio-contribution-hidden'))accordion.open=true;
-  });
-  document.dispatchEvent(new Event('portfolio:contribution-changed'));
+  roots.forEach(visit);
+  document.dispatchEvent(new CustomEvent('portfolio:contribution-changed',{detail:active}));
   const first=roots.find(root=>!root.classList.contains('portfolio-contribution-hidden'));
   requestAnimationFrame(()=>first?.scrollIntoView({block:'start',behavior:'instant'}));
  }

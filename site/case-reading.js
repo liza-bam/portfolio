@@ -3,24 +3,42 @@
   if (!group) return;
 
   const buttons = [...group.querySelectorAll('[data-case-read]')];
-  const sections = [...document.querySelectorAll('main details[data-case-detail]')];
+  const sections = [...document.querySelectorAll('main [data-case-detail]')];
+  if (!sections.length) return;
 
-  function updateView() {
-    const openCount = sections.filter(section => section.open).length;
+  let view = 'brief';
+  let filtered = false;
+
+  function render() {
+    sections.forEach(section => { section.hidden = view === 'brief' && !filtered; });
     buttons.forEach(button => {
-      const selected = button.dataset.caseRead === 'full' ? openCount === sections.length : openCount === 0;
-      button.setAttribute('aria-pressed', String(selected));
+      button.setAttribute('aria-pressed', String(!filtered && button.dataset.caseRead === view));
     });
+  }
+
+  function revealHashTarget() {
+    const targetId = decodeURIComponent(location.hash.slice(1));
+    const target = document.getElementById(targetId);
+    if (!target?.closest('[data-case-detail]')) return;
+
+    document.dispatchEvent(new Event('portfolio:reset-contribution'));
+    view = 'full';
+    render();
+    requestAnimationFrame(() => target.scrollIntoView({block: 'start'}));
   }
 
   buttons.forEach(button => button.addEventListener('click', () => {
     document.dispatchEvent(new Event('portfolio:reset-contribution'));
-    const showFull = button.dataset.caseRead === 'full';
-    sections.forEach(section => { section.open = showFull; });
-    updateView();
+    view = button.dataset.caseRead;
+    render();
   }));
 
-  sections.forEach(section => section.addEventListener('toggle', updateView));
-  updateView();
-  group.hidden = sections.length === 0;
+  document.addEventListener('portfolio:contribution-changed', event => {
+    filtered = Boolean(event.detail);
+    render();
+  });
+  window.addEventListener('hashchange', revealHashTarget);
+  render();
+  revealHashTarget();
+  group.hidden = false;
 })();
