@@ -14,10 +14,11 @@
   education:()=>pick('#adopt')
  };
  let active=null,originalOpen=null;
- const roots=[...study.children].filter(e=>e.matches('details.portfolio-accordion'));
+ const roots=[...study.children].filter(e=>e.matches('details.portfolio-accordion, .case-story-step'));
+ const accordionFor=root=>root.matches('details')?root:root.querySelector(':scope > details');
  const openingResults=document.querySelector('.opening > .portfolio-card-grid');
  function apply(key){
-  if(!originalOpen)originalOpen=new Map(roots.map(e=>[e,e.open]));
+  if(!originalOpen)originalOpen=new Map(roots.map(accordionFor).filter(Boolean).map(e=>[e,e.open]));
   study.querySelectorAll('.portfolio-contribution-hidden').forEach(e=>e.classList.remove('portfolio-contribution-hidden'));
   roots.forEach(e=>e.classList.remove('portfolio-contribution-hidden'));
   active=active===key?null:key;
@@ -28,9 +29,13 @@
   function visit(node){
    if(selected.includes(node))return;
    if(!selected.some(item=>node.contains(item))){node.classList.add('portfolio-contribution-hidden');return;}
-   for(const child of node.children){if(node.matches('details')&&child.matches('summary'))continue;visit(child);}
+   for(const child of node.children){if(child.matches('summary, .case-story-heading'))continue;visit(child);}
   }
-  roots.forEach(root=>{visit(root);if(!root.classList.contains('portfolio-contribution-hidden'))root.open=true;});
+  roots.forEach(root=>{
+   visit(root);
+   const accordion=accordionFor(root);
+   if(accordion&&!root.classList.contains('portfolio-contribution-hidden'))accordion.open=true;
+  });
   document.dispatchEvent(new Event('portfolio:contribution-changed'));
   const first=roots.find(root=>!root.classList.contains('portfolio-contribution-hidden'));
   requestAnimationFrame(()=>{first?.scrollIntoView({block:'start',behavior:'instant'});});

@@ -7,7 +7,8 @@
 <meta name="description" content="An explorable steampunk city for The Last Electrician.">
 <link rel="canonical" href="https://sandy.tayts.com/sarabesh-case.html">
 <link rel="stylesheet" href="portfolio-template.css?v=20261123-btn">
-<link rel="stylesheet" href="case-results.css?v=20261123-2">
+<link rel="stylesheet" href="case-results.css?v=20261123-3">
+<script src="case-reading.js?v=1" defer></script>
 </head>
 <body class="portfolio-template project-brief">
 <a class="skip-link" href="#main">Skip to the project</a>
@@ -28,6 +29,20 @@
     <div><dt>Timeline</dt><dd>2026 · Browser prototype</dd></div>
     <div><dt>What I did</dt><dd>I created the original environment artwork and mapped the ten viewpoints and routes that connect them.</dd></div>
   </dl>
+<div class="case-overview">
+<div class="case-reading-switch" role="group" aria-label="Reading view" hidden>
+  <button type="button" data-case-read="brief" aria-pressed="true">TLDR</button>
+  <button type="button" data-case-read="full" aria-pressed="false">The full story</button>
+</div>
+<section class="case-story-step" aria-labelledby="situation-title"><h2 id="situation-title">Situation</h2><p class="case-story-copy">Sarabesh was an illustrated desert city for The Last Electrician.</p></section>
+<section class="case-story-step" aria-labelledby="task-title"><h2 id="task-title">Task</h2><p class="case-story-copy">Make the city feel connected and explorable in the browser.</p></section>
+<section class="case-story-step" aria-labelledby="action-title"><h2 id="action-title">Action</h2><p class="case-story-copy">I created the environment artwork and mapped ten viewpoints and routes, linking them through a chart, first-visit notes and changes in light.</p><div class="case-preview-gallery case-preview-compact">
+<figure><a href="sarabesh/assets/map/town/day.webp" target="_blank" rel="noopener"><img src="sarabesh/assets/map/town/day.webp" alt="" loading="lazy" decoding="async"><span class="case-image-label">Open image: The town panorama in daylight.</span></a><figcaption>The town panorama in daylight.</figcaption></figure>
+<figure><a href="sarabesh/assets/map/town/night.webp" target="_blank" rel="noopener"><img src="sarabesh/assets/map/town/night.webp" alt="" loading="lazy" decoding="async"><span class="case-image-label">Open image: The same location at night.</span></a><figcaption>The same location at night.</figcaption></figure>
+<figure><a href="sarabesh/assets/map/apartment/day-on.webp" target="_blank" rel="noopener"><img src="sarabesh/assets/map/apartment/day-on.webp" alt="" loading="lazy" decoding="async"><span class="case-image-label">Open image: The apartment, with its view back into the city.</span></a><figcaption>The apartment, with its view back into the city.</figcaption></figure>
+</div>
+</section>
+</div>
   <section class="case-result case-result-brief" aria-labelledby="result-title">
     <h2 id="result-title">Result</h2>
     <p>A playable proof of concept with ten panoramic locations, mechanical Dwellers, and lighting that changes with the time of day.</p>
@@ -39,6 +54,14 @@
       <li>Lucidchart</li>
     </ul>
   </section>
+<details class="portfolio-accordion case-gallery-detail" data-case-detail>
+<summary class="case-detail-toggle figure-button"><span class="portfolio-accordion-expand">World geography, navigation and lighting</span><span class="portfolio-accordion-wrap">Show less</span></summary>
+<div class="case-gallery-story">
+<section><h2>Connecting the city</h2><p>I mapped ten viewpoints and nine two-way connections. Doorways and windows show matching parts of the city, so a visitor can recognize where they are going. The linked full-sphere panoramas let people turn in any direction, look into a room, or see the landscape around the landing ground.</p></section>
+<section><h2>A chart that shows what you’ve seen</h2><p>The illustrated chart uses portholes for the viewpoints and curved routes for their connections. Unvisited places appear in shadow. A first visit opens the location’s journal note, which can be reopened from the chart. The visitor can select another porthole to travel or revisit a discovery.</p></section>
+<section><h2>Lighting as part of the same world</h2><p>The city has morning, day, evening and night views. Automatic mode follows the visitor’s clock, and the time dial lets them choose a different light. Indoor lights can be switched independently. Coordinating the views through windows keeps the exterior sky consistent with the room and the street.</p></section>
+</div>
+</details>
 </main>
 </body>
 </html>
