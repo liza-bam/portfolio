@@ -7,7 +7,7 @@
   const where = document.getElementById('where'), hint = document.getElementById('hint'), strip = document.getElementById('illustration-strip');
   const tabs = [...reader.querySelectorAll('[data-mode]')], expand = reader.querySelector('[data-expand]');
   const leaves = new Map();
-  let mode = config.mode || 'illustrations', L = mode === 'full' ? config.firstLeaf ?? 0 : 1, side = 'L', single = false, expanded = false, previousOverflow = '', illustrationPosition = 1, illustrationSide = 'L', selectedArt = 0;
+  let mode = config.mode || 'illustrations', L = mode === 'full' ? (config.withCover ? 0 : config.firstLeaf ?? 0) : 1, side = 'L', single = false, expanded = false, previousOverflow = '', illustrationPosition = 1, illustrationSide = 'L', selectedArt = 0;
   const backdrop = document.createElement('div'); backdrop.className = 'book-backdrop'; backdrop.hidden = true; document.body.append(backdrop);
   const outside = [...document.querySelectorAll('.case-header,.case-intro,.skip')];
   const count = () => mode === 'full' ? config.pages : config.selections.length;
@@ -64,9 +64,9 @@
     const pages = visiblePages(), unit = mode === 'full' ? 'Page' : 'Illustration';
     where.textContent = L === 0 ? 'Cover' : L === N ? 'Back cover' : pages.length > 1 ? `${unit}s ${label(pages[0])}–${label(pages[1])} of ${config.realPages || count()}` : `${unit} ${label(pages[0] || count())} of ${config.realPages || count()}`;
     if(mode === 'illustrations' && !pages.includes(selectedArt+1)) selectedArt = Math.max(0,(pages[0] || 1)-1);
-    scrub.min = mode === 'illustrations' ? 0 : config.firstLeaf ?? 0; scrub.max = mode === 'illustrations' ? count() - 1 : config.lastLeaf ?? N; scrub.value = mode === 'illustrations' ? selectedArt : L;
+    scrub.min = mode === 'illustrations' || config.withCover ? 0 : config.firstLeaf ?? 0; scrub.max = mode === 'illustrations' ? count() - 1 : config.lastLeaf ?? N; scrub.value = mode === 'illustrations' ? selectedArt : L;
     scrub.setAttribute('aria-label', mode === 'illustrations' ? 'Illustration position' : 'Book position');
-    prev.disabled = mode === 'illustrations' ? pages[0] === 1 : L === (config.firstLeaf ?? 0); next.disabled = mode === 'illustrations' ? pages.at(-1) === count() : L === (config.lastLeaf ?? N);
+    prev.disabled = mode === 'illustrations' ? pages[0] === 1 : L === (config.withCover ? 0 : config.firstLeaf ?? 0); next.disabled = mode === 'illustrations' ? pages.at(-1) === count() : L === (config.lastLeaf ?? N);
     hint.textContent = L === 0 ? 'Click the cover to open.' : 'Turn the pages or choose an illustration below.';
     for (const [i, button] of [...strip.children].entries()) {
       const p = mode === 'illustrations' ? i + 1 : config.selections[i].page;
@@ -87,7 +87,8 @@
     view();
   }
   function go(to, requestedSide = 'R') {
-    to = mode === 'illustrations' ? Math.max(1,Math.min(totalLeaves()-1,to)) : Math.max(config.firstLeaf ?? 0, Math.min(config.lastLeaf ?? totalLeaves(), to));
+    to = mode === 'illustrations' ? Math.max(1,Math.min(totalLeaves()-1,to)) : Math.max(config.withCover ? 0 : config.firstLeaf ?? 0, Math.min(config.lastLeaf ?? totalLeaves(), to));
+    if (mode === 'full' && config.withCover && to > 0 && to < config.firstLeaf) to = to > L ? config.firstLeaf : 0;
     const d = to - L;
     if (Math.abs(d) === 1) { leaves.get(d > 0 ? L : to)?.classList.add('turning'); book.classList.remove('jump'); }
     else if (d) book.classList.add('jump');
@@ -173,10 +174,11 @@
   const zoomSrc = i => i === 0 ? config.dir + 'front.webp' : i > config.pages ? config.dir + 'back.webp' : config.dir + 'pages/' + pad(real(i)) + '.webp';
   const zoomLabel = i => i === 0 ? 'Cover' : i > config.pages ? 'Back cover' : `Page ${label(i)} of ${config.realPages || config.pages}`;
   function showZoom(i) {
-    zoomAt = Math.max(config.firstLeaf ? 2 * (config.firstLeaf - 1) : 0, Math.min(config.lastLeaf ? config.pages : config.pages + 1, i));
+    if (config.withCover && i > 0 && i < 2 * (config.firstLeaf - 1)) i = i > zoomAt ? 2 * (config.firstLeaf - 1) : 0;
+    zoomAt = Math.max(config.firstLeaf && !config.withCover ? 2 * (config.firstLeaf - 1) : 0, Math.min(config.lastLeaf ? config.pages : config.pages + 1, i));
     zoom.querySelector('img').src = zoomSrc(zoomAt); zoom.querySelector('img').alt = zoomLabel(zoomAt);
     zoom.querySelector('output').textContent = zoomLabel(zoomAt);
-    zoom.querySelector('[data-zprev]').disabled = zoomAt === (config.firstLeaf ? 2 * (config.firstLeaf - 1) : 0); zoom.querySelector('[data-znext]').disabled = zoomAt === (config.lastLeaf ? config.pages : config.pages + 1);
+    zoom.querySelector('[data-zprev]').disabled = zoomAt === (config.firstLeaf && !config.withCover ? 2 * (config.firstLeaf - 1) : 0); zoom.querySelector('[data-znext]').disabled = zoomAt === (config.lastLeaf ? config.pages : config.pages + 1);
   }
   function makeZoom() {
     if (!zoom) {
