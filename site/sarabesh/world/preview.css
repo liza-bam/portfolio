@@ -334,7 +334,7 @@ body.travelling #loading-veil{opacity:0}
   transition: opacity 0s, visibility 0s;
 }
 body.entered[data-ready="false"]:not([data-travel-phase="error"]) .view-loading {
-  opacity: 1;
+  opacity: .6;
   visibility: visible;
   transition-delay: 650ms;
 }
@@ -372,4 +372,25 @@ body.entered[data-ready=false] #loading-veil { opacity:0; }
   .utility-controls { gap:4px; bottom:max(8px, env(safe-area-inset-bottom)); }
   .utility-controls .brass-medallion { width:38px; height:42px; padding:9px; }
   .utility-controls .brass-medallion svg { width:18px; height:18px; }
+}
+
+/* Let the landed rocket breathe before gently revealing the welcome and journal windows. */
+@media (prefers-reduced-motion: no-preference) {
+  #intro .nameplate {
+    transition: opacity .85s ease-out, transform .85s ease-out;
+  }
+  #place-dialog[open], #help-dialog[open], #map-dialog[open] {
+    animation: sarabesh-window-enter .5s cubic-bezier(.2,.75,.25,1) both;
+  }
+  #place-dialog[open]::backdrop, #help-dialog[open]::backdrop, #map-dialog[open]::backdrop {
+    animation: sarabesh-backdrop-enter .4s ease-out both;
+  }
+  @keyframes sarabesh-window-enter {
+    from { opacity:0; translate:0 10px; }
+    to { opacity:1; translate:0 0; }
+  }
+  @keyframes sarabesh-backdrop-enter {
+    from { opacity:0; }
+    to { opacity:1; }
+  }
 }

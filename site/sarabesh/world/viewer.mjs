@@ -72,8 +72,10 @@ function playArrival() {
   const rocket = $('#arrival-rocket');
   const start = () => {
     if ($('#intro').dataset.phase === 'ready') return;
+    clearTimeout(arrivalTimer);
     $('#intro').classList.add('arrival-playing');
-    arrivalTimer = setTimeout(finishArrival, 4800);
+    // Let the rocket rest for 1.4 seconds after the 4.8-second landing.
+    arrivalTimer = setTimeout(finishArrival, 6200);
   };
   if (rocket.complete) start();
   else { rocket.addEventListener('load', start, {once:true}); rocket.addEventListener('error', finishArrival, {once:true}); arrivalTimer=setTimeout(finishArrival,6500); }
