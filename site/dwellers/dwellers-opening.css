@@ -8,7 +8,7 @@ a:focus-visible{outline:3px solid #ffe0a4;outline-offset:6px}
 .workshop{max-width:1280px;margin:auto;box-shadow:0 0 80px #0004;background:var(--forest)}
 .topbar{height:64px;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-inline:40px;color:var(--muted);font-size:14px;background:var(--deep);border-bottom:1px solid var(--edge)}
 .portfolio-link,.project-close{display:inline-grid;place-items:center;width:44px;height:44px;color:var(--light)}
-.portfolio-link img{display:block;filter:brightness(0) invert(.91) sepia(.2)}
+.portfolio-link img{display:block}
 .project-close svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round}
 .project-close:hover{color:var(--brass)}
 .cover{display:block;background:#1a2818}
