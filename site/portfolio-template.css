@@ -993,13 +993,23 @@ body.portfolio-template .original-study .rc7-card p{margin:0;font:var(--body-wei
 @media(max-width:1000px){.rc7-card,.rc7-card.rc7-wide{grid-column:span 6}}
 @media(max-width:600px){.rc7-card,.rc7-card.rc7-wide{grid-column:1/-1}}
 @media(prefers-reduced-motion:reduce){.rc7-bar i::after{animation:none}.rc7-card{transition:none}}
+/* More visuals: a wide button right under the main picture that opens the extra pictures in place. */
+body.portfolio-template :is(.portfolio-evidence,.source-body):has(+ details.figure-more),body.portfolio-template :is(.portfolio-evidence,.source-body):has(+ details.figure-more) > :last-child{margin-bottom:0}
+body.portfolio-template details.figure-more{margin:var(--space-3) 0 var(--space-8)}
+body.portfolio-template details.figure-more > summary{display:flex;align-items:center;justify-content:center;gap:var(--space-3);width:100%;min-height:52px;margin:0;padding:var(--space-3) var(--space-5);border:1px solid var(--accent);background:var(--surface);color:var(--accent-dark);font:500 var(--type-body)/1.4 var(--font-body);text-align:center;list-style:none;cursor:pointer;transition:background .2s}
+body.portfolio-template details.figure-more > summary::-webkit-details-marker{display:none}
+body.portfolio-template details.figure-more > summary:hover{background:var(--accent-tint)}
+body.portfolio-template details.figure-more > summary > span{flex:none;font-size:22px;line-height:1;color:var(--accent);transition:transform .2s}
+body.portfolio-template details.figure-more[open] > summary{margin-bottom:var(--space-8)}
+body.portfolio-template details.figure-more[open] > summary > span{transform:rotate(45deg)}
+@media(prefers-reduced-motion:reduce){body.portfolio-template details.figure-more > summary,body.portfolio-template details.figure-more > summary > span{transition:none}}
 /* rc7-fill: the cards share each row equally instead of the 12-column spans, so a short set leaves no gap. */
 .rc7.rc7-fill{display:flex;flex-wrap:wrap}
 .rc7.rc7-fill>.rc7-card{flex:1 1 180px;min-width:0}
 
 /* Rancourt: accessibility card */
 body.portfolio-template .original-study .rc-areas{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-body.portfolio-template .original-study .rc-areas li{padding:8px 14px;border-radius:10px;background:var(--accent-tint);color:var(--accent-dark);font:500 var(--type-small)/1.3 var(--font-body)}
+body.portfolio-template .original-study .rc-areas li{margin:0;padding:8px 14px;border-radius:10px;background:var(--accent-tint);color:var(--accent-dark);font:500 var(--type-small)/1.3 var(--font-body)}
 
 .guide-dialog{width:min(820px,calc(100vw - 48px))}
 .guide-dialog .blueprint-dialog-content{padding:var(--space-5)}
@@ -1012,8 +1022,8 @@ body.portfolio-template.tint-rancourt .portfolio-evidence-grid.rc-3 img{width:10
 
 /* Rancourt: eight measure cards, 4 x 2 on larger screens */
 body.portfolio-template .portfolio-card-grid.rc-measures{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:var(--space-6)}
-/* Word values (for example "Automatic") shrink with the card so they always fit. */
-body.portfolio-template .rc-measures .rc-word .metric-n{font-size:min(40px,20cqi)}
+/* Metric values shrink with the card so numbers and words (for example "Automatic") always fit. */
+body.portfolio-template .rc-measures .metric-n{font-size:min(40px,20cqi)}
 @media(max-width:900px){body.portfolio-template .portfolio-card-grid.rc-measures{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* Case studies: straight corners everywhere except pills */
 body.case-study:not(.tint-lazy) *:not(.video-close):not(.portfolio-filter-pill):not(.portfolio-section-link):not(.case-links a):not(.rc7-tags i):not(.li-tag):not(.li-avatar):not(.li-avatar img):not(.case-photo),body.case-study:not(.tint-lazy) *::before,body.case-study:not(.tint-lazy) *::after{border-radius:0!important}
