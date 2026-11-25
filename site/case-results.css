@@ -642,3 +642,8 @@ body.portfolio-template.case-study .original-study .case-stage-text > div > h3:f
     grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   }
 }
+
+/* When the case facts end the opening, the facts band is its last edge: no empty strip under it. */
+body.portfolio-template.case-study .opening.shell:has(> .opening-title.case-header:last-child) {
+  padding-block-end: 0;
+}
