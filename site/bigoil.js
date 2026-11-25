@@ -25,38 +25,44 @@ blueprintDialog.addEventListener('close', () => blueprintTrigger.focus());
 
 
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-// Start each visual only when its drawing area reaches the visible viewport.
-// This is scoped to the current page visit, rather than remembered across visits.
-function animateOnViewport(target,play){
- let started=false;
- target.dataset.viewportState='waiting';
+// Start each visual only when its drawing area reaches the visible viewport, once per page visit.
+// A visual that is scrolled out of view, or scrolled past before it started, shows its finished state
+// with no animation. Replay buttons still play it again on request.
+function animateOnViewport(target,play,finish){
+ let state='waiting';
+ const set=next=>{state=next;target.dataset.viewportState=next;};
+ set('waiting');
  const run=()=>{
-  target.dataset.viewportState='running';
-  Promise.resolve(play()).then(()=>{target.dataset.viewportState='complete';});
+  set('running');
+  Promise.resolve(play()).then(()=>{if(state==='running')set('complete');});
  };
+ const settle=()=>{if(state==='complete'||state==='static')return;set('static');if(finish)finish();};
  const observer=new IntersectionObserver(entries=>{
-  if(started||!entries.some(entry=>entry.isIntersecting))return;
+  const entry=entries[entries.length-1];
   if(target.matches('.bp-scroll,.ecosystem-diagram')&&matchMedia('(max-width:1100px)').matches)return;
-  started=true;observer.disconnect();run();
- },{threshold:.15,rootMargin:'-88px 0px 0px 0px'});
+  if(entry.intersectionRatio>=.15){if(state==='waiting')run();return;}
+  if(entry.isIntersecting||!entry.boundingClientRect.height)return; // hidden (for example in a closed 'see more') waits
+  const scrolledPast=entry.rootBounds&&entry.boundingClientRect.bottom<=entry.rootBounds.top;
+  if(state==='running'||(state==='waiting'&&scrolledPast))settle();
+ },{threshold:[0,.15],rootMargin:'-88px 0px 0px 0px'});
  observer.observe(target);
- return ()=>{started=true;observer.disconnect();run();};
+ return ()=>run();
 }
 
 const completeChartArtwork=new WeakMap();
 document.querySelectorAll('.chart-panel').forEach(panel=>{
  const chart=panel.querySelector('.sales-chart');
  completeChartArtwork.set(chart,chart.cloneNode(true));
- const bars=[...chart.querySelectorAll('.chart-bar')].map((bar,index)=>({bar,label:bar.nextElementSibling,height:+bar.getAttribute('height'),value:+bar.nextElementSibling.textContent,stack:+(bar.dataset.stack||0),stacked:bar.hasAttribute('data-stack'),delay:Math.floor(index/3)*170}));
+ const bars=[...chart.querySelectorAll('.chart-bar')].map((bar,index)=>({bar,label:bar.nextElementSibling,height:+bar.getAttribute('height'),value:+bar.nextElementSibling.textContent,stack:+(bar.dataset.stack||0),stacked:bar.hasAttribute('data-stack'),delay:Math.floor(index/3)*85}));
  let frame;
  function draw(time){bars.forEach(({bar,label,height,value,stack,stacked,delay})=>{
-  const t=Math.max(0,Math.min(1,(time-delay)/3000)),ease=t*t*(3-2*t),h=height*ease,y=330-(height+stack)*ease;
+  const t=Math.max(0,Math.min(1,(time-delay)/1500)),ease=t*t*(3-2*t),h=height*ease,y=330-(height+stack)*ease;
   bar.setAttribute('height',h);bar.setAttribute('y',y);
   label.setAttribute('y',stacked?(height<14?324:Math.min(324,y+h/2+4)):y-10);label.textContent=value;label.style.opacity=t===1?1:0;
  });}
- function play(){cancelAnimationFrame(frame);if(reducedMotion.matches){draw(5000);return;}const start=performance.now();draw(0);return new Promise(resolve=>{function tick(now){draw(now-start);if(now-start<4000)frame=requestAnimationFrame(tick);else resolve();}frame=requestAnimationFrame(tick);});}
+ function play(){cancelAnimationFrame(frame);if(reducedMotion.matches){draw(5000);return;}const start=performance.now();draw(0);return new Promise(resolve=>{function tick(now){draw(now-start);if(now-start<2000)frame=requestAnimationFrame(tick);else resolve();}frame=requestAnimationFrame(tick);});}
  draw(reducedMotion.matches?5000:0);
- animateOnViewport(chart,play);
+ animateOnViewport(chart,play,()=>{cancelAnimationFrame(frame);draw(5000);});
 
  panel.querySelectorAll('.series-control').forEach(button=>button.addEventListener('click',()=>{const selected=button.getAttribute('aria-pressed')!=='true';panel.querySelectorAll('.series-control').forEach(item=>item.setAttribute('aria-pressed',String(item===button&&selected)));bars.forEach(({bar})=>bar.classList.toggle('is-muted',selected&&bar.getAttribute('fill')!==button.dataset.series));}));
 });
@@ -78,7 +84,7 @@ processSvg.before(frozenActors);
 const processSteps = new Map([...processSvg.querySelectorAll('.bp-step[data-step]')].map(el=>[el.dataset.step,el]));
 const processEdges = [...processSvg.querySelectorAll('.bp-connector')];
 let processRun = 0, processAnimations = [], followFrame;
-const STEP_MS = 500, ARROW_MS = 650;
+const STEP_MS = 250, ARROW_MS = 325;
 function followStep(step, duration, run) {
   const box=step.getBBox(), width=processViewport.clientWidth;
   const target=Math.max(0,Math.min(processViewport.scrollWidth-width,box.x+box.width/2-width*.6));
@@ -113,7 +119,7 @@ async function playProcess(){
     await animate(step,[{opacity:0},{opacity:1}],STEP_MS);
     if(run!==processRun)return;
     processBlueprint.querySelectorAll('.bp-pain[data-step="'+id+'"]').forEach(dot=>{
-      const animation=dot.animate([{opacity:0},{opacity:1}],{duration:250,fill:'forwards'});processAnimations.push(animation);
+      const animation=dot.animate([{opacity:0},{opacity:1}],{duration:125,fill:'forwards'});processAnimations.push(animation);
     });
   };
   await reveal(processBlueprint.dataset.start || 'call');
@@ -135,13 +141,14 @@ async function playProcess(){
       if(run===processRun)edge.setAttribute('data-line-complete','');
     }));
     if(run!==processRun)return;
-    await new Promise(resolve=>setTimeout(resolve,90));
+    await new Promise(resolve=>setTimeout(resolve,45));
     if(run!==processRun)return;
     await Promise.all(edges.map(edge=>reveal(edge.dataset.to)));
   }
 }
 if(!reducedMotion.matches)processBlueprint.classList.add('bp-sequenced');
-const replayProcess=animateOnViewport(processViewport,playProcess);
+function finishProcess(){processRun++;processAnimations.forEach(a=>a.cancel());processAnimations=[];cancelAnimationFrame(followFrame);processEdges.forEach(edge=>edge.setAttribute('data-line-complete',''));processBlueprint.classList.remove('bp-sequenced','bp-running');}
+const replayProcess=animateOnViewport(processViewport,playProcess,finishProcess);
 processBlueprint.querySelectorAll('.bp-pain').forEach(button => {
   button.addEventListener('click', () => {
     const open = button.getAttribute('aria-expanded') !== 'true';
@@ -202,7 +209,7 @@ async function playEcosystem(){
   ecosystem.classList.add('eco-ready');infoButtons.forEach(b=>b.hidden=true);
   const animate=async(el,frames,duration,delay=0)=>{
     if(run!==ecoRun)return;
-    const a=el.animate(frames,{duration:duration*1.5,delay:delay*1.5,fill:'forwards',easing:'ease-in-out'});ecoAnimations.push(a);
+    const a=el.animate(frames,{duration:duration*.75,delay:delay*.75,fill:'forwards',easing:'ease-in-out'});ecoAnimations.push(a);
     try{await a.finished;}catch{}
   };
   const fade=(selector,duration,stagger=0)=>Promise.all([...ecosystem.querySelectorAll(selector)].map((el,i)=>animate(el,[{opacity:0},{opacity:1}],duration,i*stagger)));
@@ -219,7 +226,8 @@ async function playEcosystem(){
   if(run===ecoRun)ecosystem.classList.add('eco-finished');
 }
 if(!reducedMotion.matches){ecosystem.classList.add('eco-ready');infoButtons.forEach(b=>b.hidden=true);}
-const replayEcosystem=animateOnViewport(ecosystem,playEcosystem);
+function finishEcosystem(){ecoRun++;ecoAnimations.forEach(a=>a.cancel());ecoAnimations=[];ecosystem.classList.remove('eco-ready');infoButtons.forEach(b=>b.hidden=false);ecosystem.classList.add('eco-finished');}
+const replayEcosystem=animateOnViewport(ecosystem,playEcosystem,finishEcosystem);
 ecosystemFigure.querySelector('.ecosystem-replay').addEventListener('click',replayEcosystem);
 function showProfileTip(button){
   const data=profileDescriptions.get(button.dataset.profile);
