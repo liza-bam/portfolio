@@ -993,6 +993,12 @@ body.portfolio-template .original-study .rc7-card p{margin:0;font:var(--body-wei
 @media(max-width:1000px){.rc7-card,.rc7-card.rc7-wide{grid-column:span 6}}
 @media(max-width:600px){.rc7-card,.rc7-card.rc7-wide{grid-column:1/-1}}
 @media(prefers-reduced-motion:reduce){.rc7-bar i::after{animation:none}.rc7-card{transition:none}}
+/* Platforms and tools: logos sit in the case facts as a third column, in the page's secondary colour. */
+body.portfolio-template .opening .case-facts .case-tool-logos{margin:0;color:var(--text-secondary)}
+/* A case header with links and no contribution block needs no empty rows; when it ends the opening, no extra space under it. */
+body.portfolio-template .opening-title.case-header.has-links:not(:has(.case-did)){grid-template-areas:"title video" "links video" "facts facts"}
+@media(max-width:900px){body.portfolio-template .opening-title.case-header.has-links:not(:has(.case-did)){grid-template-areas:"title" "links" "video" "facts"}}
+body.portfolio-template .opening > .opening-title.case-header:last-child{margin-bottom:0}
 /* More visuals: a wide button right under the main picture that opens the extra pictures in place. */
 body.portfolio-template :is(.portfolio-evidence,.source-body):has(+ details.figure-more),body.portfolio-template :is(.portfolio-evidence,.source-body):has(+ details.figure-more) > :last-child{margin-bottom:0}
 body.portfolio-template details.figure-more{margin:var(--space-3) 0 var(--space-8)}

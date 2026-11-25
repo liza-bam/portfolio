@@ -84,7 +84,8 @@ processSvg.before(frozenActors);
 const processSteps = new Map([...processSvg.querySelectorAll('.bp-step[data-step]')].map(el=>[el.dataset.step,el]));
 const processEdges = [...processSvg.querySelectorAll('.bp-connector')];
 let processRun = 0, processAnimations = [], followFrame;
-const STEP_MS = 250, ARROW_MS = 325;
+const pace = Number(processBlueprint.dataset.pace) || 1; // data-pace="2" plays a long diagram twice as fast
+const STEP_MS = 250 / pace, ARROW_MS = 325 / pace;
 function followStep(step, duration, run) {
   const box=step.getBBox(), width=processViewport.clientWidth;
   const target=Math.max(0,Math.min(processViewport.scrollWidth-width,box.x+box.width/2-width*.6));
@@ -119,7 +120,7 @@ async function playProcess(){
     await animate(step,[{opacity:0},{opacity:1}],STEP_MS);
     if(run!==processRun)return;
     processBlueprint.querySelectorAll('.bp-pain[data-step="'+id+'"]').forEach(dot=>{
-      const animation=dot.animate([{opacity:0},{opacity:1}],{duration:125,fill:'forwards'});processAnimations.push(animation);
+      const animation=dot.animate([{opacity:0},{opacity:1}],{duration:125/pace,fill:'forwards'});processAnimations.push(animation);
     });
   };
   await reveal(processBlueprint.dataset.start || 'call');
@@ -141,7 +142,7 @@ async function playProcess(){
       if(run===processRun)edge.setAttribute('data-line-complete','');
     }));
     if(run!==processRun)return;
-    await new Promise(resolve=>setTimeout(resolve,45));
+    await new Promise(resolve=>setTimeout(resolve,45/pace));
     if(run!==processRun)return;
     await Promise.all(edges.map(edge=>reveal(edge.dataset.to)));
   }
