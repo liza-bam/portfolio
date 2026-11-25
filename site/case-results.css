@@ -118,7 +118,6 @@ body.portfolio-template .case-header > .case-title {
 
 body.portfolio-template .case-header > .case-title h1 {
   margin: 0;
-  max-width: 14ch;
 }
 
 body.portfolio-template .case-header .project-subtitle {
@@ -131,7 +130,7 @@ body.portfolio-template.case-study.tint-lazy {
 
 body.portfolio-template.case-study .case-header p.project-subtitle {
   color: var(--case-heading-ink, var(--text-primary));
-  font-weight: 600;
+  font-weight: var(--body-weight, 400);
 }
 
 .case-header .case-context,
@@ -648,13 +647,13 @@ body.portfolio-template.case-study .original-study .case-stage-text > div > h3:f
   }
 }
 
-/* When the case facts end the opening, the facts band is its last edge: no empty strip under it. */
+/* The opening ends one standard gap below the header, then the summary band starts. */
 body.portfolio-template.case-study .opening.shell:has(> .opening-title.case-header:last-child) {
-  padding-block-end: 0;
+  padding-block-end: var(--space-10);
 }
 
-/* Case summary: continues the case facts band. Problem, My role and Result line up with the three
-   fact columns, with the same dividers; the before-and-after comparisons sit underneath.
+/* Case summary: a band under the opening. Problem, My role and Result in three columns with
+   dividers; the before-and-after comparisons sit underneath.
    One column up to 1100px. */
 body.portfolio-template.case-study .original-study > .case-story-step.case-summary {
   border-top: 0;
@@ -797,4 +796,24 @@ body.portfolio-template.case-study .metric-compare > figcaption {
   .metric-compare-grid.cols-3 {
     grid-template-columns: minmax(0, 1fr);
   }
+}
+
+/* Case header: the title runs the full width; the subtitle, context and facts sit on the left; the video with its links on the right. */
+body.portfolio-template .opening-title.case-header.has-links:has(> .case-title) {
+  grid-template-areas: none;
+  grid-template-rows: auto auto auto auto 1fr;
+  row-gap: 0;
+}
+body.portfolio-template .case-header.has-links > .case-title { display: contents; }
+body.portfolio-template .case-header.has-links:has(> .case-title) > .case-title > h1 { grid-column: 1 / -1; grid-row: 1; margin: 0 0 var(--space-8); }
+body.portfolio-template .case-header.has-links:has(> .case-title) > .case-title > :not(h1),
+body.portfolio-template .case-header.has-links:has(> .case-title) > .case-facts { grid-column: 1; grid-row: auto; align-self: start; margin: 0 0 var(--space-6); }
+body.portfolio-template .case-header.has-links:has(> .case-title) > .case-facts { margin-bottom: 0; }
+body.portfolio-template .case-header > .case-media { grid-column: 2; grid-row: 2 / -1; display: grid; gap: var(--space-4); align-content: start; justify-items: start; }
+body.portfolio-template .case-header > .case-media > * { grid-area: auto; }
+body.portfolio-template .case-header > .case-media > .video-open { width: 100%; }
+@media (max-width: 900px) {
+  body.portfolio-template .opening-title.case-header.has-links:has(> .case-title) { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+  body.portfolio-template .case-header.has-links:has(> .case-title) > .case-title > h1 { margin-bottom: var(--space-6); }
+  body.portfolio-template .case-header > .case-media { grid-column: 1; grid-row: auto; order: 1; margin-top: var(--space-6); }
 }
