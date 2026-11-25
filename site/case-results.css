@@ -13,9 +13,14 @@
   max-width: 72ch;
 }
 
+/* Metric cards: one quiet border, no shadow or top bar; content starts at the left edge of every card. */
 body.portfolio-template.case-study .case-result-metrics > :is(.baseline-metric, .rc7-card) {
-  border-top: 3px solid var(--accent);
-  box-shadow: 0 4px 14px #172b3614;
+  border: 1px solid var(--border-subtle);
+  box-shadow: none;
+}
+
+body.portfolio-template.case-study .case-result-metrics > .baseline-metric {
+  justify-content: start;
 }
 
 body.portfolio-template.case-study .opening > .case-header-results {
@@ -646,4 +651,70 @@ body.portfolio-template.case-study .original-study .case-stage-text > div > h3:f
 /* When the case facts end the opening, the facts band is its last edge: no empty strip under it. */
 body.portfolio-template.case-study .opening.shell:has(> .opening-title.case-header:last-child) {
   padding-block-end: 0;
+}
+
+/* Case summary: one card in the page colour. Problem, My role and Result in three columns with
+   dividers, the key numbers below them in white cards. One column up to 1100px. */
+.case-summary {
+  --text-primary: #fff;
+  --text-secondary: color-mix(in srgb, #fff 85%, var(--accent));
+  padding: var(--space-10);
+  background: var(--accent);
+  color: #fff;
+}
+
+.case-summary-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-8);
+}
+
+body.portfolio-template.case-study .original-study .case-summary :is(h3, p, strong) {
+  color: #fff;
+}
+
+body.portfolio-template.case-study .original-study .case-summary-cols h3 {
+  margin: 0 0 var(--space-3);
+}
+
+body.portfolio-template.case-study .original-study .case-summary-cols p {
+  margin: 0;
+}
+
+.case-summary .case-result-metrics {
+  --text-primary: #223640;
+  --text-secondary: color-mix(in srgb, var(--accent-text) 90%, #223640);
+  margin: var(--space-10) 0 0;
+}
+
+body.portfolio-template.case-study .case-summary .case-result-metrics > .baseline-metric {
+  border-color: transparent;
+  background: #fff;
+}
+
+@media (min-width: 1101px) {
+  .case-summary-cols {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .case-summary-cols > div {
+    padding-inline: var(--space-8);
+    border-left: 1px solid color-mix(in srgb, #fff 35%, transparent);
+  }
+
+  .case-summary-cols > div:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .case-summary-cols > div:last-child {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .case-summary {
+    padding: var(--space-6) var(--space-5);
+  }
 }
