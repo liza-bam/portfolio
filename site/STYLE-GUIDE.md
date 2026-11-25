@@ -34,7 +34,7 @@ UI card headings are a named component style, independent of their semantic head
 
 ## Areas and components
 
-- Case-study header (`.case-header`): two-column grid on desktop — H1 (max 14ch) beside the video story button (`.video-open`, 16:9 poster, play badge, label) — then `.case-facts` (Role / Scope / Timeline as a 3-column definition list with teal left rules), `.case-did` (uppercase label + contribution pills), platform logos. Single column below 900px; facts stack below 700px.
+- Case-study header (`.case-header`): two columns from 1000px, one column below. Left: H1 (case title token, no width limit), subtitle and optional context with the section-header rhythm (16 px under the title, 24 px between paragraphs, 32 px under the group), then `.case-facts` as a list of "Label: value" lines (label semibold, value body text, one color) with the shared list rhythm (`--list-item-gap`, `--list-line-height`); no card, band, dividers or logos. Right: `.case-media` with the video story button (`.video-open`, standard 426 × 240 poster plus label) and `.case-links` under it (small pills in the page accent). On phones the video fills the width.
 - Video story: `.video-dialog` reuses the blueprint dialog shell; `<video controls>` pauses on close. Assets live in `assets/bigoil/bp-case-study.mp4` and `-poster.jpg`.
 - Section header: `.portfolio-section-header`; title and subtitle stacked, 16 px gap, 32 px below.
 - Subheader: `.portfolio-subheader`; 40 px above, 16 px below.

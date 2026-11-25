@@ -808,14 +808,16 @@ body.portfolio-template .opening-title.case-header.has-links:has(> .case-title) 
   row-gap: 0;
 }
 body.portfolio-template .case-header.has-links > .case-title { display: contents; }
-body.portfolio-template .case-header.has-links:has(> .case-title) > .case-title > h1 { grid-column: 1; grid-row: auto; margin: 0 0 var(--space-3); }
+body.portfolio-template .case-header.has-links:has(> .case-title) > .case-title > h1 { grid-column: 1; grid-row: auto; margin: 0 0 var(--space-4); }
 body.portfolio-template .case-header.has-links:has(> .case-title) > .case-title > :not(h1),
 body.portfolio-template .case-header.has-links:has(> .case-title) > .case-facts { grid-column: 1; grid-row: auto; align-self: start; margin: 0 0 var(--space-6); }
+/* Section-header rhythm: 32px under the title group. */
+body.portfolio-template .case-header.has-links:has(> .case-title) > .case-title > :not(h1):last-child { margin-bottom: var(--space-8); }
 body.portfolio-template .case-header.has-links:has(> .case-title) > .case-facts { margin-bottom: 0; }
-/* Facts: one line each, "Label: value", one under another; no card, no band, no dividers, no logos. */
-body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-facts { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); margin-inline: 0; padding: 0; background: none; border: 0; }
+/* Facts: a list, one "Label: value" line each, with the shared list rhythm (--list-item-gap, --list-line-height); no card, band, dividers or logos. */
+body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-facts { grid-template-columns: minmax(0, 1fr); gap: var(--list-item-gap, 4px); margin-inline: 0; padding: 0; background: none; border: 0; }
 body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-facts > div { display: block; padding: 0; border: 0; }
-body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-facts :is(dt, dd) { display: inline; margin: 0; font: var(--body-weight, 400) var(--type-body)/1.6 var(--font-body); letter-spacing: 0; text-transform: none; color: var(--text-primary); }
+body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-facts :is(dt, dd) { display: inline; margin: 0; font: var(--body-weight, 400) var(--type-body)/var(--list-line-height, 1.5) var(--font-body); letter-spacing: 0; text-transform: none; color: var(--text-primary); }
 body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-facts dt { font-weight: 600; }
 body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-facts dt::after { content: ": "; }
 body.portfolio-template .case-header > .case-media { grid-column: 2; grid-row: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-4); align-content: start; justify-items: start; }
