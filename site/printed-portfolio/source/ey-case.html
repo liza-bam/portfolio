@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>EY Digital Hub · Sandy Tayts</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  @page { size: 11in 8.5in; margin: 0; }
+  :root {
+    --ink: #223640; --muted: #5d6b72; --panel: #f7fafb; --line: #dce4e7;
+    --teal: #2c6e7e; --sub: #08778d; --tint: #e3eef1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font: 400 10.5pt/1.45 Inter, sans-serif; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  h1, h2, h3 { font-family: "Inter Tight", sans-serif; font-weight: 600; letter-spacing: -0.02em; text-wrap: balance; }
+
+  .page { width: 11in; height: 8.5in; padding: 0.38in 0.5in 0.3in; display: flex; flex-direction: column; gap: 0.15in; page-break-after: always; overflow: hidden; position: relative; }
+  .page:last-child { page-break-after: auto; }
+  .foot { margin-top: auto; display: flex; justify-content: space-between; font-size: 8pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 6pt; }
+
+  /* Header */
+  .head { display: grid; grid-template-columns: 1fr 3.1in; gap: 0.4in; align-items: end; }
+  h1 { font-size: 30pt; line-height: 1.02; letter-spacing: -0.035em; }
+  .hook { margin-top: 8pt; font-size: 12.5pt; line-height: 1.45; color: var(--sub); max-width: 6.2in; }
+  .facts { display: grid; gap: 7pt; }
+  .facts div { border-left: 2px solid var(--teal); padding-left: 8pt; }
+  .facts dt { font-size: 8.5pt; color: var(--muted); font-style: italic; }
+  .facts dd { font-weight: 500; }
+
+  /* TL;DR */
+  .tldr { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 9pt 14pt; display: grid; grid-template-columns: 0.55in repeat(2, 1fr); gap: 10pt 14pt; }
+  .tldr > h2 { font-size: 12pt; color: var(--teal); }
+  .tldr h3, .stage-text h3 { font: italic 400 8.5pt/1.4 Inter, sans-serif; color: var(--muted); letter-spacing: 0; margin-bottom: 2pt; }
+  .tldr-result { grid-column: 2 / -1; border-top: 1px solid var(--line); padding-top: 6pt; }
+  /* One metric style everywhere: red before, teal after */
+  .nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14pt; }
+  .nums div { border-left: 2px solid currentColor; padding-left: 8pt; }
+  .nums b { display: block; font: 600 18pt/1.1 "Inter Tight", sans-serif; }
+  .nums span { display: block; font-size: 8.5pt; color: var(--muted); }
+  .nums.after { color: var(--teal); }
+  .tldr-result-text { margin-bottom: 6pt; }
+  .tldr strong { font-weight: 600; }
+  .nums.three { grid-template-columns: repeat(3, 1fr); gap: 10pt 14pt; }
+  .nums.before-nums { color: #bb3446; grid-column: 1 / -1; margin: 0 calc(14pt + 1px) 0 calc(14pt + 1px + 0.55in + 14pt); }
+
+  /* Before */
+  .before { display: grid; grid-template-columns: 3.9in 1fr; gap: 12pt 0.3in; align-items: start; }
+  .before h2 { font-size: 17pt; margin-bottom: 6pt; }
+  .result h2 { font-size: 17pt; margin-bottom: 6pt; }
+
+  /* Stages */
+  .stage { display: flex; flex-direction: column; gap: 6pt; }
+  .stage-head { display: flex; align-items: baseline; gap: 10pt; }
+  .stage-head .n { font: 600 22pt/1 "Inter Tight", sans-serif; color: var(--teal); }
+  .stage-head h2 { font-size: 16pt; }
+  .stage-text { display: grid; grid-template-columns: 1fr 1.5fr 1fr; gap: 16pt; }
+  .stage.side { display: grid; grid-template-columns: 3.6in 1fr; gap: 0.3in; align-items: start; }
+  .stage.side .stage-text { grid-template-columns: 1fr; gap: 6pt; }
+  .stage.side .col { display: flex; flex-direction: column; gap: 6pt; }
+  .bridge { font-style: italic; color: var(--sub); border-left: 2px solid var(--tint); padding-left: 8pt; }
+
+  figure { margin: 0; }
+  figure img { display: block; width: 100%; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+  figcaption { font-size: 8pt; color: var(--muted); margin-top: 3pt; }
+  .divider { border: 0; border-top: 1px solid var(--line); }
+
+  /* Result */
+  .result { display: grid; grid-template-columns: 1fr 4.4in; gap: 0.35in; align-items: start; }
+  .result .lead { font-size: 11pt; color: var(--sub); margin-bottom: 12pt; }
+  .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14pt 16pt; }
+  .metrics div { border-left: 2px solid var(--teal); padding-left: 8pt; }
+  .metrics b { display: block; font: 600 20pt/1.1 "Inter Tight", sans-serif; color: var(--teal); }
+  .metrics span { font-size: 8.5pt; color: var(--muted); }
+
+  .page.tight { gap: 0.14in; }
+  .stage.side.wide { grid-template-columns: 5.85in 1fr; }
+  .stage.side.s4 { grid-template-columns: 4.1in 1fr; }
+  .stage.side.s4 .stage-text { grid-template-columns: 1fr; gap: 8pt; }
+  .result { grid-template-columns: 1fr 4.1in; }
+  .result h2 { font-size: 15pt; margin-bottom: 2pt; }
+  .result .lead { font-size: 10pt; margin-bottom: 8pt; }
+  .metrics { grid-template-columns: repeat(3, 1fr); gap: 8pt 14pt; }
+  .metrics b { font-size: 15pt; }
+  .consult { margin-top: 6pt; font-style: italic; color: var(--muted); }
+  .before.ey { grid-template-columns: 3.9in 1fr; }
+  .nums.before-nums.ey-pains { margin-left: calc(14pt + 1px + 0.55in + 14pt); }
+  .nums.before-nums b, .nums.after b { white-space: nowrap; }
+  .result.ey { grid-template-columns: 1fr 4.4in; }
+  .targets-label { font: italic 400 8.5pt/1.4 Inter, sans-serif; color: var(--muted); margin: 10pt 0 4pt; }
+  .ticket-bars { display: grid; grid-template-columns: 1fr 1fr; gap: 18pt; border: 1px solid var(--line); border-radius: 6px; padding: 8pt 12pt; }
+  .bars h3 { font: italic 400 8.5pt/1.4 Inter, sans-serif; color: var(--muted); letter-spacing: 0; margin-bottom: 4pt; }
+  .bar { display: grid; grid-template-columns: 1.15in 1fr 0.32in; align-items: center; gap: 6pt; font-size: 8.5pt; line-height: 1.32; }
+  .bar i { display: block; height: 7pt; width: var(--w); background: #bb3446; opacity: .75; border-radius: 1px; }
+  .bar b { font-weight: 600; text-align: right; }
+  .bars p { font-size: 8pt; color: var(--muted); margin-top: 4pt; }
+  .stage.side.tall { grid-template-columns: 2.5in 1fr; }
+  .nums.one { grid-template-columns: 1fr; margin-top: 10pt; }
+  .nums.one b { font-size: 26pt; }
+  .nums.hero { margin: 10pt 0 12pt; }
+  .promo { margin-top: 8pt; font-weight: 500; }
+  .nums.hero b { font-size: 17pt; }
+  .nums.two { grid-template-columns: repeat(2, 1fr); gap: 12pt 14pt; }
+  .result.ey { grid-template-columns: 1fr 5in; }
+</style>
+
+<body>
+
+<section class="page">
+  <header class="head">
+    <div>
+      <h1>EY Digital Hub</h1>
+      <p class="hook">A 2019 proposal for EY: employee IT support that solves problems before people notice them.</p>
+      <p class="consult">In consulting, the solution is designed before the contract is signed: the client chooses the team by its design.</p>
+    </div>
+    <dl class="facts">
+      <div><dt>Team</dt><dd>Seven-person Digital Hub team on Wipro's proposal for EY</dd></div>
+      <div><dt>Timeline</dt><dd>2019–2020</dd></div>
+    </dl>
+  </header>
+
+  <section class="tldr">
+    <h2>TL;DR</h2>
+    <div><h3>Problem</h3><p>EY employees work on tight client deadlines, but one IT issue meant 3+ support channels, 30%+ of cases were lost when passed between teams, requests had no status, and employees went through the same verification steps again and again.</p></div>
+    <div><h3>My role</h3><p>As <strong>UX and service designer</strong> on Wipro's proposal team, I designed Digital Hub, aligned Wipro's Automation, ServiceNow and Genesys teams around it, and led a team of 7 through the 10 key journeys.</p></div>
+    <div class="tldr-result"><h3>Result</h3>
+      <p class="tldr-result-text">Digital Hub reached the final round of the bid, where the other team won. The client saw it as the strongest part of our proposal; it became the core of 50+ later Wipro bids and the basis of the award-winning Connected Employee.</p>
+      <div class="nums after">
+        <div><b>1 app</b><span>for every issue</span></div>
+        <div><b>Live status</b><span>on every request</span></div>
+        <div><b>6 of 6</b><span>top causes covered by proactive or self-help journeys</span></div>
+        <div><b>Automatic</b><span>laptop refresh; peripherals without a ticket</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="before ey">
+    <div>
+      <h2>Before</h2>
+      <p>EY's auditors and consultants work on client deadlines, travel a lot and have busy seasons. To fix one IT issue, they had to follow it across several support channels. Cases were lost when passed between teams, requests had no status, and password resets alone made up a third of all tickets.</p>
+    </div>
+    <figure class="ticket-bars">
+      <div class="bars"><h3>Most common issues</h3><div class="bar"><span>Password reset</span><i style="--w:100%"></i><b>32%</b></div><div class="bar"><span>Meeting support</span><i style="--w:34%"></i><b>11%</b></div><div class="bar"><span>VPN access</span><i style="--w:28%"></i><b>9%</b></div><div class="bar"><span>Teams issues</span><i style="--w:25%"></i><b>8%</b></div><div class="bar"><span>Software installation</span><i style="--w:25%"></i><b>8%</b></div><div class="bar"><span>Lost device</span><i style="--w:25%"></i><b>8%</b></div><p>Share of issue tickets.</p></div>
+      <div class="bars"><h3>Most common requests</h3><div class="bar"><span>Hardware refresh</span><i style="--w:100%"></i><b>20%</b></div><div class="bar"><span>Peripherals</span><i style="--w:90%"></i><b>18%</b></div><div class="bar"><span>Software</span><i style="--w:55%"></i><b>11%</b></div><div class="bar"><span>Web app access</span><i style="--w:45%"></i><b>9%</b></div><p>Share of request tickets.</p></div>
+    </figure>
+    <div class="nums before-nums ey-pains">
+      <div><b>3+</b><span>channels per issue</span></div>
+      <div><b>30%+</b><span>cases lost between teams</span></div>
+      <div><b>76%</b><span>of issue tickets came from just six causes</span></div>
+      <div><b>38%</b><span>of requests were laptops and peripherals</span></div>
+    </div>
+  </section>
+
+  <footer class="foot"><span>Sandy Tayts · UX and Service Designer</span><span>https://sandy.tayts.com</span></footer>
+</section>
+
+<section class="page">
+  <section class="stage side">
+    <figure>
+      <img src="ey-img/teams.png" alt="Solution and teams">
+      <figcaption>Solution and teams: Digital Hub and the teams behind it.</figcaption>
+    </figure>
+    <div class="col">
+      <div class="stage-head"><span class="n">1</span><h2>Aligning cross-functional teams around one service</h2></div>
+      <div class="stage-text">
+        <div><h3>Problem</h3><p>EY sent the RFP to Wipro's ServiceNow team. Digital Hub was invited into the proposal to build a small app, and the vendors and tools were fixed from the start.</p></div>
+        <div><h3>What I did</h3><p>Digital Hub was everything employees would see, so it became the center of the proposal. I aligned Wipro's Automation, ServiceNow and Genesys teams on how each platform would work for employees and checked whether each of the 10 journeys was possible. I drew as-is diagrams from the little information we had and to-be functional diagrams for each platform, and shaped everyone around a design-first approach.</p></div>
+        <div><h3>Challenge</h3><p>Tools were chosen before design started, as is usual in large consulting. The Avaamo bot was expensive where a cheaper Microsoft-based bot could have done the job, so the design had to work with what we had.</p></div>
+      </div>
+      <p class="bridge">With roles agreed, the journeys had to be designed in detail.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="stage side tall">
+    <figure>
+      <img src="ey-img/tiers.png" alt="Support tiers, automated and manual paths">
+      <figcaption>Support paths, step by step and platform by platform.</figcaption>
+    </figure>
+    <div class="col">
+      <div class="stage-head"><span class="n">2</span><h2>Ten journeys, from platforms to people</h2></div>
+      <div class="stage-text">
+        <div><h3>Problem</h3><p>EY's discovery named 10 journeys that would decide the helpdesk's success.</p></div>
+        <div><h3>What I did</h3><p>I led a team of 7 (another designer, 4 business analysts and an architect) through full discovery: stakeholder workshops, interviews, 30+ surveys and a review of past incidents. We built complete profiles for every employee segment, from their work and their day to where Digital Hub fits, worked out the tooling for each journey, and mapped every journey in swimlane diagrams between platforms and employees. Then I combined the journeys into day-in-the-life stories and showed one as a narrated video.</p></div>
+        <div><h3>Challenge</h3><p>One employee goes through several journeys in a single working day, so we had to show how the journeys connect, not just each one alone.</p></div>
+      </div>
+      <p class="bridge">Ten journeys meant many screens, so I looked for what repeated.</p>
+    </div>
+  </section>
+  <footer class="foot"><span>Sandy Tayts · EY Digital Hub</span><span>2</span></footer>
+</section>
+
+<section class="page">
+  <section class="stage side">
+    <figure>
+      <img src="ey-img/app-map.png" alt="Application map">
+      <figcaption>Application map: every screen in one place.</figcaption>
+    </figure>
+    <div class="col">
+      <div class="stage-head"><span class="n">3</span><h2>Wireframes built from modules</h2></div>
+      <div class="stage-text">
+        <div><h3>Problem</h3><p>Designed one by one, ten journeys would mean ten different sets of screens and ten times the development.</p></div>
+        <div><h3>What I did</h3><p>Split all journeys into modules where functionality repeats. Losing a laptop and ordering a new one follow the same path once the order starts. Fewer screens to build, and the same screens everywhere, so employees learn the app once and it stays consistent and predictable. I wireframed all 10 journeys from these modules and tested them with focus groups from each employee segment.</p></div>
+        <div><h3>Challenge</h3><p>Each stage had to win a client demo before the bid moved to the next round.</p></div>
+      </div>
+      <p class="bridge">From the start, the goal was for employees to need support as little as possible.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="stage side">
+    <figure>
+      <img src="ey-img/sentiment.png" alt="Sentiment data flow">
+      <figcaption>Sentiment data flow: support data comes back to make the service more personal and automatic.</figcaption>
+    </figure>
+    <div class="col">
+      <div class="stage-head"><span class="n">4</span><h2>Support that acts first</h2></div>
+      <div class="stage-text">
+        <div><h3>Problem</h3><p>Most IT problems are predictable, yet employees still had to stop work and report them.</p></div>
+        <div><h3>What I did</h3><p>Designed the service so most problems are solved before anyone notices, and wrote proactive scenarios for the AI bot with the Automation team. A broken TV in a meeting room: the app offers another room before anyone asks. An old laptop: replacement starts on its own. A bug after an update: the fix goes out to every machine before people run into it. Requests go to self-service, issues go to the bot, and only what's left becomes a ticket for a person.</p></div>
+        <div><h3>Challenge</h3><p>Every proactive behavior had to be written as a separate bot scenario together with the Automation team.</p></div>
+      </div>
+    </div>
+  </section>
+  <footer class="foot"><span>Sandy Tayts · EY Digital Hub</span><span>3</span></footer>
+</section>
+
+<section class="page">
+  <section class="result ey">
+    <div>
+      <h2>Result</h2>
+      <p class="lead">We lost the bid, but the client saw Digital Hub as the strongest part of our proposal. It became our team's core product, and more than 50 bids were built on it. The same principle became Connected Employee, an HR product built mainly by our team in London, which won the GCG Team Award for Best Consulting Asset Solution.</p>
+      <p class="promo">Digital Hub was mainly my work. After it, I was promoted from Principal Consultant to Managing Consultant (Associate Partner).</p>
+      <div class="nums after two hero"><div><b>50+</b><span>bids built on Digital Hub</span></div><div><b>GCG Team Award</b><span>Best Consulting Asset Solution, for Connected Employee</span></div></div>
+      <p>Delivered: research, platform and swimlane diagrams, day-in-the-life stories, 10 wireframed journeys tested with employees, the module system and a five-year plan.</p>
+      <p class="targets-label" style="margin-top:14pt">Designed</p>
+      <div class="nums after two">
+        <div><b>1 app</b><span>for every issue, from 3+ channels</span></div>
+        <div><b>Live status</b><span>on every request, from 30%+ cases lost between teams</span></div>
+        <div><b>6 of 6</b><span>top causes covered by proactive or self-help journeys, from 76% of issue tickets</span></div>
+        <div><b>Automatic</b><span>laptop refresh; peripherals without a ticket, from 38% of requests</span></div>
+      </div>
+    </div>
+    <figure>
+      <img src="ey-img/wireframes.png" alt="Medium-fidelity wireframes">
+      <figcaption>Wireframes, one set per journey, tested with every segment.</figcaption>
+    </figure>
+  </section>
+  <footer class="foot"><span>Sandy Tayts · EY Digital Hub</span><span>4</span></footer>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sales modernization at BP · Sandy Tayts</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  @page { size: 11in 8.5in; margin: 0; }
+  :root {
+    --ink: #223640; --muted: #5d6b72; --panel: #f7fafb; --line: #dce4e7;
+    --teal: #2c6e7e; --sub: #08778d; --tint: #e3eef1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font: 400 10.5pt/1.45 Inter, sans-serif; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  h1, h2, h3 { font-family: "Inter Tight", sans-serif; font-weight: 600; letter-spacing: -0.02em; text-wrap: balance; }
+
+  .page { width: 11in; height: 8.5in; padding: 0.38in 0.5in 0.3in; display: flex; flex-direction: column; gap: 0.15in; page-break-after: always; overflow: hidden; position: relative; }
+  .page:last-child { page-break-after: auto; }
+  .foot { margin-top: auto; display: flex; justify-content: space-between; font-size: 8pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 6pt; }
+
+  /* Header */
+  .head { display: grid; grid-template-columns: 1fr 3.1in; gap: 0.4in; align-items: end; }
+  h1 { font-size: 30pt; line-height: 1.02; letter-spacing: -0.035em; }
+  .hook { margin-top: 8pt; font-size: 12.5pt; line-height: 1.45; color: var(--sub); max-width: 6.2in; }
+  .facts { display: grid; gap: 7pt; }
+  .facts div { border-left: 2px solid var(--teal); padding-left: 8pt; }
+  .facts dt { font-size: 8.5pt; color: var(--muted); font-style: italic; }
+  .facts dd { font-weight: 500; }
+
+  /* TL;DR */
+  .tldr { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 12pt 14pt; display: grid; grid-template-columns: 0.55in repeat(2, 1fr); gap: 10pt 14pt; }
+  .tldr > h2 { font-size: 12pt; color: var(--teal); }
+  .tldr h3, .stage-text h3 { font: italic 400 8.5pt/1.4 Inter, sans-serif; color: var(--muted); letter-spacing: 0; margin-bottom: 2pt; }
+  .tldr-result { grid-column: 2 / -1; border-top: 1px solid var(--line); padding-top: 8pt; }
+  /* One metric style everywhere: red before, teal after */
+  .nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14pt; }
+  .nums div { border-left: 2px solid currentColor; padding-left: 8pt; }
+  .nums b { display: block; font: 600 18pt/1.1 "Inter Tight", sans-serif; }
+  .nums span { display: block; font-size: 8.5pt; color: var(--muted); }
+  .nums.after { color: var(--teal); }
+  .tldr-result-text { margin-bottom: 8pt; }
+  .tldr strong { font-weight: 600; }
+  .nums.three { grid-template-columns: repeat(3, 1fr); gap: 10pt 14pt; }
+  .nums.before-nums { color: #bb3446; grid-column: 1 / -1; margin: 0 calc(14pt + 1px) 0 calc(14pt + 1px + 0.55in + 14pt); }
+
+  /* Before */
+  .before { display: grid; grid-template-columns: 3.9in 1fr; gap: 12pt 0.3in; align-items: start; }
+  .before h2 { font-size: 17pt; margin-bottom: 6pt; }
+  .result h2 { font-size: 17pt; margin-bottom: 6pt; }
+
+  /* Stages */
+  .stage { display: flex; flex-direction: column; gap: 6pt; }
+  .stage-head { display: flex; align-items: baseline; gap: 10pt; }
+  .stage-head .n { font: 600 22pt/1 "Inter Tight", sans-serif; color: var(--teal); }
+  .stage-head h2 { font-size: 16pt; }
+  .stage-text { display: grid; grid-template-columns: 1fr 1.5fr 1fr; gap: 16pt; }
+  .stage.side { display: grid; grid-template-columns: 3.6in 1fr; gap: 0.3in; align-items: start; }
+  .stage.side .stage-text { grid-template-columns: 1fr; gap: 6pt; }
+  .stage.side .col { display: flex; flex-direction: column; gap: 6pt; }
+  .bridge { font-style: italic; color: var(--sub); border-left: 2px solid var(--tint); padding-left: 8pt; }
+
+  figure { margin: 0; }
+  figure img { display: block; width: 100%; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+  figcaption { font-size: 8pt; color: var(--muted); margin-top: 3pt; }
+  .divider { border: 0; border-top: 1px solid var(--line); }
+
+  /* Result */
+  .result { display: grid; grid-template-columns: 1fr 4.4in; gap: 0.35in; align-items: start; }
+  .result .lead { font-size: 11pt; color: var(--sub); margin-bottom: 12pt; }
+  .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14pt 16pt; }
+  .metrics div { border-left: 2px solid var(--teal); padding-left: 8pt; }
+  .metrics b { display: block; font: 600 20pt/1.1 "Inter Tight", sans-serif; color: var(--teal); }
+  .metrics span { font-size: 8.5pt; color: var(--muted); }
+
+  .page.tight { gap: 0.14in; }
+  .stage.side.wide { grid-template-columns: 5.85in 1fr; }
+  .stage.side.s4 { grid-template-columns: 4.1in 1fr; }
+  .stage.side.s4 .stage-text { grid-template-columns: 1fr; gap: 8pt; }
+  .result { grid-template-columns: 1fr 4.1in; }
+  .result h2 { font-size: 15pt; margin-bottom: 2pt; }
+  .result .lead { font-size: 10pt; margin-bottom: 8pt; }
+  .metrics { grid-template-columns: repeat(3, 1fr); gap: 8pt 14pt; }
+  .metrics b { font-size: 15pt; }
+</style>
+</head>
+<body>
+
+<!-- Page 1 -->
+<section class="page">
+  <header class="head">
+    <div>
+      <h1>Sales modernization at BP</h1>
+      <p class="hook">BP's US fuel sales across four markets, moved from offline work into one connected system on Salesforce, DocuSign and the BP portal.</p>
+    </div>
+    <dl class="facts">
+      <div><dt>Team</dt><dd>Six-person DocuSign team inside a larger cross-functional team</dd></div>
+      <div><dt>Timeline</dt><dd>2021–2023</dd></div>
+    </dl>
+  </header>
+
+  <section class="tldr">
+    <h2>TL;DR</h2>
+    <div><h3>Problem</h3><p>$2.1B in sales run four different ways, mostly offline, with duplicate data entry, manual work across several systems, no shared standards, no knowledge sharing between teams and no view of sales in progress.</p></div>
+    <div><h3>My role</h3><p>As <strong>UX and service designer</strong>, I redesigned the sales processes for four US markets end to end across Salesforce, DocuSign and the BP portal. As <strong>DocuSign delivery lead</strong>, I created a contract system built from modular blocks that scales to any number of agreement types.</p></div>
+    <div class="tldr-result"><h3>Result</h3>
+      <p class="tldr-result-text">The program delivered one system: data is entered once and stored in Salesforce, all four markets share processes and contract templates, dashboards show sales in progress, and a Center of Excellence keeps training and reference in one place.</p>
+      <div class="nums after">
+        <div><b>8 days</b><span>per deal</span></div>
+        <div><b>0.7 hours</b><span>of user time per process</span></div>
+        <div><b>98%</b><span>of agreements online</span></div>
+        <div><b>8</b><span>manual processes</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="before">
+    <div>
+      <h2>Before</h2>
+      <p>Each market kept its own contracts on personal hard drives and ran its own steps. Customer data went into 5 systems, decisions drew on 50 sources, and 100+ hours a month went to searching, filing and waiting.</p>
+    </div>
+    <figure>
+      <img src="img/asis.png" alt="East Coast sales process as is, with pain points marked">
+      <figcaption>East Coast sales process as is. Red markers are the pain points found in the workshops.</figcaption>
+    </figure>
+    <div class="nums before-nums">
+      <div><b>15.5 days</b><span>per deal</span></div>
+      <div><b>1.9 hours</b><span>of user time per process</span></div>
+      <div><b>30%</b><span>of agreements online</span></div>
+      <div><b>35</b><span>manual processes</span></div>
+    </div>
+  </section>
+
+  <footer class="foot"><span>Sandy Tayts · UX and Service Designer</span><span>https://sandy.tayts.com</span></footer>
+</section>
+
+<!-- Page 2 -->
+<section class="page">
+  <section class="stage">
+    <div class="stage-head"><span class="n">1</span><h2>Discovery across four markets</h2></div>
+    <div class="stage-text">
+      <div><h3>Problem</h3><p>Each market sold its own way, and people across markets didn't know each other.</p></div>
+      <div><h3>What I did</h3><p>Ran weeks of workshops with champions from each market, mapped as-is and to-be processes, and agreed the direction with stakeholders.</p></div>
+      <div><h3>Challenge</h3><p>Aligning stakeholders who had never worked together.</p></div>
+    </div>
+    <figure>
+      <img src="img/tobe.png" alt="East Coast Transfer blueprint, to be">
+      <figcaption>East Coast Transfer blueprint, to be. Each of the four markets got its own.</figcaption>
+    </figure>
+    <p class="bridge">The to-be processes now had to work on three legacy platforms.</p>
+  </section>
+
+  <hr class="divider">
+
+  <section class="stage side">
+    <figure>
+      <img src="img/ecosystem.png" alt="High level ecosystem for the sales process">
+      <figcaption>High level ecosystem for the sales process.</figcaption>
+    </figure>
+    <div class="col">
+      <div class="stage-head"><span class="n">2</span><h2>A smooth experience across three platforms</h2></div>
+      <div class="stage-text">
+        <div><h3>Problem</h3><p>Every sales process crossed Salesforce, DocuSign and the BP portal.</p></div>
+        <div><h3>What I did</h3><p>Reviewed every process diagram with the architects and leads of the Salesforce, Automation and DocuSign teams and designed how users move between platforms. I owned and presented the deliverables and shaped the team and stakeholders around a design-first approach.</p></div>
+        <div><h3>Challenge</h3><p>Large legacy platforms, so the modern experience had to fit what they could do. Not a greenfield design.</p></div>
+      </div>
+      <p class="bridge">Under the processes sat about 60,000 pages of contracts.</p>
+    </div>
+  </section>
+
+  <footer class="foot"><span>Sandy Tayts · Sales modernization at BP</span><span>2</span></footer>
+</section>
+
+<!-- Page 3 -->
+<section class="page">
+  <section class="stage">
+    <div class="stage-head"><span class="n">3</span><h2>A modular contract system</h2></div>
+    <div class="stage-text">
+      <div><h3>Problem</h3><p>Each market had its own contracts, documents and steps.</p></div>
+      <div><h3>What I did</h3><p>Processed all contracts into one modular template structure for four markets. Designed the Salesforce-to-DocuSign flows: a button in Salesforce assembles the right package for the market, loads the signers and runs up to five signing stages, tracked in Salesforce and covered by reports, with nothing to upload. Led the DocuSign team through daily stand-ups.</p></div>
+      <div><h3>Challenge</h3><p>A mostly junior team, so I trained the developers alongside delivery.</p></div>
+    </div>
+    <figure>
+      <img src="img/docusign-map.png" alt="DocuSign design and templates development alignment map">
+      <figcaption>DocuSign design and templates alignment map: contract flow, documents and actors by type of sale.</figcaption>
+    </figure>
+    <p class="bridge">Once the first market was live and tested, people had to learn the new way of working.</p>
+  </section>
+
+  <footer class="foot"><span>Sandy Tayts · Sales modernization at BP</span><span>3</span></footer>
+</section>
+
+<!-- Page 4 -->
+<section class="page">
+  <section class="stage side s4">
+    <figure>
+      <img src="img/coe-home.png" alt="Center of Excellence home">
+      <figcaption>Center of Excellence home.</figcaption>
+    </figure>
+    <div class="col">
+      <div class="stage-head"><span class="n">4</span><h2>Launch</h2></div>
+      <div class="stage-text">
+        <div><h3>Problem</h3><p>Sales managers and operators had to switch to new processes full of edge cases.</p></div>
+        <div><h3>What I did</h3><p>Recorded a video and a cheat sheet for every flow. Came up with the Center of Excellence, built the first process as the example and led 3 business analysts on the rest. Wrote test plans for 3 testers in SharePoint, with results in Jira. Ran demos for the full 50–70 person team that doubled as bug and edge-case reviews, followed by regression.</p></div>
+        <div><h3>Challenge</h3><p>Testers worked at different times with different skills, so I ran testing asynchronously with plans that fit each of them.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="result">
+    <div>
+      <h2>Result</h2>
+      <p class="lead">All four markets now work in Salesforce and DocuSign, with shared processes and contract templates.</p>
+      <div class="nums after three">
+        <div><b>8 days</b><span>per deal, from 15.5</span></div>
+        <div><b>0.7 hours</b><span>of user time per process, from 1.9</span></div>
+        <div><b>98%</b><span>of agreements online, from 30%</span></div>
+        <div><b>8</b><span>manual processes, from 35</span></div>
+        <div><b>&lt;1,000</b><span>pages of contracts, from 60,000</span></div>
+        <div><b>83%</b><span>positive experience, from 55%</span></div>
+      </div>
+    </div>
+    <figure>
+      <img src="img/deliverables.png" alt="Project deliverables">
+      <figcaption>Project deliverables.</figcaption>
+    </figure>
+  </section>
+
+  <footer class="foot"><span>Sandy Tayts · Sales modernization at BP</span><span>4</span></footer>
+</section>
+
+</body>
+</html>
