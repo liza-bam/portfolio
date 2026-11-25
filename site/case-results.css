@@ -798,7 +798,7 @@ body.portfolio-template.case-study .metric-compare > figcaption {
   }
 }
 
-/* Case header. Screens 1000px and up: title, subtitle, context and facts on the left; the video with its links on the right.
+/* Case header. Screens 1000px and up: the title across both columns; under it, subtitle, context and facts on the left and the video with its links on the right.
    Medium and small screens: one column. The video preview is a standard 426 × 240; on phones it fills the width. */
 body.portfolio-template .opening-title.case-header.has-links:has(> .case-title) {
   grid-template-columns: minmax(0, 1fr) 426px;
@@ -808,7 +808,7 @@ body.portfolio-template .opening-title.case-header.has-links:has(> .case-title) 
   row-gap: 0;
 }
 body.portfolio-template .case-header.has-links > .case-title { display: contents; }
-body.portfolio-template .case-header.has-links:has(> .case-title) > .case-title > h1 { grid-column: 1; grid-row: auto; margin: 0 0 var(--space-4); }
+body.portfolio-template .case-header.has-links:has(> .case-title) > .case-title > h1 { grid-column: 1 / -1; grid-row: 1; margin: 0 0 var(--space-4); }
 body.portfolio-template .case-header.has-links:has(> .case-title) > .case-title > :not(h1),
 body.portfolio-template .case-header.has-links:has(> .case-title) > .case-facts { grid-column: 1; grid-row: auto; align-self: start; margin: 0 0 var(--space-6); }
 /* Section-header rhythm: 32px under the title group. */
@@ -820,7 +820,7 @@ body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .
 body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-facts :is(dt, dd) { display: inline; margin: 0; font: var(--body-weight, 400) var(--type-body)/var(--list-line-height, 1.5) var(--font-body); letter-spacing: 0; text-transform: none; color: var(--text-primary); }
 body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-facts dt { font-weight: 600; }
 body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-facts dt::after { content: ": "; }
-body.portfolio-template .case-header > .case-media { grid-column: 2; grid-row: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-4); align-content: start; justify-items: start; }
+body.portfolio-template .case-header > .case-media { grid-column: 2; grid-row: 2 / -1; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-4); align-content: start; justify-items: start; }
 body.portfolio-template .case-header > .case-media > * { grid-area: auto; }
 body.portfolio-template .case-header > .case-media > .video-open { width: 426px; max-width: 100%; }
 @media (max-width: 999px) {
