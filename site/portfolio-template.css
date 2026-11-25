@@ -14,13 +14,15 @@
   --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
   --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
   --space-12: 48px; --space-16: 64px;
-  --type-h1: 72px; --type-h2: 40px; --type-h3: 28px; --type-h4: 22px; --type-h5: 18px;
-  --type-body: 17px; --type-subtitle: 19px; --type-small: 14px; --type-eyebrow: 12px; --type-label: calc(var(--type-body) - 2px);
+  --type-h1: 72px; --type-h2: 40px; --type-h3: 24px; --type-h4: 22px; --type-h5: 18px;
+  --type-body: 17px; --type-subtitle: 20px; --type-small: 15px; --type-eyebrow: 13px; --type-label: calc(var(--type-body) - 2px);
   --card-padding: 24px; --card-gap: 24px; --card-radius: 8px;
   --section-gap: 64px; --reading-width: 78ch;
   --list-item-gap:var(--space-1); --list-line-height:1.5;
 }
 body.portfolio-template { font:var(--body-weight,400) var(--type-body)/1.65 var(--font-body); color:var(--text-primary); background:var(--surface); }
+/* Secondary text: a lighter shade of each page's own colour (contrast 4.5:1 or more on the page backgrounds). */
+body.portfolio-template { --text-secondary:color-mix(in srgb,var(--accent-text) 90%,var(--text-primary)); }
 body.portfolio-template :is(h1,h2,h3,h4,h5,.type-h1,.type-h2,.type-h3,.type-h4,.type-h5) {
   font-family:var(--font-heading); font-weight:var(--heading-weight); font-style:normal; font-optical-sizing:auto;
   color:var(--text-primary); letter-spacing:var(--heading-tracking); text-transform:none; text-wrap:balance;
@@ -80,8 +82,11 @@ body.portfolio-template .measurement :is(table,th,td) { font-family:var(--font-b
   body.portfolio-template :is(.portfolio-card-grid,.concise-results) { grid-auto-rows:1fr; }
   body.portfolio-template .concise-results .result-card { grid-template-rows:28px 84px minmax(72px,auto); }
 }
+@media (max-width:1100px) {
+  :root { --type-h3:22px; --type-subtitle:19px; }
+}
 @media (max-width:700px) {
-  :root { --type-h1:48px; --type-h2:34px; --type-h3:26px; --type-h4:21px; --type-h5:18px; --type-body:14px; --type-subtitle:18px; --section-gap:48px; --card-padding:16px; --card-gap:16px; }
+  :root { --type-h1:48px; --type-h2:34px; --type-h3:20px; --type-h4:21px; --type-h5:18px; --type-body:16px; --type-small:14px; --type-eyebrow:12px; --type-subtitle:18px; --section-gap:48px; --card-padding:16px; --card-gap:16px; }
 }
 /* Explicit adapters for legacy page selectors; token values remain authoritative. */
 body.portfolio-template :is(.opening .opening-title h1,.profile h1){font:var(--heading-weight) var(--type-h1)/1.02 var(--font-heading);letter-spacing:0}
@@ -109,7 +114,7 @@ body.portfolio-template .masthead .brand-logo:active{scale:.95}
 
 /* Numbered subtitles pair with the matching heading level. */
 body.portfolio-template :is(.subheader-1,.subheader-2,.subheader-3,.subheader-4,.subheader-5){position:relative;top:3px}
-:root{--type-subheader-1:18px;--type-subheader-2:18px;--type-subheader-3:18px;--type-subheader-4:18px;--type-subheader-5:18px}
+:root{--type-subheader-1:var(--type-subtitle);--type-subheader-2:18px;--type-subheader-3:18px;--type-subheader-4:18px;--type-subheader-5:18px}
 body.portfolio-template.case-study :is(.opening,.original-study) p.subheader-1{font:var(--body-weight,400) var(--type-subheader-1)/1.5 var(--font-body);color:var(--text-secondary)}
 body.portfolio-template.case-study :is(.opening,.original-study) p.subheader-2{font:var(--body-weight,400) var(--type-subheader-2)/1.5 var(--font-body);color:var(--text-secondary)}
 body.portfolio-template.case-study :is(.opening,.original-study) p.subheader-3{font:var(--body-weight,400) var(--type-subheader-3)/1.5 var(--font-body);color:var(--text-secondary)}
@@ -537,9 +542,9 @@ body.portfolio-template .opening.shell{position:relative;padding-top:var(--space
 body.portfolio-template .case-facts{grid-template-columns:repeat(3,minmax(0,1fr));gap:0;padding:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 body.portfolio-template .case-facts > div{padding:var(--space-5) var(--space-5) var(--space-5) 0;border-left:0;gap:var(--space-2)}
 body.portfolio-template .case-facts > div + div{padding-left:var(--space-5);border-left:1px solid var(--border-subtle)}
-body.portfolio-template .case-facts dt{font:500 11px/1.4 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--text-secondary)}
+body.portfolio-template .case-facts dt{font:500 var(--type-eyebrow)/1.4 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--text-secondary)}
 body.portfolio-template .case-facts dd{font:500 var(--type-body)/1.5 var(--font-body);color:var(--text-primary)}
-body.portfolio-template h3.case-label{font:500 11px/1.4 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--text-secondary)}
+body.portfolio-template h3.case-label{font:500 var(--type-eyebrow)/1.4 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--text-secondary)}
 body.portfolio-template .portfolio-filter-pill{border-radius:4px;border-color:var(--rule);font:500 13px/1.4 var(--font-body)}
 body.portfolio-template .portfolio-filter-pill[aria-pressed="true"]{background:var(--rule);border-color:var(--rule);color:#fff}
 body.portfolio-template .figure-button:hover{background:var(--accent-tint);border-color:var(--accent-text)}
@@ -553,13 +558,13 @@ body.portfolio-template .case-header .video-open:hover{transform:none;box-shadow
 .video-open:hover .video-open-play{transform:none;background:var(--accent-text);color:#fff}
 .video-open-label{left:var(--space-4);right:88px;bottom:var(--space-4);padding:0;gap:4px}
 .video-open-label strong{color:var(--text-primary);font:600 17px/1.3 var(--font-body)}
-.video-open-label span{color:var(--text-secondary);font:var(--body-weight,400) 12px/1.4 var(--font-mono)}
+.video-open-label span{color:var(--text-secondary);font:var(--body-weight,400) var(--type-eyebrow)/1.4 var(--font-mono)}
 .video-open-label .case-num{color:var(--accent-text)}
 /* results: ruled blocks, mono numerals */
 body.portfolio-template .portfolio-card-grid .baseline-metric,body.portfolio-template.case-study .baseline-metric{background:transparent;border:0;border-top:2px solid var(--rule);border-radius:0;box-shadow:none;align-items:flex-start;text-align:left;padding:var(--space-4) 0 var(--space-2);min-height:0;gap:var(--space-3)}
 body.portfolio-template .portfolio-card-grid .baseline-metric .baseline-icon,body.portfolio-template.case-study .baseline-metric .baseline-icon{color:var(--accent-text);width:22px;height:22px}
 body.portfolio-template.case-study .baseline-metric strong{font:500 30px/1.15 var(--font-mono);letter-spacing:-.02em;color:var(--text-primary)}
-body.portfolio-template.case-study .baseline-metric span{font:var(--body-weight,400) 14px/1.5 var(--font-body);color:var(--text-secondary)}
+body.portfolio-template.case-study .baseline-metric span{font:var(--body-weight,400) var(--type-small)/1.5 var(--font-body);color:var(--text-secondary)}
 body.portfolio-template .portfolio-card-grid{gap:var(--space-8)}
 /* numbered section titles */
 body.portfolio-template .portfolio-accordion{counter-increment:section}
@@ -583,7 +588,7 @@ body.portfolio-template .case-header .video-open{aspect-ratio:auto;display:grid;
 .video-open-play svg{width:20px;height:20px;margin-left:2px}
 .video-open-text{display:grid;gap:2px;min-width:0}
 .video-open-text strong{color:var(--text-primary);font:600 16px/1.3 var(--font-body)}
-.video-open-text span{color:var(--text-secondary);font:var(--body-weight,400) 12px/1.4 var(--font-mono);letter-spacing:.02em}
+.video-open-text span{color:var(--text-secondary);font:var(--body-weight,400) var(--type-eyebrow)/1.4 var(--font-mono);letter-spacing:.02em}
 body.portfolio-template .case-header .video-open:hover .video-open-poster{filter:none}
 body.portfolio-template.case-study .baseline-metric,body.portfolio-template.case-study .baseline-metric strong{text-align:left;align-items:stretch;justify-items:start}
 body.portfolio-template.case-study .baseline-metric .baseline-icon{margin:0}
@@ -959,9 +964,9 @@ body.tint-lazy .lzsvc li::before{content:"";position:absolute;left:0;top:.5em;wi
 .rc7-card{grid-column:span 3;display:flex;flex-direction:column;background:var(--surface,#fff);border:1px solid var(--border-subtle);border-radius:12px;padding:var(--space-5);transition:transform .25s ease,box-shadow .25s ease}
 .rc7-card.rc7-wide{grid-column:span 4}
 .rc7-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px #2236400f}
-body.portfolio-template .original-study .rc7-card h4{margin:0;font:600 13px/1.3 var(--font-body);letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text)}
+body.portfolio-template .original-study .rc7-card h4{margin:0;font:600 var(--type-eyebrow)/1.3 var(--font-body);letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text)}
 .rc7-vis{flex:1;display:flex;align-items:center;justify-content:center;gap:14px;min-height:150px;padding:var(--space-4) 0}
-body.portfolio-template .original-study .rc7-card p{margin:0;font:var(--body-weight,400) 15px/1.5 var(--font-body);color:var(--text-primary)}
+body.portfolio-template .original-study .rc7-card p{margin:0;font:var(--body-weight,400) var(--type-small)/1.5 var(--font-body);color:var(--text-primary)}
 .rc7-vis i{font-style:normal}
 .rc7-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;max-width:260px}
 .rc7-tags i{padding:3px 10px;border-radius:999px;background:#efe6da;color:#8a6540;font:500 12px/1.4 var(--font-body)}
@@ -971,7 +976,7 @@ body.portfolio-template .original-study .rc7-card p{margin:0;font:var(--body-wei
 .rc7-waffle i.on{background:#f0a048}
 .rc7-num{font:600 44px/1 var(--font-body);letter-spacing:-.03em;color:#223640}
 .rc7-bars{display:grid;gap:14px;width:100%}
-.rc7-bar{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font:500 13px/1.3 var(--font-body);color:#5d6b72}
+.rc7-bar{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font:500 13px/1.3 var(--font-body);color:var(--text-secondary)}
 .rc7-bar i{grid-column:1/-1;height:16px;border-radius:5px;background:#e6e0d4;position:relative;overflow:hidden}
 .rc7-bar i::after{content:"";position:absolute;inset:0;width:calc(var(--v)*1%);background:#f0a048;border-radius:5px;transform-origin:left;animation:rc7-grow .9s cubic-bezier(.2,.8,.2,1) backwards}
 .rc7-bar b{font:600 15px/1.3 var(--font-body);color:#223640}
@@ -991,7 +996,7 @@ body.portfolio-template .original-study .rc7-card p{margin:0;font:var(--body-wei
 
 /* Rancourt: accessibility card */
 body.portfolio-template .original-study .rc-areas{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-body.portfolio-template .original-study .rc-areas li{padding:8px 14px;border-radius:10px;background:var(--accent-tint);color:var(--accent-dark);font:500 15px/1.3 var(--font-body)}
+body.portfolio-template .original-study .rc-areas li{padding:8px 14px;border-radius:10px;background:var(--accent-tint);color:var(--accent-dark);font:500 var(--type-small)/1.3 var(--font-body)}
 
 .guide-dialog{width:min(820px,calc(100vw - 48px))}
 .guide-dialog .blueprint-dialog-content{padding:var(--space-5)}
@@ -1009,8 +1014,8 @@ body.portfolio-template .rc-measures .rc-word .metric-n{font-size:40px}
 /* Case studies: straight corners everywhere except pills */
 body.case-study:not(.tint-lazy) *:not(.video-close):not(.portfolio-filter-pill):not(.portfolio-section-link):not(.case-links a):not(.rc7-tags i):not(.li-tag):not(.li-avatar):not(.li-avatar img):not(.case-photo),body.case-study:not(.tint-lazy) *::before,body.case-study:not(.tint-lazy) *::after{border-radius:0!important}
 /* Rancourt: result cards on the findings-card template */
-body.portfolio-template .rc7-card h4{margin:0;font:600 13px/1.3 var(--font-body);letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text)}
-body.portfolio-template .rc7-card p{margin:0;font:var(--body-weight,400) 15px/1.5 var(--font-body);color:var(--text-primary)}
+body.portfolio-template .rc7-card h4{margin:0;font:600 var(--type-eyebrow)/1.3 var(--font-body);letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text)}
+body.portfolio-template .rc7-card p{margin:0;font:var(--body-weight,400) var(--type-small)/1.5 var(--font-body);color:var(--text-primary)}
 .rc7-apps-after i,.rc7-apps-after i:nth-child(5n+2){background:#e6e0d4}
 .rc7-apps-after i.on{background:#6db8ad}
 .rc7-pay-on i{border:1.5px solid #6db8ad;color:#223640;text-decoration:none}

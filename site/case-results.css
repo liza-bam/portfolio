@@ -445,7 +445,7 @@ body.portfolio-template .original-study .case-deliverables h3 {
 body.portfolio-template .original-study .case-lesson-card h3 {
   margin: 0 0 6px;
   padding: 0;
-  font-size: 17px;
+  font-size: var(--type-h3);
 }
 
 .case-lesson-card p {
@@ -572,7 +572,7 @@ body.portfolio-template.case-study.tint-bp .original-study .case-story-detail .s
 }
 
 body.portfolio-template.case-study .original-study .case-story-detail h3 {
-  font-size: 22px;
+  font-size: var(--type-h3);
 }
 
 body.portfolio-template.case-study.tint-bp .original-study .case-story-detail h3 {

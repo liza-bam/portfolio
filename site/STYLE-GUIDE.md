@@ -6,25 +6,25 @@ Authoritative stylesheet: `portfolio-template.css`, loaded last on the homepage 
 
 Google Fonts: Inter Tight (headings, 600), Inter (body and UI, including true italic). Abel remains only for recreated diagram labels via `--font-diagram`.
 
-Palette (quiet, after the Looped In explorer): slate ink `#223640` text, secondary `#5d6b72`, panel `#f7fafb`, hairline `#dce4e7`, one accent slate teal `#2c6e7e` (markers, chart primary series, play badge, pressed pills), tint `#e3eef1`. No black, no pastels, no beige, no blue. Red `#bb3446` is reserved for pain-point markers.
+Palette (quiet, after the Looped In explorer): slate ink `#223640` text, secondary text in the page's own colour (`--text-secondary`: 90% of `--accent-text` mixed with the ink, contrast 4.5:1 or more; never grey), panel `#f7fafb`, hairline `#dce4e7`, one accent slate teal `#2c6e7e` (markers, chart primary series, play badge, pressed pills), tint `#e3eef1`. No black, no pastels, no beige, no blue. Red `#bb3446` is reserved for pain-point markers.
 
 
 Heading tokens: `--heading-weight: 600`, `--heading-tracking: -0.02em`; H1 uses -0.035em, H2 -0.025em. Headings use `text-wrap: balance`.
 
-| Role | Desktop / mobile | Weight | Line height |
+| Role | Desktop / tablet (≤1100px) / mobile (≤700px) | Weight | Line height |
 | --- | --- | --- | --- |
 | H1 — page title | 72 / 48 px | Inter Tight 600 | 1.02 |
 | H2 — section title | 40 / 34 px | Inter Tight 600 | 1.15 |
-| H3 — subsection title | 28 / 26 px | Inter Tight 600 | 1.25 |
+| H3 — subsection title | 24 / 22 / 20 px | Inter Tight 600 | 1.25 |
 | H4 | 22 / 21 px | Inter Tight 600 | 1.35 |
 | H5 | 18 / 18 px | Inter Tight 600 | 1.4 |
-| Body and lists | 17 / 16 px | Public Sans 400 | 1.65 |
-| Subtitle | 19 / 18 px | Public Sans 400 | 1.5 |
+| Body and lists | 17 / 17 / 16 px | Public Sans 400 | 1.65 |
+| Subtitle | 20 / 19 / 18 px | Public Sans 400 | 1.5 |
 | Strong emphasis | Inherited | Public Sans 600 | Inherited |
 | Italic emphasis | Inherited | Public Sans italic 400 | Inherited |
 | Quote | 20 px | Public Sans italic 400 | 1.6 |
-| Caption / supporting text | 14 px | Public Sans 400 | 1.5 |
-| Label | 12 px | Public Sans 600 | 1.5 |
+| Caption / supporting text | 15 / 15 / 14 px (body − 2) | Public Sans 400 | 1.5 |
+| Label | 13 / 13 / 12 px | Public Sans 600 | 1.5 |
 | Card heading | 19 px | Public Sans 500 | 1.4 |
 | Metric | 56 px (48 on narrow desktop) | Public Sans 600 | 1.1 |
 | Metric qualifier | 21 px (18 on narrow desktop) | Public Sans 500 | 1.4 |
