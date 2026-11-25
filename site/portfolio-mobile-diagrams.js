@@ -22,9 +22,9 @@
  const trigger=figure.querySelector('.blueprint-open');
  const notes=[...figure.querySelectorAll('.bp-solved')];
  const drawer=document.createElement('aside');drawer.hidden=true;drawer.className='painpoints-drawer fitted-notes-drawer';drawer.id='solved-painpoints-drawer';drawer.setAttribute('aria-labelledby','solved-painpoints-title');
- drawer.innerHTML='<header class="painpoints-header"><p class="figure-title" id="solved-painpoints-title">Solved Painpoints</p><button class="painpoints-close" type="button" aria-label="Close solved painpoints"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6L18 18M18 6L6 18"/></svg></button></header><div class="figure-note-content"><select class="figure-note-select" id="solved-painpoint-select" aria-label="Solved Painpoints"></select><p class="figure-note-description"></p></div>';
+ drawer.innerHTML='<header class="painpoints-header"><p class="figure-title" id="solved-painpoints-title">Solved pain points</p><button class="painpoints-close" type="button" aria-label="Close solved pain points"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6L18 18M18 6L6 18"/></svg></button></header><div class="figure-note-content"><select class="figure-note-select" id="solved-painpoint-select" aria-label="Solved pain points"></select><p class="figure-note-description"></p></div>';
  const select=drawer.querySelector('select'),description=drawer.querySelector('.figure-note-description');
- notes.forEach((note,i)=>{const option=document.createElement('option');option.value=i;option.textContent=note.getAttribute('aria-label').replace(/^Solved painpoint: /,'');select.append(option);});
+ notes.forEach((note,i)=>{const option=document.createElement('option');option.value=i;option.textContent=note.getAttribute('aria-label').replace(/^Solved pain point: /,'');select.append(option);});
  const update=()=>description.textContent=notes[select.value]?.dataset.explanation||'';
  select.addEventListener('change',update);update();figure.append(drawer);
  const close=()=>setFigureDrawer(drawer,trigger,false);

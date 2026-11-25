@@ -993,6 +993,9 @@ body.portfolio-template .original-study .rc7-card p{margin:0;font:var(--body-wei
 @media(max-width:1000px){.rc7-card,.rc7-card.rc7-wide{grid-column:span 6}}
 @media(max-width:600px){.rc7-card,.rc7-card.rc7-wide{grid-column:1/-1}}
 @media(prefers-reduced-motion:reduce){.rc7-bar i::after{animation:none}.rc7-card{transition:none}}
+/* rc7-fill: the cards share each row equally instead of the 12-column spans, so a short set leaves no gap. */
+.rc7.rc7-fill{display:flex;flex-wrap:wrap}
+.rc7.rc7-fill>.rc7-card{flex:1 1 180px;min-width:0}
 
 /* Rancourt: accessibility card */
 body.portfolio-template .original-study .rc-areas{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
@@ -1009,7 +1012,8 @@ body.portfolio-template.tint-rancourt .portfolio-evidence-grid.rc-3 img{width:10
 
 /* Rancourt: eight measure cards, 4 x 2 on larger screens */
 body.portfolio-template .portfolio-card-grid.rc-measures{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:var(--space-6)}
-body.portfolio-template .rc-measures .rc-word .metric-n{font-size:40px}
+/* Word values (for example "Automatic") shrink with the card so they always fit. */
+body.portfolio-template .rc-measures .rc-word .metric-n{font-size:min(40px,20cqi)}
 @media(max-width:900px){body.portfolio-template .portfolio-card-grid.rc-measures{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* Case studies: straight corners everywhere except pills */
 body.case-study:not(.tint-lazy) *:not(.video-close):not(.portfolio-filter-pill):not(.portfolio-section-link):not(.case-links a):not(.rc7-tags i):not(.li-tag):not(.li-avatar):not(.li-avatar img):not(.case-photo),body.case-study:not(.tint-lazy) *::before,body.case-study:not(.tint-lazy) *::after{border-radius:0!important}
