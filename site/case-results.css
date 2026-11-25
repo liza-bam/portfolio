@@ -809,6 +809,9 @@ body.portfolio-template .case-header.has-links:has(> .case-title) > .case-title 
 body.portfolio-template .case-header.has-links:has(> .case-title) > .case-title > :not(h1),
 body.portfolio-template .case-header.has-links:has(> .case-title) > .case-facts { grid-column: 1; grid-row: auto; align-self: start; margin: 0 0 var(--space-6); }
 body.portfolio-template .case-header.has-links:has(> .case-title) > .case-facts { margin-bottom: 0; }
+/* Facts in the left column: a plain list, one under another; no card, no band, no dividers. */
+body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-facts { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); margin-inline: 0; padding: 0; background: none; border: 0; }
+body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-facts > div { padding: 0; border: 0; gap: var(--space-1); }
 body.portfolio-template .case-header > .case-media { grid-column: 2; grid-row: 2 / -1; display: grid; gap: var(--space-4); align-content: start; justify-items: start; }
 body.portfolio-template .case-header > .case-media > * { grid-area: auto; }
 body.portfolio-template .case-header > .case-media > .video-open { width: 100%; }
