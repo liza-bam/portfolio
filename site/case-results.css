@@ -798,7 +798,7 @@ body.portfolio-template.case-study .metric-compare > figcaption {
   }
 }
 
-/* Case header. Large screens (1352px and up, where the page reaches its full width): title, subtitle, context and facts on the left; the video with its links on the right.
+/* Case header. Screens 1000px and up: title, subtitle, context and facts on the left; the video with its links on the right.
    Medium and small screens: one column. The video preview is a standard 426 × 240; on phones it fills the width. */
 body.portfolio-template .opening-title.case-header.has-links:has(> .case-title) {
   grid-template-columns: minmax(0, 1fr) 426px;
@@ -821,7 +821,7 @@ body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .
 body.portfolio-template .case-header > .case-media { grid-column: 2; grid-row: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-4); align-content: start; justify-items: start; }
 body.portfolio-template .case-header > .case-media > * { grid-area: auto; }
 body.portfolio-template .case-header > .case-media > .video-open { width: 426px; max-width: 100%; }
-@media (max-width: 1351px) {
+@media (max-width: 999px) {
   body.portfolio-template .opening-title.case-header.has-links:has(> .case-title) { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
   body.portfolio-template .case-header > .case-media { grid-column: 1; grid-row: auto; order: 1; margin-top: var(--space-8); }
 }
