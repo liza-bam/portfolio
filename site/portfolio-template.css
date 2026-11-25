@@ -15,7 +15,7 @@
   --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
   --space-12: 48px; --space-16: 64px;
   --type-h1: 72px; --type-h2: 40px; --type-h3: 28px; --type-h4: 22px; --type-h5: 18px;
-  --type-body: 15px; --type-subtitle: 19px; --type-small: 14px; --type-eyebrow: 12px; --type-label: calc(var(--type-body) - 2px);
+  --type-body: 17px; --type-subtitle: 19px; --type-small: 14px; --type-eyebrow: 12px; --type-label: calc(var(--type-body) - 2px);
   --card-padding: 24px; --card-gap: 24px; --card-radius: 8px;
   --section-gap: 64px; --reading-width: 78ch;
   --list-item-gap:var(--space-1); --list-line-height:1.5;
