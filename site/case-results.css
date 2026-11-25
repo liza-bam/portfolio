@@ -615,3 +615,30 @@ body.portfolio-template.case-study .case-story-detail .figure-panel--compact-pre
 body.portfolio-template .opening .case-tool-logos{margin:24px 0}
 body.portfolio-template .opening > .case-tool-logos:last-child{margin-bottom:0}
 body.portfolio-template .opening:has(> .case-tool-logos:last-child){padding-bottom:24px}
+
+/* Stage text: Problem and Challenge in the first column, What I did in the second.
+   Short context gets one third, long context half. One column up to 1100px, in reading order. */
+.case-stage-text {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-6) var(--space-10);
+  margin-bottom: var(--space-6);
+}
+
+body.portfolio-template.case-study .original-study .case-stage-text > div > :last-child {
+  margin-bottom: 0;
+}
+
+body.portfolio-template.case-study .original-study .case-stage-text > div > h3:first-child {
+  margin-top: 0;
+}
+
+@media (min-width: 1101px) {
+  .case-stage-text {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .case-stage-text.is-thirds {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  }
+}
