@@ -798,24 +798,27 @@ body.portfolio-template.case-study .metric-compare > figcaption {
   }
 }
 
-/* Case header. Screens 1000px and up: two equal columns with a wide gap. Left: title, subtitle, context and facts. Right: the video
+/* Case header. Screens 1000px and up: two equal columns with an 80px gap. Left: title, subtitle, context and facts. Right: the video
    filling its column, with its links under it. Below 1000px: one column, title first, the video full width. */
 body.portfolio-template .opening-title.case-header.has-links:has(> .case-title) {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  column-gap: var(--space-16);
+  column-gap: calc(var(--space-16) + var(--space-4));
   grid-template-areas: none;
   grid-template-rows: auto auto auto auto 1fr;
   row-gap: 0;
 }
 body.portfolio-template .case-header.has-links > .case-title { display: contents; }
 body.portfolio-template .case-header.has-links:has(> .case-title) > .case-title > h1 { grid-column: 1; grid-row: auto; margin: 0 0 var(--space-4); text-wrap: balance; }
+/* Title and subtitle in the page's dark accent; the subtitle a step smaller and medium weight. */
+body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-title > :is(h1, p.project-subtitle) { color: var(--accent-dark); }
+body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-title > p.project-subtitle { font-size: var(--type-case-subtitle); font-weight: 500; }
 body.portfolio-template .case-header.has-links:has(> .case-title) > .case-title > :not(h1),
 body.portfolio-template .case-header.has-links:has(> .case-title) > .case-facts { grid-column: 1; grid-row: auto; align-self: start; margin: 0 0 var(--space-6); }
 /* Section-header rhythm: 32px under the title group. */
 body.portfolio-template .case-header.has-links:has(> .case-title) > .case-title > :not(h1):last-child { margin-bottom: var(--space-8); }
 body.portfolio-template .case-header.has-links:has(> .case-title) > .case-facts { margin-bottom: 0; }
 /* Facts: a list, one "Label: value" line each, with the shared list rhythm (--list-item-gap, --list-line-height); no card, band, dividers or logos. */
-body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-facts { grid-template-columns: minmax(0, 1fr); gap: var(--list-item-gap, 4px); margin-inline: 0; padding: 0; background: none; border: 0; }
+body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-facts { grid-template-columns: minmax(0, 1fr); gap: var(--list-item-gap, 4px); max-width: 70%; margin-inline: 0; padding: 0; background: none; border: 0; }
 body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-facts > div { display: block; padding: 0; border: 0; }
 body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-facts :is(dt, dd) { display: inline; margin: 0; font: var(--body-weight, 400) var(--type-body)/var(--list-line-height, 1.5) var(--font-body); letter-spacing: 0; text-transform: none; color: var(--text-primary); }
 body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-facts dt { font-weight: 600; }
@@ -825,6 +828,7 @@ body.portfolio-template .case-header > .case-media > * { grid-area: auto; }
 body.portfolio-template .case-header > .case-media > .video-open { width: 100%; }
 @media (max-width: 999px) {
   body.portfolio-template .opening-title.case-header.has-links:has(> .case-title) { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+  body.portfolio-template.case-study .case-header.has-links:has(> .case-title) > .case-facts { max-width: none; }
   body.portfolio-template .case-header > .case-media { grid-column: 1; grid-row: auto; order: 1; margin-top: var(--space-8); }
 }
 @media (max-width: 700px) {
