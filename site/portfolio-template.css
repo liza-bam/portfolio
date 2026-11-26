@@ -1142,3 +1142,6 @@ body.portfolio-template .rc7-mv .rc7-card h4{min-height:2.6em}
 body.portfolio-template .rc7-mv .rc7-card p.rc7-caption{margin:var(--space-4) 0 0;font:var(--body-weight,400) var(--type-small)/1.5 var(--font-body);color:var(--text-primary)}
 body.portfolio-template .rc7-mv .rc7-card p.rc7-caption b{font-weight:600;color:var(--accent-dark)}
 @media(max-width:600px){.rc7-mv .rc7-card,.rc7-mv .rc7-card.rc7-wide{grid-column:span 6;padding:var(--space-4)}.rc7-mv .rc7-vis{min-height:0}}
+/* Stat card: one headline number in the visual area, where there is no before and after to compare. */
+.rc7-mv .mv-stat{display:block;font:600 64px/1 var(--font-heading);letter-spacing:-.02em;color:var(--accent-dark);text-align:center}
+@media(max-width:600px){.rc7-mv .mv-stat{font-size:44px}}

@@ -357,6 +357,10 @@ body.portfolio-template.case-study .original-study .case-story-step h2 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .case-preview-gallery:has(> figure:nth-child(4):last-child) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .case-overview {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -834,3 +838,6 @@ body.portfolio-template .case-header > .case-media > .video-open { width: 100%; 
 @media (max-width: 700px) {
   body.portfolio-template .case-header > .case-media > .video-open { width: 100%; }
 }
+
+/* A paragraph after a picture gallery keeps the standard gap from it. */
+body.portfolio-template.case-study .original-study .case-preview-gallery + p { margin-top: var(--space-6); }
