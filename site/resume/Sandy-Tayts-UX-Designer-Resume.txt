@@ -1,36 +1,31 @@
 Sandy (Alexandra) Tayts
 
-UX Designer | Service Design, Product Ownership (PMP) and AI
+Senior Product and Service Designer
 
 Portfolio: https://sandy.tayts.com
 
 sandy@tayts.com · 415-317-3404 · San Francisco, CA ·
-https://www.linkedin.com/in/atayts · https://sandy.tayts.com
+https://www.linkedin.com/in/atayts
 
-Summary
-
-UX and service designer with over ten years of experience serving both
-global enterprises and small businesses. Redesigned complex workflows
-for BP and EY. Designed and built the online store for Rancourt & Co., a
-heritage footwear maker. Now designs and builds AI products, including
-LAZY, a website service for vacation-rental hosts.
+I take complex workflows from research to a shipped product: I talk to
+the people who do the work, decide with the team what to build, design
+it, and often build it myself with AI. I work well in teams of any size,
+but I shine in a small team inside a large, complex program, where I
+also organize the wider cross-functional process and its stakeholders.
+That is the kind of role I’m looking for, full-time or contract.
 
 Skills
 
-Design UX and UI design, service design, journey maps and service
-blueprints, discovery workshops, user research and moderated testing,
-information architecture, data modeling, wireflows, prototypes, design
-systems, accessibility (Section 508, ADA)
+User experience UX and UI design in Figma, service design, journey maps
+and service blueprints, user research and moderated testing, information
+architecture, data modeling, design systems, accessibility (Section 508,
+ADA)
 
-Product Product ownership with KPI and outcome tracking, roadmap and
-backlog, Agile / Scrum (PO, Scrum Master), sprint planning, UAT and QA
-regressions, stakeholder alignment, cross-functional leadership
+Product Product ownership, roadmap and prioritization, outcome metrics,
+stakeholder and cross-functional alignment
 
-AI LLM product design, human–agent service design, system prompts and
-context engineering, AI prototyping, AI agent-led development (Claude
-Code, Codex), generative AI video and imagery
-
-Platforms Salesforce, DocuSign CLM and e-signature, Shopify, Klaviyo
+AI AI product design, AI prototyping, building with Claude Code and
+Codex, system prompts and context engineering
 
 Experience
 
@@ -38,209 +33,161 @@ Founder and Service Design Consultant, InkPromptu
 
 October 2023 – Present
 
-LAZY · Founder, design and build · 2026 · case study
+Design and consulting practice: Shopify and Salesforce consulting,
+custom work for private clients, and AI product design, including UX and
+UI for Loomik, an AI sales-coaching platform. Two selected projects
+below.
 
--   Launched a done-for-you website service for vacation-rental hosts in
-    October 2026. Ten hosts live in five weeks.
+LAZY · Founder, Product Designer & Builder · case study
 
--   Researched 15 Facebook host groups: 60 posts, 200+ answers. Built
-    the offer around their top fear: guest trust.
+Took a website service for vacation-rental hosts from idea to
+production, owning the offer, pricing, product, brand, and launch.
 
--   Designed a live-preview editor and a static guest site. Design
-    tokens drive palette, shape and type.
+-   Researched 15 host communities through 60 posts and 200+ responses,
+    discovering that guest trust, rather than price, was the main
+    barrier to direct bookings.
 
--   Designed a guest-facing AI assistant that answers questions about
-    each property. Built with Claude Code and Codex.
+-   Prototyped an editor hosts can’t break before designing any page
+    layouts, then built a token-based design system with seven layouts
+    and one-click skins.
 
-Rancourt & Co. · Shopify consultant and service designer · 2026
+-   Shipped the product to production in four months using Claude Code
+    and Codex, including a guest-facing AI assistant, and stress-tested
+    it across 15 very different demo homes.
 
--   Rebuilt the Shopify store for a heritage Maine shoemaker that made
-    Team USA's Olympic ceremony shoes.
+-   Created the brand, illustrated mascot, advertising, marketing site,
+    and supporting design system.
 
--   Rancourt makes shoes for Saint Laurent, Ralph Lauren, Brooks
-    Brothers, Cole Haan and Sperry.
+-   Launched Pleasant Street, a directory of independently owned
+    vacation homes booked directly, to build links and search authority
+    for participating hosts.
 
--   Built the store with Claude Code. The brand's team now runs it
-    alone.
+-   Reached 10 live hosts within five weeks of launch.
 
--   Modeled products in Shopify metaobjects. Cut 14,000+ product
-    patterns to 150 with a shared parts library.
+Rancourt & Co. · Shopify consultant and service designer
 
--   Ran discovery workshops and six moderated user tests. Reduced the
+Redesigned and rebuilt the Shopify store for a heritage Maine shoemaker
+that made Team USA’s Olympic ceremony shoes and makes shoes for Saint
+Laurent, Ralph Lauren, Brooks Brothers, Cole Haan, and Sperry.
+
+-   Ran discovery workshops and six moderated user tests, and cut the
     main menu from nine items to five.
 
--   Fixed 11,525 broken URLs and 3,940 server errors. Cut third-party
-    apps from 24 to 2.
+-   Modeled products in Shopify metaobjects, reducing 14,000+ product
+    patterns to 150 with a shared parts library.
+
+-   Built the store with Claude Code and set it up so the brand’s team
+    manages it on their own.
+
+-   Fixed 11,525 broken URLs and 3,940 server errors, and cut
+    third-party apps from 24 to 2.
 
 -   Raised mobile Lighthouse performance from 37 to 100 and
-    accessibility from 85 to 100. Kept search rankings.
-
-Pleasant Street · Founder, design and build · 2026
-
--   Building a directory of independent vacation homes booked direct,
-    with map search and AI-readable pages.
-
-Loomik · UX and UI design · demo · prototype
-
--   Designed UX and UI for an AI sales platform. It surfaces client
-    needs and coaches managers in real time.
+    accessibility from 85 to 100 while keeping search rankings.
 
 Managing Consultant, Product Owner and Designer, Wipro Digital
 
 March 2019 – August 2023
 
-BP sales modernization · UX and service designer, DocuSign delivery head
+-   Worked hands-on on every engagement below and, as design lead for
+    the practice’s North America branch, designed solutions for 60+ RFP
+    responses, set design standards, ran design reviews, and hired
+    designers.
+
+BP sales modernization · UX and service designer, DocuSign delivery lead
 · 2021–2023
 
--   Redesigned sales processes in four markets with $2.1B in annual
-    sales.
+-   Redesigned and standardized sales processes across four markets with
+    $2.1B in annual sales, consolidating four processes into one with
+    25% fewer steps and delivering the largest US DocuSign CLM
+    implementation as of 2023.
 
--   Delivered the largest US DocuSign CLM implementation as of 2023.
+-   Established a design-first approach across the Salesforce,
+    Automation, and DocuSign teams, owned and presented all design
+    deliverables in nine time zones, and launched a Center of
+    Excellence.
 
--   As Product Owner and Scrum Master, aligned 50+ people across three
-    teams and nine time zones.
+-   Consolidated 60,000 pages of market-specific contracts into a
+    modular template architecture of under 1,000 pages before
+    development began.
 
--   Consolidated four processes into one, with 25% fewer steps and 70%
-    less manual effort.
+-   As DocuSign delivery lead of a six-person team, defined the
+    Salesforce-to-DocuSign contract lifecycle, with an OAuth 2
+    integration that eliminated up to 95% of duplicate data entry.
 
--   Cut end-to-end process time from 15.5 to 8 days and user time per
-    process by 63%.
+-   Cut deal cycle time from 15.5 to 8 days and manual processes from 35
+    to 8, and raised agreements stored digitally from 30% to 98% and
+    positive user experience from 55% to 83%.
 
--   Reduced manual processes from 35 to 8. Raised agreements stored
-    online from 30% to 98%.
+EY Digital Hub · UX and service designer, Wipro proposal team ·
+2019–2020
 
--   Designed all DocuSign CLM and e-signature templates.
+-   Designed Digital Hub, the centerpiece of Wipro’s 2019 bid for EY: a
+    proactive IT-support service that resolves issues before employees
+    notice them.
 
--   Integrated Salesforce and DocuSign via OAuth 2 APIs. Removed up to
-    95% of repeated data entry.
+-   Directed discovery with a seven-person team (stakeholder workshops,
+    interviews, 30+ surveys, and incident analysis), and validated every
+    journey against platform capabilities before design.
 
--   Built a Center of Excellence with in-app and video guides. Positive
-    experience rose from 55% to 83%.
+-   Aligned Wipro’s Automation, ServiceNow, and Genesys teams on one
+    support model: self-service for requests, AI-bot resolution for
+    issues, and human-handled tickets only for what remains.
 
-EY Digital Hub · Service and integration design · 2019–2020
+-   Consolidated 3+ support channels into one app with real-time request
+    status, addressing the six root causes behind 76% of tickets, and
+    delivered a wireflow explorer and a five-year roadmap.
 
--   Led the Digital Hub team, one of five teams on EY's IT-support bid.
+-   Reached the final round, where the client rated Digital Hub the
+    strongest part of the proposal; it became the basis of 50+ Wipro
+    bids and the award-winning Connected Employee.
 
--   Covered service and UX design, business analysis and technical
-    architecture.
+IT Automation · AI-assisted B2B SaaS
 
--   Analyzed 30+ surveys, interviews and past incidents. Designed AI
-    self-help, self-service and proactive support journeys.
-
--   Delivered MVP journeys, an interactive prototype, a wireflow
-    explorer and a five-year implementation plan.
-
-Connected Employee and IT Automation · AI-assisted B2B SaaS
-
--   Owned personalization for Connected Employee. It tailored content to
-    each user's role and live device data.
-
--   Won the GCG Team Award for Best Consulting Asset Solution as Lead
-    Designer.
-
--   Led roadmap and delivery of AI-assisted B2B SaaS. Set KPIs that
-    achieved 30% ticket deflection for IT Automation.
+-   Owned the roadmap and delivery of AI-assisted B2B SaaS, and defined
+    the KPIs that achieved 30% ticket deflection for IT Automation.
 
 Clients: BP, Humana, EY, Warner Bros., Estée Lauder.
 
-Product Owner and UX Designer, CAFEX
+UX Designer, CAFEX
 
 September 2015 – September 2018
 
--   Defined customer journeys, process flows and specifications for an
-    omnichannel Microsoft Dynamics CRM app.
-
--   Won Microsoft approval on first handoff. Earned preferred-product
-    status within four months of release.
-
--   Owned the roadmap. Designed the Angular front end and a design
-    system for desktop CRM platforms.
+Designed the Angular front end and a design system for desktop CRM
+platforms. Defined customer journeys, process flows and specifications
+for an omnichannel Microsoft Dynamics CRM app. Won Microsoft approval on
+the first handoff and earned preferred-product status within four months
+of release.
 
 Design Consultant, Product and UX, Various Clients
 
 September 2012 – June 2015
 
-Looped In · UX and UI designer and design manager · 2015
+Looped In, UX and UI designer and design manager, 2015. Designed and
+built 150 screens for a college incentives app in one month and built an
+interactive prototype that won proposals across 15 clients.
 
--   Designed and built 150 screens for a college incentives app in one
-    month.
+Endurance International Group, web hosting. Designed client dashboards
+for hosting customers.
 
--   Onboarded four universities, each with its own skin. First app of
-    its kind on the market.
+Vecna, workforce-management software. Led user research, roadmap,
+delivery planning, and prototyping.
 
--   Built an interactive prototype that won proposals across 15 clients.
-
-Endurance International Group · Web hosting
-
--   Designed client dashboards for hosting customers.
-
-Vecna · Workforce-management software
-
--   Led user research, roadmap, delivery planning and prototyping.
-
-Careport · Medical web app
-
--   Designed and built the front end of an ADA-compliant medical web app
-    used across Massachusetts hospitals.
+Careport, medical web app. Designed and built the front end of an
+ADA-compliant medical web app used across Massachusetts hospitals.
 
 Product Owner, Adobe
 
 January 2008 – August 2012
 
--   Led an 18-person vendor team for localized Flash (Animate). Proposed
-    and shipped 20+ features.
-
--   Set localization and terminology standards adopted across the Adobe
-    suite.
-
-Selected creative work
-
--   Dwellers: designed an AR scavenger-hunt game and a playable
-    prototype (Illustrator, Photoshop, ChatGPT).
-
--   No Grounds for Panic: co-wrote and illustrated a short story
-    collection (Midjourney, Photoshop).
-
--   Noah Fixes the Rainbow: illustrated and art-directed a picture book
-    (Midjourney, ChatGPT, Photoshop).
+Led an 18-person vendor team for localized Flash (Animate), and proposed
+and shipped 20+ features. Set localization and terminology standards
+adopted across the Adobe suite.
 
 Certifications
 
-Project Management Professional (PMP), PMI
-
-Project Management Professional Certificate, Google
-
-Professional Scrum Product Owner I and II, Scrum.org
-
-Service Designer, Cooper Professional Education
-
-DocuSign CLM Technical Architect
-
-Salesforce: UX Designer, Strategy Designer, Business Analyst, AI
-Associate (2025)
-
-Salesforce: Platform Developer, Platform App Builder, Administrator
-
-Prompt Engineering for ChatGPT, Vanderbilt University (2023)
-
-Tools
-
-UX design Figma, Maze, Lovable, Webflow, Wix, Squarespace, CSS,
-Lighthouse
-
-Service design Lucidchart, Miro, MURAL, Smaply
-
-AI and LLMs Claude, ChatGPT, DeepSeek, Claude Code, Codex
-
-Automation Zapier, Twilio
-
-Generative design Midjourney, Runway, Kling, Topaz
-
-Image and video Photoshop, Illustrator, Adobe Creative Cloud, Filmora,
-CapCut, Camtasia
-
-Product delivery Jira, Azure DevOps, monday.com, Smartsheet, Notion,
-ServiceNow, Google Workspace, SharePoint, PowerPoint
+Service Designer, Cooper Professional Education · Professional Scrum
+Product Owner I and II, Scrum.org
 
 Education
 
@@ -248,6 +195,3 @@ MA, Education Technology and Chemistry, Herzen University (Summa Cum
 Laude)
 
 MA coursework, Web Design, Academy of Art University
-
-Specialization, Strategic Leadership and Management, University of
-Illinois
