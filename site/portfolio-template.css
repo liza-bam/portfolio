@@ -1120,49 +1120,22 @@ body.portfolio-template .case-footer-contact svg{width:22px;height:22px;flex:0 0
 /* Case pages: the top bar holds only the logo and the close button; the section menu stays in the footer. */
 body.portfolio-template.case-study:not(.about-page) .masthead > .portfolio-section-nav{display:none}
 @media(max-width:700px){body.portfolio-template.case-study:not(.about-page) .masthead.shell{height:auto;grid-template-rows:40px;row-gap:0}}
-/* Before-and-after metric cards (.rc7-mv): Rancourt-style cards in the page accent. Each card: eyebrow title, one visual, the result
-   number and a one-line caption. Visual colors: --mv-after (accent) for what is now, --mv-before (pale accent) for what was, --mv-empty for the rest. */
-.rc7-mv{--mv-after:var(--accent);--mv-before:color-mix(in srgb,var(--accent) 32%,var(--surface));--mv-empty:var(--accent-tint)}
+/* Before-and-after metric cards (.rc7-mv): one card per measure. Quantities: two columns on one scale with the value on each cap.
+   Shares: two pies. Before in the pale accent, after in the accent; values in text ink. */
+.rc7-mv{--mv-after:var(--accent);--mv-before:color-mix(in srgb,var(--accent) 45%,var(--surface));--mv-track:var(--accent-tint)}
 .rc7-mv .rc7-card{gap:0}
 body.portfolio-template .rc7-mv .rc7-card h4{min-height:2.6em}
-.rc7-mv .rc7-vis{flex:none;height:176px;min-height:0;padding:var(--space-4) 0}
-body.portfolio-template .rc7-mv .rc7-card p.rc7-result{display:grid;gap:var(--space-1);margin:0;color:var(--text-primary)}
-body.portfolio-template .rc7-mv .rc7-card p.rc7-result b{font:600 36px/1.05 var(--font-heading);letter-spacing:-.01em;color:var(--accent-dark)}
-body.portfolio-template .rc7-mv .rc7-card p.rc7-result span{font:var(--body-weight,400) var(--type-small)/1.45 var(--font-body);color:var(--text-primary)}
-/* Days: one cell per day, two weeks to a card. */
-.rc7-mv .mv-days{display:grid;grid-template-columns:repeat(8,22px);gap:5px}
-.rc7-mv .mv-days i{height:22px;background:var(--mv-before)}
-.rc7-mv .mv-days i.on{background:var(--mv-after)}
-.rc7-mv .mv-days i.half{background:linear-gradient(90deg,var(--mv-before) 50%,var(--mv-empty) 50%)}
-/* Dial: outer ring before, inner ring after, on one scale. */
-.rc7-mv .mv-dial{width:124px;height:124px}
-.rc7-mv .mv-dial circle{fill:none;stroke-width:11}
-.rc7-mv .mv-dial .track{stroke:var(--mv-empty)}
-.rc7-mv .mv-dial .before{stroke:var(--mv-before)}
-.rc7-mv .mv-dial .after{stroke:var(--mv-after)}
-/* Hundred: 10 x 10 squares, one per percent. */
-.rc7-mv .mv-hundred{display:grid;grid-template-columns:repeat(10,11px);gap:3px}
-.rc7-mv .mv-hundred i{height:11px;background:var(--mv-empty)}
-.rc7-mv .mv-hundred i.was{background:var(--mv-before)}
-.rc7-mv .mv-hundred i.on{background:var(--mv-after)}
-/* Count: one square per item; what remains in the accent, what went in pale. */
-.rc7-mv .mv-count{display:grid;grid-template-columns:repeat(7,18px);gap:5px}
-.rc7-mv .mv-count i{height:18px;background:var(--mv-before)}
-.rc7-mv .mv-count i.on{background:var(--mv-after)}
-.rc7-mv .mv-count.is-six{grid-template-columns:repeat(3,34px);gap:8px}
-.rc7-mv .mv-count.is-six i{height:34px}
-/* Rows: a labelled before row and after row of marks. */
-.rc7-mv .mv-rows{display:grid;gap:var(--space-2);width:100%}
-.rc7-mv .mv-rows span{font:var(--body-weight,400) var(--type-small)/1.2 var(--font-body);color:var(--text-secondary)}
-.rc7-mv .mv-rows div{display:flex;gap:4px}
-.rc7-mv .mv-rows div + span{margin-top:var(--space-2)}
-.rc7-mv .mv-rows i{width:14px;height:14px;background:var(--mv-before)}
-.rc7-mv .mv-rows i.on{background:var(--mv-after)}
-.rc7-mv .mv-rows i.lost{background:transparent;box-shadow:inset 0 0 0 1.5px var(--mv-before)}
-.rc7-mv .mv-rows i.wide{width:100%;max-width:120px}
-/* Bars: before and after on one scale. */
-.rc7-mv .rc7-bar i{background:var(--mv-empty)}
-.rc7-mv .rc7-bar i::after{background:var(--mv-before)}
-.rc7-mv .rc7-bar + .rc7-bar i::after{background:var(--mv-after)}
-.rc7-mv .rc7-bar b{color:var(--text-primary)}
-@media(min-width:1001px){.rc7-mv.rc7-fill>.rc7-card{flex-basis:220px}}
+.rc7-mv .rc7-vis{flex:none;min-height:0;padding:var(--space-4) 0 0}
+.rc7-mv :is(.mv-cols,.mv-pies){display:block;width:100%;max-width:240px;height:auto;margin-inline:auto;overflow:visible}
+.rc7-mv svg .before{fill:var(--mv-before);stroke:var(--mv-before)}
+.rc7-mv svg .after{fill:var(--mv-after);stroke:var(--mv-after)}
+.rc7-mv svg rect{stroke:none}
+.rc7-mv svg path:is(.before,.after){stroke:var(--surface,#fff);stroke-width:2;stroke-linejoin:round}
+.rc7-mv svg circle.track{fill:var(--mv-track);stroke:none}
+.rc7-mv svg .base{stroke:var(--border-subtle);stroke-width:1}
+.rc7-mv svg text{text-anchor:middle;stroke:none;font-family:var(--font-body)}
+.rc7-mv svg text.v{font-size:20px;font-weight:600;fill:var(--text-primary)}
+.rc7-mv svg text.v.before{font-weight:500;fill:var(--text-secondary)}
+.rc7-mv svg text.k{font-size:13px;fill:var(--text-secondary)}
+body.portfolio-template .rc7-mv .rc7-card p.rc7-caption{margin:var(--space-4) 0 0;font:var(--body-weight,400) var(--type-small)/1.5 var(--font-body);color:var(--text-primary)}
+body.portfolio-template .rc7-mv .rc7-card p.rc7-caption b{font-weight:600;color:var(--accent-dark)}
