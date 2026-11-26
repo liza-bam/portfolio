@@ -625,8 +625,8 @@ body.portfolio-template .masthead.shell{background:var(--sheet);border-bottom:1p
 /* The content column reads as one white sheet on the canvas: painted with a spread shadow so no box moves. */
 body.portfolio-template.case-study main{background:transparent;padding-bottom:var(--space-10)}
 body.portfolio-template.case-study :is(.opening.shell,.original-study){background:var(--sheet);box-shadow:0 0 0 40px var(--sheet),0 0 0 41px var(--border-subtle)}
-body.portfolio-template.case-study .opening.shell{border-radius:16px 16px 0 0}
-body.portfolio-template.case-study .original-study{border-radius:0 0 16px 16px}
+body.portfolio-template.case-study .opening.shell{border-radius:0}
+body.portfolio-template.case-study .original-study{border-radius:0}
 body.portfolio-template.case-study .case-facts{margin-inline:-40px;padding-inline:40px}
 body.portfolio-template.case-study .case-header .platform-logos{margin-inline:0;padding-inline:0}
 @media(max-width:900px){body.portfolio-template.case-study :is(.opening.shell,.original-study){box-shadow:0 0 0 16px var(--sheet),0 0 0 17px var(--border-subtle)}body.portfolio-template.case-study .case-facts{margin-inline:-16px;padding-inline:16px}}

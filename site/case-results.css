@@ -846,3 +846,8 @@ body.portfolio-template.case-study .original-study .case-preview-gallery + p { m
 body.portfolio-template.case-study .case-preview-gallery.case-preview-compact a { border: 0; border-radius: 0; background: none; }
 body.portfolio-template.case-study .case-preview-gallery.case-preview-compact img { width: 100%; max-width: 280px; height: auto; aspect-ratio: auto; margin-inline: auto; }
 body.portfolio-template.case-study .case-preview-gallery.case-preview-compact figcaption { margin-top: var(--space-4); text-align: center; }
+
+/* Screenshot pairs in "see more": two per row, each picture at most 560px tall so a phone screen and a desktop panel sit side by side at a similar size. */
+body.portfolio-template.case-study .case-story-detail .portfolio-evidence-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: var(--card-gap); }
+body.portfolio-template.case-study .case-story-detail .portfolio-evidence-grid.cols-2 img { width: auto; max-width: 100%; height: auto; max-height: 560px; margin-inline: auto; }
+@media (max-width: 700px) { body.portfolio-template.case-study .case-story-detail .portfolio-evidence-grid.cols-2 { grid-template-columns: minmax(0, 1fr); } }
