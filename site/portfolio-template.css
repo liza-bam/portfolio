@@ -1145,3 +1145,10 @@ body.portfolio-template .rc7-mv .rc7-card p.rc7-caption b{font-weight:600;color:
 /* Stat card: one headline number in the visual area, where there is no before and after to compare. */
 .rc7-mv .mv-stat{display:block;font:600 64px/1 var(--font-heading);letter-spacing:-.02em;color:var(--accent-dark);text-align:center}
 @media(max-width:600px){.rc7-mv .mv-stat{font-size:44px}}
+/* Lazy case: the wordmark title is larger than other case titles */
+body.portfolio-template.case-study.tint-lazy .case-header.has-links:has(> .case-title) > .case-title > h1{font-size:clamp(72px,9vw,128px)!important;line-height:1}
+/* Lazy "how it works": host columns pink, guest column grey, Lazy stays mint */
+body.tint-lazy .lzs-col:is(:nth-child(1),:nth-child(3)){background:#fff1f4;border-color:#f7d6de}
+body.tint-lazy .lzs-col:is(:nth-child(1),:nth-child(3)) .lzs-chip{background:#ffe2e9}
+body.tint-lazy .lzs-col:nth-child(4){background:#f3f6f7;border-color:#dce4e6}
+body.tint-lazy .lzs-col:nth-child(4) .lzs-chip{background:#e5ecee}
