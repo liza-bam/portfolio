@@ -7,12 +7,10 @@ Portfolio: https://sandy.tayts.com
 sandy@tayts.com · 415-317-3404 · San Francisco, CA ·
 https://www.linkedin.com/in/atayts
 
-I take complex workflows from research to a shipped product: I talk to
-the people who do the work, decide with the team what to build, design
-it, and often build it myself with AI. I work well in teams of any size,
-but I shine in a small team inside a large, complex program, where I
-also organize the wider cross-functional process and its stakeholders.
-That is the kind of role I’m looking for, full-time or contract.
+I take complex workflows from research to a shipped product. I do my
+best work in small teams, where I can stay hands-on from discovery
+through launch. That is the kind of role I’m looking for, full-time or
+contract.
 
 Skills
 
@@ -157,7 +155,7 @@ Designed the Angular front end and a design system for desktop CRM
 platforms. Defined customer journeys, process flows and specifications
 for an omnichannel Microsoft Dynamics CRM app. Won Microsoft approval on
 the first handoff and earned preferred-product status within four months
-of release.
+of release. Owned the roadmap and delivery plan.
 
 Design Consultant, Product and UX, Various Clients
 
